@@ -1,8 +1,8 @@
 // ── Google Reviews Loader ────────────────────────────────────────────────────
 // Trage deinen API Key und deine Place ID hier ein, sobald du sie hast.
 // Anleitung: https://console.cloud.google.com → Projekt → APIs → Places API
-const GOOGLE_API_KEY = '';   // z.B. 'AIzaSyB...'
-const GOOGLE_PLACE_ID = '';  // z.B. 'ChIJ...'  (aus Google Maps URL)
+const GOOGLE_API_KEY  = 'AIzaSyDL1rEJ84KtBjSod7Ms48pJsrkHEWslHrs';
+const GOOGLE_PLACE_ID = 'ChIJY6G2Ww_BqEcRIKP7vQ1MiSg';
 
 // Anzahl der angezeigten Sterne
 function starsHTML(rating) {
