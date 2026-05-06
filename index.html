@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RV – Detailing | Professionelle Fahrzeugaufbereitung</title>
   <meta name="description" content="RV Detailing – Professionelle Fahrzeugaufbereitung in höchster Qualität. Innen- & Außenaufbereitung, Ceramic Coating, Glasversiegelung, Lackpolitur und mehr." />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=3" />
   <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 </head>
 <body>
@@ -323,9 +323,11 @@
       <p style="color:var(--text-dim);font-size:0.85rem;">Bewertungen werden geladen...</p>
     </div>
 
-    <!-- Fehler-Zustand (kein API Key) -->
+    <!-- Karussell -->
     <div id="reviews-fallback" style="display:none;">
-      <div class="reviews-grid" id="reviews-grid"></div>
+      <div class="carousel-outer">
+        <div class="carousel-track" id="reviews-carousel-track"></div>
+      </div>
     </div>
 
     <div style="text-align:center;margin-top:32px;">
