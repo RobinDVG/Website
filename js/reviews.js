@@ -39,7 +39,7 @@ function buildCard(review) {
 
 // Karussell animieren (links → rechts, langsam)
 function startCarousel(track) {
-  const SPEED = 0.38; // px pro Frame – langsam & lesbar
+  const SPEED = 0.65; // px pro Frame
   let offset = 0;
   let paused = false;
   let raf;
