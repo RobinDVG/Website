@@ -12,8 +12,6 @@ const VEHICLE_ADD = {
   'Sprinter / Transporter': [5,   15,  30,  50 ],
   '7-Sitzer / Minivan':     [0,   10,  10,  10 ],
   '9-Sitzer / Großvan':     [15,  40,  50,  90 ],
-  'Wohnmobil (bis 6m)':     null,
-  'Wohnmobil (ab 6m)':      null,
   'Wohnwagen':              null,
   'Bus / Kleinbus':         null,
   'Truck / LKW':            null,
@@ -34,10 +32,7 @@ const VEHICLE_NOTES = {
     '⚠️ Laderaum-Reinigung auf Anfrage – Preis gilt für Fahrgastraum (2–3 Sitze).',
   '9-Sitzer / Großvan':
     'ℹ️ Preis gilt für vollständige Bestuhlung. Bei Leer-Ausbau bitte anfragen.',
-  'Wohnmobil (bis 6m)':
-    '🚐 Wohnmobile haben eine eigene Seite mit individuellem Konfigurator – Bereich für Bereich konfigurierbar. <a href="wohnmobil.html" style="color:var(--gold);font-weight:700;text-decoration:underline;">Zum Wohnmobil-Konfigurator →</a>',
-  'Wohnmobil (ab 6m)':
-    '🏕️ Große Wohnmobile werden individuell kalkuliert. <a href="wohnmobil.html" style="color:var(--gold);font-weight:700;text-decoration:underline;">Zum Wohnmobil-Konfigurator →</a>',
+
 };
 
 function calcPrice(base, vehicleAdd, condPct) {
