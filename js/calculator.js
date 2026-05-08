@@ -25,8 +25,8 @@ const CONDITION_PCT = {
   'Sehr gepflegt':          0,
   'Gepflegt':               7,
   'Verschmutzt':            15,
-  'Stark verschmutzt':      22.5,
-  'Sehr stark verschmutzt': 35,
+  'Stark verschmutzt':      25,
+  'Sehr stark verschmutzt': 37.5,
 };
 
 // Hinweis für Sprinter wegen Laderaum
@@ -87,7 +87,7 @@ function renderPrices(vehicleKey, condKey) {
   const condLabel = document.getElementById('calc-cond-label');
   if (condLabel && pct > 0) {
     condLabel.textContent = `+${pct}% Aufschlag`;
-    condLabel.style.color = pct >= 22.5 ? '#ff6b6b' : 'var(--gold)';
+    condLabel.style.color = pct >= 37.5 ? '#ff6b6b' : pct >= 15 ? 'var(--gold)' : '#4caf50';
   } else if (condLabel) {
     condLabel.textContent = 'kein Aufschlag';
     condLabel.style.color = '#4caf50';
