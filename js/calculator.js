@@ -12,7 +12,7 @@ const VEHICLE_ADD = {
   'Sprinter / Transporter': [5,   15,  30,  50 ],
   '7-Sitzer / Minivan':     [0,   10,  10,  10 ],
   '9-Sitzer / Großvan':     [15,  40,  50,  90 ],
-  'Wohnmobil (bis 6m)':     [30,  120, 180, 300],
+  'Wohnmobil (bis 6m)':     null,
   'Wohnmobil (ab 6m)':      null,
   'Wohnwagen':              null,
   'Bus / Kleinbus':         null,
@@ -28,14 +28,16 @@ const CONDITION_PCT = {
   'Sehr stark verschmutzt': 37.5,
 };
 
-// Hinweis für Sprinter wegen Laderaum
+// Hinweise und Weiterleitungen
 const VEHICLE_NOTES = {
   'Sprinter / Transporter':
     '⚠️ Laderaum-Reinigung auf Anfrage – Preis gilt für Fahrgastraum (2–3 Sitze).',
   '9-Sitzer / Großvan':
     'ℹ️ Preis gilt für vollständige Bestuhlung. Bei Leer-Ausbau bitte anfragen.',
   'Wohnmobil (bis 6m)':
-    'ℹ️ Preis gilt für Wohnmobile bis 6m Länge. Für größere Fahrzeuge bitte anfragen.',
+    '🚐 Wohnmobile haben eine eigene Seite mit individuellem Konfigurator – Bereich für Bereich konfigurierbar. <a href="wohnmobil.html" style="color:var(--gold);font-weight:700;text-decoration:underline;">Zum Wohnmobil-Konfigurator →</a>',
+  'Wohnmobil (ab 6m)':
+    '🏕️ Große Wohnmobile werden individuell kalkuliert. <a href="wohnmobil.html" style="color:var(--gold);font-weight:700;text-decoration:underline;">Zum Wohnmobil-Konfigurator →</a>',
 };
 
 function calcPrice(base, vehicleAdd, condPct) {
@@ -80,7 +82,7 @@ function renderPrices(vehicleKey, condKey) {
   const noteEl = document.getElementById('vehicle-note');
   if (noteEl) {
     const note = VEHICLE_NOTES[vehicleKey] || '';
-    noteEl.textContent = note;
+    noteEl.innerHTML = note;
     noteEl.style.display = note ? 'block' : 'none';
   }
 

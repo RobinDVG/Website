@@ -1103,3 +1103,217 @@ footer {
   .hero-stats { gap: 24px; }
   .hero-stat-value { font-size: 1.8rem; }
 }
+
+
+/* ── Wohnmobil Konfigurator ─────────────────────────────────────────────────── */
+
+.wm-toggle-wrap { text-align: center; margin-bottom: 48px; }
+.wm-toggle {
+  display: inline-flex;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.wm-toggle-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 48px;
+  background: var(--card);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  color: var(--text-muted);
+  gap: 4px;
+}
+.wm-toggle-btn + .wm-toggle-btn { border-left: 1.5px solid var(--border); }
+.wm-toggle-btn.active { background: var(--gold); color: #000; }
+.wm-toggle-icon { font-size: 2rem; }
+.wm-toggle-label { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; }
+.wm-toggle-sub { font-size: 0.72rem; opacity: 0.75; }
+
+.wm-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  align-items: start;
+}
+
+.wm-section-head { margin-bottom: 20px; }
+.wm-section-head h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.wm-section-head p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; }
+
+/* Module grid */
+.wm-mod-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.wm-mod-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 16px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+.wm-mod-card:hover { border-color: rgba(255,191,0,0.4); }
+.wm-mod-card.selected {
+  border-color: var(--gold);
+  background: rgba(255,191,0,0.04);
+}
+.wm-check {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: transparent;
+  transition: all 0.2s;
+}
+.wm-mod-card.selected .wm-check {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+}
+.wm-icon { font-size: 1.8rem; margin-bottom: 10px; }
+.wm-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.wm-mdesc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+.wm-mprice {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Extras list */
+.wm-extras-list { display: flex; flex-direction: column; gap: 8px; }
+.wm-extra-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+.wm-extra-row:hover { border-color: rgba(255,191,0,0.35); }
+.wm-extra-row.checked {
+  border-color: var(--gold);
+  background: rgba(255,191,0,0.03);
+}
+.wm-extra-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: transparent;
+  transition: all 0.2s;
+}
+.wm-extra-row.checked .wm-extra-box {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+}
+.wm-extra-text { flex: 1; }
+.wm-extra-name { font-size: 0.84rem; color: var(--text); font-weight: 600; display: block; }
+.wm-extra-note { font-size: 0.73rem; color: var(--text-muted); }
+.wm-ptag {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.wm-extra-row.checked .wm-ptag { color: var(--gold); }
+
+/* Price sidebar */
+.wm-sidebar { position: sticky; top: 100px; }
+.wm-price-box {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+.wm-price-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.wm-price-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  gap: 8px;
+}
+.wm-price-line:last-child { border-bottom: none; }
+.wm-price-line span:first-child { flex: 1; }
+.wm-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wm-total-row > span:first-child {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.wm-total-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .wm-layout { grid-template-columns: 1fr; }
+  .wm-sidebar { position: static; }
+  .wm-price-box { margin-bottom: 40px; }
+  .wm-mod-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .wm-mod-grid { grid-template-columns: 1fr; }
+  .wm-toggle { flex-direction: column; width: 100%; }
+  .wm-toggle-btn { padding: 16px 24px; border-left: none !important; }
+  .wm-toggle-btn + .wm-toggle-btn { border-top: 1.5px solid var(--border); }
+}

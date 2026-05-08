@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wohnmobil-Aufbereitung – RV Detailing</title>
+  <meta name="description" content="Individuelle Wohnmobil-Aufbereitung bei RV Detailing. Konfiguriere deinen Reinigungsumfang Bereich für Bereich – Fahrerbereich, Küche, Bad, Schlafbereich und mehr." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="navbar scrolled">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">RV – <span>Detailing</span><small>Professionelle Fahrzeugaufbereitung</small></a>
+      <ul class="nav-links">
+        <li><a href="dienstleistungen.html">Leistungen</a></li>
+        <li><a href="pakete.html">Pakete</a></li>
+        <li><a href="index.html#about">Über uns</a></li>
+        <li><a href="index.html#reviews">Bewertungen</a></li>
+        <li><a href="termin.html" class="btn btn-gold">Termin buchen</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <a href="dienstleistungen.html">Leistungen</a>
+  <a href="pakete.html">Pakete</a>
+  <a href="index.html#about">Über uns</a>
+  <a href="index.html#reviews">Bewertungen</a>
+  <a href="termin.html" class="btn btn-gold">Termin buchen</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Startseite</a> › <a href="pakete.html">Pakete</a> › <span>Wohnmobil-Aufbereitung</span></div>
+    <span class="section-label">Spezialisiert & Individuell</span>
+    <h1 class="section-title">Wohnmobil-Aufbereitung</h1>
+    <div class="gold-divider"></div>
+    <p class="section-subtitle">Stelle deinen Reinigungsumfang selbst zusammen – Bereich für Bereich, Modul für Modul. Nur was du wirklich brauchst.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Größen-Toggle -->
+    <div class="wm-toggle-wrap fade-in">
+      <div class="wm-toggle">
+        <button class="wm-toggle-btn active" data-target="klein">
+          <span class="wm-toggle-icon">🚐</span>
+          <span class="wm-toggle-label">Bis 6m Länge</span>
+          <span class="wm-toggle-sub">Konfigurator mit Ab-Preisen</span>
+        </button>
+        <button class="wm-toggle-btn" data-target="gross">
+          <span class="wm-toggle-icon">🏕️</span>
+          <span class="wm-toggle-label">Ab 6m Länge</span>
+          <span class="wm-toggle-sub">Individuelle Anfrage</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Konfigurator bis 6m ── -->
+    <div id="konfig-klein">
+      <div class="wm-layout">
+
+        <!-- Linke Spalte: Module + Extras -->
+        <div class="wm-left">
+
+          <div class="wm-section-head fade-in">
+            <h3>Hauptbereiche wählen</h3>
+            <p>Wähle die Bereiche, die aufbereitet werden sollen. Nur der Fahrerbereich (2 Sitze) ist standardmäßig enthalten – der gesamte Wohnbereich ist individuell zubuchbar.</p>
+          </div>
+          <div class="wm-mod-grid" id="wm-modules"></div>
+
+          <div class="wm-section-head fade-in" style="margin-top:48px;">
+            <h3>Extras & Sonderleistungen</h3>
+            <p>Alle Extras sind optional hinzubuchbar. Die Scheibenversiegelung vorne ist ab einem Bestellwert von 220 € kostenlos.</p>
+          </div>
+          <div class="wm-extras-list" id="wm-extras"></div>
+
+          <p style="font-size:0.75rem;color:var(--text-dim);margin-top:20px;">
+            * Alle Preise sind Ab-Preise. Der endgültige Preis wird nach Besichtigung vor Ort bestätigt.
+          </p>
+        </div>
+
+        <!-- Rechte Spalte: Preisübersicht -->
+        <div class="wm-sidebar">
+          <div class="wm-price-box">
+            <div class="wm-price-title">✦ Deine Auswahl</div>
+            <div id="wm-price-lines">
+              <p style="color:var(--text-muted);font-size:0.82rem;text-align:center;padding:12px 0;">Noch nichts ausgewählt.</p>
+            </div>
+            <div style="border-top:1px solid var(--border);margin:16px 0;"></div>
+            <div class="wm-total-row">
+              <span>Gesamt</span>
+              <span id="wm-total" class="wm-total-num">0 €</span>
+            </div>
+            <p style="font-size:0.72rem;color:var(--text-dim);margin-top:8px;">* Ab-Preise. Endgültiger Preis wird vor Ort bestätigt.</p>
+            <a href="termin.html" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:20px;">
+              Termin anfragen →
+            </a>
+            <a href="https://wa.me/4917655058348" target="_blank" rel="noopener" class="btn btn-dark" style="width:100%;justify-content:center;margin-top:10px;">
+              💬 Per WhatsApp anfragen
+            </a>
+          </div>
+
+          <div class="info-box" style="margin-top:16px;">
+            <div class="info-box-title">💬 Fragen?</div>
+            <p style="font-size:0.83rem;">Ruf uns an oder schreib uns – wir beraten dich gerne zu deinem Wohnmobil.</p>
+            <a href="tel:+4917655058348" class="btn btn-gold" style="margin-top:12px;width:100%;justify-content:center;">0176 55058348</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Ab 6m: Auf Anfrage ── -->
+    <div id="konfig-gross" style="display:none;">
+      <div style="max-width:640px;margin:0 auto;text-align:center;padding:60px 0;">
+        <div style="font-size:4rem;margin-bottom:20px;">🏕️</div>
+        <span class="section-label">Individuelle Kalkulation</span>
+        <h2 class="section-title" style="font-size:1.8rem;margin-top:8px;">Wohnmobil ab 6m</h2>
+        <div class="gold-divider center"></div>
+        <p class="section-subtitle" style="margin-top:20px;">Große Wohnmobile werden individuell kalkuliert – je nach Größe, Ausstattung und gewünschtem Umfang. Kontaktiere uns für ein persönliches Angebot innerhalb von 24 Stunden.</p>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:32px;flex-wrap:wrap;">
+          <a href="termin.html" class="btn btn-gold">Termin anfragen →</a>
+          <a href="tel:+4917655058348" class="btn btn-dark">0176 55058348</a>
+          <a href="https://wa.me/4917655058348" target="_blank" rel="noopener" class="btn btn-outline">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <span class="section-label">Noch Fragen?</span>
+    <h2 class="section-title">Erst alle Pakete ansehen</h2>
+    <p class="section-subtitle">Für normale Fahrzeuge gibt es 4 fertige Pakete – von Basic bis Neuwagen.</p>
+    <div class="cta-buttons" style="margin-top:28px;">
+      <a href="pakete.html" class="btn btn-gold">Alle Pakete →</a>
+      <a href="termin.html" class="btn btn-outline">Termin buchen</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <p>© 2026 RV – Detailing. Alle Rechte vorbehalten.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/wohnmobil.js"></script>
+</body>
+</html>
