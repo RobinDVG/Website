@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -18,7 +18,7 @@
         <li><a href="pakete.html">Pakete</a></li>
         <li><a href="index.html#about">Über uns</a></li>
         <li><a href="index.html#reviews">Bewertungen</a></li>
-        <li><a href="termin.html" class="btn btn-gold">Termin buchen</a></li>
+        <li><a href="buchen.html" class="btn btn-gold">Termin buchen</a></li>
       </ul>
       <div class="hamburger"><span></span><span></span><span></span></div>
     </div>
@@ -30,7 +30,7 @@
   <a href="pakete.html">Pakete</a>
   <a href="index.html#about">Über uns</a>
   <a href="index.html#reviews">Bewertungen</a>
-  <a href="termin.html" class="btn btn-gold">Termin buchen</a>
+  <a href="buchen.html" class="btn btn-gold">Termin buchen</a>
 </div>
 
 <section class="page-hero">
@@ -248,6 +248,21 @@
       adresseGroup.style.display = this.value.includes('Mobil') ? 'flex' : 'none';
     }
   });
+
+  // Pre-select package from URL param (?paket=1..4)
+  (function() {
+    const paket = new URLSearchParams(window.location.search).get('paket');
+    if (!paket) return;
+    const map = {
+      '1': 'Paket 01 – Basic Refresh (ab 39 €)',
+      '2': 'Paket 02 – Comfort Care (ab 89 €)',
+      '3': 'Paket 03 – Premium Shine (ab 159 €)',
+      '4': 'Paket 04 – Neuwagen Paket (ab 299 €)',
+    };
+    const sel = document.getElementById('leistung');
+    if (sel && map[paket]) sel.value = map[paket];
+  })();
 </script>
 </body>
 </html>
+

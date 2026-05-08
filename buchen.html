@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termin buchen – RV Detailing</title>
+  <meta name="description" content="Wähle dein Paket oder konfiguriere deine Wohnmobil-Aufbereitung bei RV Detailing." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="navbar scrolled">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">RV – <span>Detailing</span><small>Professionelle Fahrzeugaufbereitung</small></a>
+      <ul class="nav-links">
+        <li><a href="dienstleistungen.html">Leistungen</a></li>
+        <li><a href="pakete.html">Pakete</a></li>
+        <li><a href="index.html#about">Über uns</a></li>
+        <li><a href="index.html#reviews">Bewertungen</a></li>
+        <li><a href="buchen.html" class="btn btn-gold" style="color:#000;">Termin buchen</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <a href="dienstleistungen.html">Leistungen</a>
+  <a href="pakete.html">Pakete</a>
+  <a href="index.html#about">Über uns</a>
+  <a href="index.html#reviews">Bewertungen</a>
+  <a href="buchen.html" class="btn btn-gold">Termin buchen</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Startseite</a> › <span>Termin buchen</span></div>
+    <span class="section-label">Schritt 1 von 2</span>
+    <h1 class="section-title">Paket wählen</h1>
+    <div class="gold-divider"></div>
+    <p class="section-subtitle">Wähle dein Paket oder konfiguriere deine Wohnmobil-Aufbereitung – danach geht es direkt zum Terminformular.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- PREISRECHNER -->
+    <div class="calculator-panel fade-in">
+      <h3>✦ Preis berechnen</h3>
+      <div class="calc-fields">
+        <div class="calc-group">
+          <label for="calc-vehicle">Fahrzeugtyp</label>
+          <select class="form-select" id="calc-vehicle">
+            <option>Kleinwagen</option>
+            <option>Limousine</option>
+            <option>Kombi</option>
+            <option>Coupé / Cabrio</option>
+            <option>SUV / Geländewagen</option>
+            <option>Sprinter / Transporter</option>
+            <option>7-Sitzer / Minivan</option>
+            <option>9-Sitzer / Großvan</option>
+            <option>Wohnwagen</option>
+            <option>Bus / Kleinbus</option>
+            <option>Truck / LKW</option>
+          </select>
+        </div>
+        <div class="calc-group">
+          <label for="calc-condition">Fahrzeugzustand laut Besitzer</label>
+          <select class="form-select" id="calc-condition">
+            <option>Sehr gepflegt</option>
+            <option>Gepflegt</option>
+            <option>Verschmutzt</option>
+            <option>Stark verschmutzt</option>
+            <option>Sehr stark verschmutzt</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-group-meta">
+        <span style="font-size:0.8rem;color:var(--text-muted);">Zustandsaufschlag:</span>
+        <span id="calc-cond-label" class="calc-cond-badge">kein Aufschlag</span>
+      </div>
+      <div id="vehicle-note" class="vehicle-note"></div>
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:16px;">* Ab-Preise. Endgültiger Preis wird vor Ort nach Besichtigung bestätigt.</p>
+    </div>
+
+    <!-- PAKETE -->
+    <div class="section-header center fade-in" style="margin-top:48px;">
+      <span class="section-label">Gesamtpakete</span>
+      <h2 class="section-title">Wähle dein Paket</h2>
+      <div class="gold-divider center"></div>
+    </div>
+
+    <div class="pakete-grid">
+
+      <div class="paket-card fade-in" data-paket="1">
+        <div class="paket-number">Paket 01</div>
+        <div class="paket-name">Basic Refresh</div>
+        <div class="paket-desc">Die perfekte Grundpflege für den gepflegten Alltag.</div>
+        <div class="paket-price">ab 39 € <small>*</small></div>
+        <ul class="paket-features">
+          <li class="paket-feature">Innenraum gründlich aussaugen</li>
+          <li class="paket-feature">Kofferraum gründlich aussaugen</li>
+          <li class="paket-feature">Cockpitpflege</li>
+          <li class="paket-feature">Reinigung der Türleisten</li>
+        </ul>
+        <a href="termin.html?paket=1" class="btn btn-dark" style="width:100%;justify-content:center;">Dieses Paket wählen →</a>
+      </div>
+
+      <div class="paket-card fade-in" data-paket="2">
+        <div class="paket-number">Paket 02</div>
+        <div class="paket-name">Comfort Care</div>
+        <div class="paket-desc">Innen & außen gepflegt – für den anspruchsvollen Alltag.</div>
+        <div class="paket-price">ab 89 € <small>*</small></div>
+        <ul class="paket-features">
+          <li class="paket-feature">Alles aus Paket 1</li>
+          <li class="paket-feature">Fleckenentfernung mit Nasssauger</li>
+          <li class="paket-feature">Scheibenreinigung innen & außen</li>
+          <li class="paket-feature">Komplette Kunststoffpflege innen</li>
+          <li class="paket-feature">Schonende Handwäsche außen</li>
+        </ul>
+        <a href="termin.html?paket=2" class="btn btn-dark" style="width:100%;justify-content:center;">Dieses Paket wählen →</a>
+      </div>
+
+      <div class="paket-card featured fade-in" data-paket="3">
+        <div class="paket-number">Paket 03</div>
+        <div class="paket-name">Premium Shine</div>
+        <div class="paket-desc">Maximale Pflege innen & außen – unser beliebtestes Paket.</div>
+        <div class="paket-price">ab 159 € <small>*</small></div>
+        <ul class="paket-features">
+          <li class="paket-feature">Alles aus Paket 2</li>
+          <li class="paket-feature">Sitze nassaugen (bei Stoffsitzen)</li>
+          <li class="paket-feature">Lederreinigung & Imprägnierung</li>
+          <li class="paket-feature">Intensive Handwäsche</li>
+          <li class="paket-feature">Außenkunststoff auffrischen</li>
+          <li class="paket-feature">Wachsversiegelung außen</li>
+        </ul>
+        <a href="termin.html?paket=3" class="btn btn-gold" style="width:100%;justify-content:center;">Dieses Paket wählen →</a>
+      </div>
+
+      <div class="paket-card fade-in" data-paket="4">
+        <div class="paket-number">Paket 04</div>
+        <div class="paket-name">Neuwagen Paket</div>
+        <div class="paket-desc">Das absolute Rundum-sorglos-Paket – wie frisch vom Händler.</div>
+        <div class="paket-price">ab 299 € <small>*</small></div>
+        <ul class="paket-features">
+          <li class="paket-feature">Alles aus Paket 3</li>
+          <li class="paket-feature">Lackfinish Politur</li>
+          <li class="paket-feature">Nassreinigung gesamter Teppich</li>
+          <li class="paket-feature">Ozonbehandlung</li>
+          <li class="paket-feature">Felgenpaket</li>
+          <li class="paket-feature">Scheibenpaket</li>
+        </ul>
+        <a href="termin.html?paket=4" class="btn btn-dark" style="width:100%;justify-content:center;">Dieses Paket wählen →</a>
+      </div>
+
+    </div>
+
+    <!-- WOHNMOBIL -->
+    <div class="buchen-wohnmobil-card fade-in">
+      <div class="buchen-wm-left">
+        <span class="section-label" style="color:var(--gold);">Spezialisiert</span>
+        <h3>Wohnmobil-Aufbereitung</h3>
+        <p>Wohnmobile brauchen eine individuelle Lösung – konfiguriere Bereich für Bereich: Fahrerbereich, Küche, Bad, Schlafbereich, Außenwäsche und viele Extras. Mit Live-Preisberechnung.</p>
+        <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+          <a href="wohnmobil.html" class="btn btn-gold">Zum Wohnmobil-Konfigurator →</a>
+        </div>
+      </div>
+      <div class="buchen-wm-icons">
+        <span>🚐</span>
+        <span>🏕️</span>
+      </div>
+    </div>
+
+    <div class="info-box" style="max-width:700px;margin:32px auto 0;">
+      <div class="info-box-title">💬 * Preishinweis</div>
+      <p>Alle Preise sind Ab-Preise und variieren je nach <strong style="color:var(--text)">Fahrzeugtyp</strong> und <strong style="color:var(--text)">Verschmutzungsgrad</strong>. Der Rechner oben zeigt dir bereits einen realistischen Richtwert.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <p>© 2026 RV – Detailing. Alle Rechte vorbehalten.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/calculator.js"></script>
+</body>
+</html>
