@@ -1317,3 +1317,8 @@ footer {
   .wm-toggle-btn { padding: 16px 24px; border-left: none !important; }
   .wm-toggle-btn + .wm-toggle-btn { border-top: 1.5px solid var(--border); }
 }
+
+/* Wohnmobil – Auto-Free Extras */
+.wm-extra-row.wm-auto-free { border-color: #4caf50; background: rgba(76,175,80,0.04); cursor: default; }
+.wm-extra-row.wm-auto-free .wm-extra-box { background: #4caf50; border-color: #4caf50; color: #fff; }
+.wm-gratis-tag { color: #4caf50; font-weight: 700; }

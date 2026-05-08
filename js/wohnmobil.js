@@ -27,7 +27,7 @@ const EXTRAS = [
   { id: 'fenster-in',   label: 'Fensterreinigung innen (alle)',          price: 9 },
   { id: 'tuerleisten',  label: 'Türleisten & Türbereiche komplett',      price: 29 },
   { id: 'stauk',        label: 'Stauklappen / Außenluken',               price: 49,  note: 'je nach Anzahl' },
-  { id: 'scheiben-v',   label: 'Scheibenversiegelung vorne',             price: 9,   freeAt: 220 },
+  { id: 'scheiben-v',   label: 'Scheibenversiegelung vorne',             price: 9 },
   { id: 'ceramic',      label: 'Ceramic Spray Versiegelung außen',       price: 59 },
   { id: 'motor',        label: 'Motorraum schonende Reinigung',          price: 49 },
   { id: 'finish-ohne',  label: 'Finish-Politur außen (exkl. Dach)',      price: 299, group: 'finish' },
@@ -36,16 +36,31 @@ const EXTRAS = [
   { id: 'teer-mit',     label: 'Teer-Entfernung mit Knete (mit Dach)',   price: 149, group: 'teer' },
 ];
 
-const selModules = new Set();
-const selExtras  = new Set();
+// Free bonus rules – evaluated against paid total (modules + manual extras)
+const FREE_RULES = [
+  {
+    id:        'scheiben-v',
+    threshold: 220,
+    cond:      () => true,
+    hint:      'Gratis ab 220 € Bestellwert',
+  },
+  {
+    id:        'ceramic',
+    threshold: 500,
+    cond:      () => selModules.has('aussen'),
+    hint:      'Gratis ab 500 € – nur mit Außenwäsche',
+  },
+  {
+    id:        'fenster-in',
+    threshold: 500,
+    cond:      () => !selModules.has('aussen'),
+    hint:      'Gratis ab 500 € – wenn keine Außenwäsche',
+  },
+];
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
-
-function moduleTotal() {
-  let t = 0;
-  selModules.forEach(id => { const m = MODULES.find(x => x.id === id); if (m) t += m.price; });
-  return t;
-}
+const selModules   = new Set(); // selected main modules
+const manualExtras = new Set(); // manually selected extras (by user click)
+const autoFree     = new Set(); // auto-selected because threshold reached
 
 // ── Toggle handlers ──────────────────────────────────────────────────────────
 
@@ -55,53 +70,92 @@ function toggleModule(id) {
 }
 
 function toggleExtra(id) {
+  if (autoFree.has(id)) return; // auto-free items can't be manually toggled
   const extra = EXTRAS.find(e => e.id === id);
-  if (selExtras.has(id)) {
-    selExtras.delete(id);
+  if (manualExtras.has(id)) {
+    manualExtras.delete(id);
   } else {
     if (extra.group) {
-      EXTRAS.filter(e => e.group === extra.group).forEach(e => selExtras.delete(e.id));
+      EXTRAS.filter(e => e.group === extra.group).forEach(e => manualExtras.delete(e.id));
     }
-    selExtras.add(id);
+    manualExtras.add(id);
   }
   syncUI();
 }
 
-// ── Sync UI ───────────────────────────────────────────────────────────────────
+// ── Core sync ─────────────────────────────────────────────────────────────────
 
 function syncUI() {
-  const modSub = moduleTotal();
-  let total = modSub;
+  // 1. Paid base = modules + manually selected extras at full price
+  let paidBase = 0;
+  selModules.forEach(id => { const m = MODULES.find(x => x.id === id); if (m) paidBase += m.price; });
+  manualExtras.forEach(id => { const e = EXTRAS.find(x => x.id === id); if (e) paidBase += e.price; });
 
-  // Module cards
+  // 2. Determine which items are auto-free
+  autoFree.clear();
+  FREE_RULES.forEach(rule => {
+    if (rule.cond() && paidBase >= rule.threshold) autoFree.add(rule.id);
+  });
+
+  // 3. Combined selection = manual ∪ auto-free
+  const selExtras = new Set([...manualExtras, ...autoFree]);
+
+  // 4. Display total = paidBase – price of manual items that became auto-free (they're now free)
+  let displayTotal = paidBase;
+  autoFree.forEach(id => {
+    if (manualExtras.has(id)) {
+      const e = EXTRAS.find(x => x.id === id);
+      if (e) displayTotal -= e.price;
+    }
+  });
+
+  // 5. Update module cards
   document.querySelectorAll('.wm-mod-card').forEach(card => {
     const sel = selModules.has(card.dataset.id);
     card.classList.toggle('selected', sel);
     card.querySelector('.wm-check').textContent = sel ? '✓' : '';
   });
 
-  // Extra rows
+  // 6. Update extra rows
   document.querySelectorAll('.wm-extra-row').forEach(row => {
     const id    = row.dataset.id;
     const extra = EXTRAS.find(e => e.id === id);
-    const sel   = selExtras.has(id);
-    const isFree = !!(extra.freeAt && sel && modSub >= extra.freeAt);
-    row.classList.toggle('checked', sel);
-    row.querySelector('.wm-extra-box').textContent = sel ? '✓' : '';
+    const isFree = autoFree.has(id);
+    const isSel  = selExtras.has(id);
+    const rule   = FREE_RULES.find(r => r.id === id);
+
+    row.classList.toggle('checked', isSel);
+    row.classList.toggle('wm-auto-free', isFree);
+    row.querySelector('.wm-extra-box').textContent = isSel ? '✓' : '';
+
+    // Price tag
     const ptag = row.querySelector('.wm-ptag');
-    if (isFree) {
-      ptag.innerHTML = '<span style="color:#4caf50;font-weight:700;">Gratis ✓</span>';
-    } else {
-      ptag.textContent = `ab ${extra.price} €`;
+    ptag.innerHTML = isFree
+      ? '<span class="wm-gratis-tag">Gratis ✓</span>'
+      : `ab ${extra.price} €`;
+
+    // Free progress hint
+    const hint = row.querySelector('.wm-free-hint');
+    if (hint && rule) {
+      if (isFree) {
+        hint.textContent = '';
+      } else if (rule.cond()) {
+        const diff = rule.threshold - paidBase;
+        hint.textContent = diff > 0 ? `Noch ${diff} € bis gratis` : '';
+        hint.style.color = 'var(--gold)';
+      } else {
+        hint.textContent = rule.hint;
+        hint.style.color = 'var(--text-dim)';
+      }
     }
-    if (sel && !isFree) total += extra.price;
   });
 
-  // Price sidebar
+  // 7. Price sidebar
   const linesEl = document.getElementById('wm-price-lines');
   const totalEl = document.getElementById('wm-total');
-  const items = [];
+  if (!linesEl || !totalEl) return;
 
+  const items = [];
   selModules.forEach(id => {
     const m = MODULES.find(x => x.id === id);
     if (m) items.push({ label: m.label, price: m.price, free: false });
@@ -109,11 +163,8 @@ function syncUI() {
   selExtras.forEach(id => {
     const e = EXTRAS.find(x => x.id === id);
     if (!e) return;
-    const free = !!(e.freeAt && modSub >= e.freeAt);
-    items.push({ label: e.label, price: e.price, free });
+    items.push({ label: e.label, price: e.price, free: autoFree.has(id) });
   });
-
-  if (!linesEl || !totalEl) return;
 
   if (items.length === 0) {
     linesEl.innerHTML = '<p style="color:var(--text-muted);font-size:0.82rem;text-align:center;padding:12px 0;">Noch nichts ausgewählt.</p>';
@@ -122,10 +173,13 @@ function syncUI() {
     linesEl.innerHTML = items.map(it => `
       <div class="wm-price-line">
         <span>${it.label}</span>
-        <span>${it.free ? '<span style="color:#4caf50">Gratis</span>' : `ab ${it.price} €`}</span>
+        <span>${it.free
+          ? '<span style="color:#4caf50;font-weight:700;">Gratis</span>'
+          : `ab ${it.price} €`
+        }</span>
       </div>
     `).join('');
-    totalEl.textContent = `ab ${total} €`;
+    totalEl.textContent = displayTotal > 0 ? `ab ${displayTotal} €` : '0 €';
   }
 }
 
@@ -149,16 +203,17 @@ function buildExtras() {
   const list = document.getElementById('wm-extras');
   if (!list) return;
   list.innerHTML = EXTRAS.map(e => {
+    const rule = FREE_RULES.find(r => r.id === e.id);
     let sub = '';
-    if (e.note)  sub += ` – ${e.note}`;
-    if (e.freeAt) sub += ` – Gratis ab ${e.freeAt} € Bestellwert`;
-    if (e.group === 'finish' || e.group === 'teer') sub += ' – nur eine Option wählbar';
+    if (e.note)  sub += e.note;
+    if (e.group === 'finish' || e.group === 'teer') sub += (sub ? ' – ' : '') + 'nur eine Option wählbar';
     return `
       <div class="wm-extra-row" data-id="${e.id}" onclick="toggleExtra('${e.id}')">
         <span class="wm-extra-box"></span>
         <span class="wm-extra-text">
           <span class="wm-extra-name">${e.label}</span>
           ${sub ? `<span class="wm-extra-note">${sub}</span>` : ''}
+          ${rule ? `<span class="wm-free-hint" style="font-size:0.72rem;display:block;margin-top:2px;">${rule.hint}</span>` : ''}
         </span>
         <span class="wm-ptag">ab ${e.price} €</span>
       </div>
