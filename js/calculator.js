@@ -10,13 +10,12 @@ const VEHICLE_ADD = {
   'Coupé / Cabrio':         [5,   15,  30,  50 ],
   'SUV / Geländewagen':     [10,  20,  35,  55 ],
   'Sprinter / Transporter': [5,   15,  30,  50 ],
-  '7-Sitzer':               [0,   10,  10,  10 ],
-  '9-Sitzer':               [15,  40,  50,  90 ],
-  // Rest folgt
-  'Van / Minivan':          null,
-  'Bus':                    null,
-  'Wohnmobil':              null,
+  '7-Sitzer / Minivan':     [0,   10,  10,  10 ],
+  '9-Sitzer / Großvan':     [15,  40,  50,  90 ],
+  'Wohnmobil (bis 6m)':     [30,  120, 180, 300],
+  'Wohnmobil (ab 6m)':      null,
   'Wohnwagen':              null,
+  'Bus / Kleinbus':         null,
   'Truck / LKW':            null,
 };
 
@@ -33,8 +32,10 @@ const CONDITION_PCT = {
 const VEHICLE_NOTES = {
   'Sprinter / Transporter':
     '⚠️ Laderaum-Reinigung auf Anfrage – Preis gilt für Fahrgastraum (2–3 Sitze).',
-  '9-Sitzer':
+  '9-Sitzer / Großvan':
     'ℹ️ Preis gilt für vollständige Bestuhlung. Bei Leer-Ausbau bitte anfragen.',
+  'Wohnmobil (bis 6m)':
+    'ℹ️ Preis gilt für Wohnmobile bis 6m Länge. Für größere Fahrzeuge bitte anfragen.',
 };
 
 function calcPrice(base, vehicleAdd, condPct) {
