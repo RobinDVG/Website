@@ -960,6 +960,66 @@ footer {
 .sonder-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
 .sonder-text { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
 
+/* ─── PREISRECHNER ───────────────────────────────── */
+.calculator-panel {
+  background: linear-gradient(135deg, rgba(255,191,0,0.07) 0%, rgba(205,147,17,0.03) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  margin-bottom: 48px;
+}
+.calculator-panel h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.calc-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: end;
+}
+.calc-group { display: flex; flex-direction: column; gap: 8px; }
+.calc-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.calc-group-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.calc-cond-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid currentColor;
+  transition: var(--transition);
+}
+.vehicle-note {
+  display: none;
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: rgba(255,191,0,0.06);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+}
+@media (max-width: 600px) {
+  .calc-fields { grid-template-columns: 1fr; }
+  .calculator-panel { padding: 24px 20px; }
+}
+
 /* ─── REVIEW KARUSSELL ───────────────────────────── */
 .carousel-outer {
   overflow: hidden;

@@ -48,12 +48,56 @@
       <span class="section-label">Gesamtpakete</span>
       <h2 class="section-title">Wähle dein Paket</h2>
       <div class="gold-divider center"></div>
-      <p class="section-subtitle">Ab-Preise gelten für einen Kleinwagen in normalem Zustand. Preise variieren je nach Fahrzeuggröße und Verschmutzungsgrad.</p>
+      <p class="section-subtitle">Wähle deinen Fahrzeugtyp und Zustand – die Preise passen sich automatisch an.</p>
     </div>
+
+    <!-- PREISRECHNER -->
+    <div class="calculator-panel fade-in">
+      <h3>✦ Preis berechnen</h3>
+      <div class="calc-fields">
+        <div class="calc-group">
+          <label for="calc-vehicle">Fahrzeugtyp</label>
+          <select class="form-select" id="calc-vehicle">
+            <option>Kleinwagen</option>
+            <option>Limousine</option>
+            <option>Kombi</option>
+            <option>Coupé / Cabrio</option>
+            <option>SUV / Geländewagen</option>
+            <option>Sprinter / Transporter</option>
+            <option>7-Sitzer</option>
+            <option>9-Sitzer</option>
+            <option>Van / Minivan</option>
+            <option>Bus</option>
+            <option>Wohnmobil</option>
+            <option>Wohnwagen</option>
+            <option>Truck / LKW</option>
+          </select>
+        </div>
+        <div class="calc-group">
+          <label for="calc-condition">Fahrzeugzustand laut Besitzer</label>
+          <select class="form-select" id="calc-condition">
+            <option>Sehr gepflegt</option>
+            <option>Gepflegt</option>
+            <option>Verschmutzt</option>
+            <option>Stark verschmutzt</option>
+            <option>Sehr stark verschmutzt</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-group-meta">
+        <span style="font-size:0.8rem;color:var(--text-muted);">Zustandsaufschlag:</span>
+        <span id="calc-cond-label" class="calc-cond-badge">kein Aufschlag</span>
+      </div>
+      <div id="vehicle-note" class="vehicle-note"></div>
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:16px;">
+        * Ab-Preise. Endgültiger Preis wird vor Ort nach Besichtigung bestätigt.
+      </p>
+    </div>
+
     <div class="pakete-grid">
 
       <!-- PAKET 1 -->
-      <div class="paket-card fade-in">
+      <div class="paket-card fade-in" data-paket="1">
         <div class="paket-number">Paket 01</div>
         <div class="paket-name">Basic Refresh</div>
         <div class="paket-desc">Die perfekte Grundpflege für den gepflegten Alltag.</div>
@@ -68,7 +112,7 @@
       </div>
 
       <!-- PAKET 2 -->
-      <div class="paket-card fade-in">
+      <div class="paket-card fade-in" data-paket="2">
         <div class="paket-number">Paket 02</div>
         <div class="paket-name">Comfort Care</div>
         <div class="paket-desc">Innen & außen gepflegt – für den anspruchsvollen Alltag.</div>
@@ -84,7 +128,7 @@
       </div>
 
       <!-- PAKET 3 -->
-      <div class="paket-card featured fade-in">
+      <div class="paket-card featured fade-in" data-paket="3">
         <div class="paket-number">Paket 03</div>
         <div class="paket-name">Premium Shine</div>
         <div class="paket-desc">Maximale Pflege innen & außen – unser beliebtestes Paket.</div>
@@ -101,7 +145,7 @@
       </div>
 
       <!-- PAKET 4 -->
-      <div class="paket-card fade-in">
+      <div class="paket-card fade-in" data-paket="4">
         <div class="paket-number">Paket 04</div>
         <div class="paket-name">Neuwagen Paket</div>
         <div class="paket-desc">Das absolute Rundum-sorglos-Paket – wie frisch vom Händler.</div>
@@ -223,5 +267,6 @@
   </div>
 </footer>
 <script src="js/main.js"></script>
+<script src="js/calculator.js"></script>
 </body>
 </html>
