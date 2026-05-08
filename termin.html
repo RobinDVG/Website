@@ -249,15 +249,20 @@
     }
   });
 
-  // Pre-select package from URL param (?paket=1..4)
+  // Konfigurator-Pflicht: ohne gültigen paket-Parameter zurück zu buchen.html
   (function() {
     const paket = new URLSearchParams(window.location.search).get('paket');
-    if (!paket) return;
+    const valid = ['1', '2', '3', '4', 'wohnmobil'];
+    if (!paket || !valid.includes(paket)) {
+      window.location.replace('buchen.html');
+      return;
+    }
     const map = {
       '1': 'Paket 01 – Basic Refresh (ab 39 €)',
       '2': 'Paket 02 – Comfort Care (ab 89 €)',
       '3': 'Paket 03 – Premium Shine (ab 159 €)',
       '4': 'Paket 04 – Neuwagen Paket (ab 299 €)',
+      'wohnmobil': 'Wohnmobil-Aufbereitung',
     };
     const sel = document.getElementById('leistung');
     if (sel && map[paket]) sel.value = map[paket];
