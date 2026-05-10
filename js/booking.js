@@ -6,7 +6,7 @@ const PAYPAL_ME = 'https://paypal.me/RobinDovgan';
 // ── Besichtigungspauschale (Vorab-Deposit für mobile Besichtigung) ──
 function calcDeposit(km) {
   if (km <= 3)  return 5.00;
-  if (km <= 5)  return 7.50;
+  if (km <= 5)  return 6.50;
   if (km <= 10) return 10.00;
   return +(10 + Math.ceil(km - 10) * 1.00).toFixed(2);
 }
