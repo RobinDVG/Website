@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -36,139 +36,30 @@
 <section class="page-hero">
   <div class="container">
     <div class="breadcrumb">
-      <a href="index.html">Startseite</a> › <span>Termin buchen</span>
+      <a href="index.html">Startseite</a> › <a href="buchen.html">Paket wählen</a> › <span>Termin buchen</span>
     </div>
-    <span class="section-label">Jetzt anfragen</span>
+    <span class="section-label">Schritt 2 von 2</span>
     <h1 class="section-title">Termin buchen</h1>
     <div class="gold-divider"></div>
-    <p class="section-subtitle">
-      Füll das Formular aus und wir melden uns innerhalb von 24 Stunden bei dir.
-      Natürlich auch mobil – wir kommen zu dir.
-    </p>
+    <p class="section-subtitle">Wähle direkt einen freien Termin – wir bestätigen automatisch per E-Mail.</p>
   </div>
 </section>
 
 <section class="content-section">
   <div class="container">
+
+    <!-- Gewähltes Paket Banner -->
+    <div id="paket-banner" class="info-box fade-in" style="max-width:100%;margin-bottom:32px;display:none;">
+      <div class="info-box-title">✦ Dein gewähltes Paket</div>
+      <p id="paket-banner-text" style="font-size:1rem;color:var(--text);font-weight:600;margin:0;"></p>
+      <a href="buchen.html" style="font-size:0.8rem;color:var(--gold);margin-top:6px;display:inline-block;">← Paket ändern</a>
+    </div>
+
     <div style="display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start;" class="booking-layout">
 
-      <!-- FORM -->
-      <div class="form-wrapper fade-in">
-        <form id="termin-form" novalidate>
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="vorname">Vorname *</label>
-              <input class="form-input" type="text" id="vorname" placeholder="Max" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="nachname">Nachname *</label>
-              <input class="form-input" type="text" id="nachname" placeholder="Mustermann" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="email">E-Mail *</label>
-              <input class="form-input" type="email" id="email" placeholder="max@email.de" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="telefon">Telefon *</label>
-              <input class="form-input" type="tel" id="telefon" placeholder="+49 123 456789" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fahrzeug">Fahrzeug (Marke & Modell) *</label>
-              <input class="form-input" type="text" id="fahrzeug" placeholder="z. B. BMW 3er" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fahrzeugtyp">Fahrzeugtyp *</label>
-              <select class="form-select" id="fahrzeugtyp" required>
-                <option value="" disabled selected>Bitte wählen...</option>
-                <option>Kleinwagen</option>
-                <option>Limousine</option>
-                <option>Kombi</option>
-                <option>SUV / Geländewagen</option>
-                <option>Coupé / Cabrio</option>
-                <option>7-Sitzer / Minivan</option>
-                <option>9-Sitzer / Großvan</option>
-                <option>Sprinter / Transporter</option>
-                <option>Wohnwagen</option>
-                <option>Bus / Kleinbus</option>
-                <option>Truck / LKW</option>
-                <option>Sonstiges</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="baujahr">Baujahr</label>
-              <input class="form-input" type="text" id="baujahr" placeholder="z. B. 2019" />
-            </div>
-            <div class="form-group full">
-              <label class="form-label" for="leistung">Gewünschte Leistung *</label>
-              <select class="form-select" id="leistung" required>
-                <option value="" disabled selected>Bitte wählen...</option>
-                <optgroup label="Pakete">
-                  <option>Paket 01 – Basic Refresh (ab 39 €)</option>
-                  <option>Paket 02 – Comfort Care (ab 89 €)</option>
-                  <option>Paket 03 – Premium Shine (ab 159 €)</option>
-                  <option>Paket 04 – Neuwagen Paket (ab 299 €)</option>
-                </optgroup>
-                <optgroup label="Einzelleistungen">
-                  <option>Innenaufbereitung</option>
-                  <option>Außenaufbereitung</option>
-                  <option>Wohnmobil-Aufbereitung</option>
-                  <option>Motorraum-Reinigung</option>
-                  <option>Ceramic Coating</option>
-                  <option>Glasversiegelung</option>
-                  <option>Lackpolitur</option>
-                  <option>Scheinwerferpolitur</option>
-                  <option>Sonstiges</option>
-                </optgroup>
-              </select>
-            </div>
-            <div class="form-group full">
-              <label class="form-label" for="service-typ">Service-Art</label>
-              <select class="form-select" id="service-typ">
-                <option value="" disabled selected>Bitte wählen...</option>
-                <option>Vor Ort beim Betrieb</option>
-                <option>Mobiler Service (ich komme zu dir)</option>
-              </select>
-            </div>
-            <div class="form-group full" id="adresse-group" style="display:none;">
-              <label class="form-label" for="adresse">Deine Adresse (für mobilen Service)</label>
-              <input class="form-input" type="text" id="adresse" placeholder="Straße, PLZ, Ort" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="wunschdatum">Wunschdatum</label>
-              <input class="form-input" type="date" id="wunschdatum" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="wunschzeit">Wunschuhrzeit</label>
-              <input class="form-input" type="time" id="wunschzeit" />
-            </div>
-            <div class="form-group full">
-              <label class="form-label" for="nachricht">Anmerkungen / Besonderheiten</label>
-              <textarea class="form-textarea" id="nachricht" placeholder="z. B. starke Verschmutzungen, Haustiere, besondere Wünsche..."></textarea>
-            </div>
-            <div class="form-group full">
-              <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:0.82rem;color:var(--text-muted);">
-                <input type="checkbox" required style="margin-top:3px;accent-color:var(--gold);flex-shrink:0;" />
-                Ich habe die <a href="datenschutz.html" style="color:var(--gold);margin:0 3px;">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Terminbearbeitung zu. *
-              </label>
-            </div>
-          </div>
-          <div style="margin-top:28px;">
-            <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:16px;">
-              Anfrage absenden →
-            </button>
-          </div>
-          <p style="font-size:0.75rem;color:var(--text-dim);margin-top:14px;text-align:center;">
-            * Pflichtfelder. Wir melden uns innerhalb von 24 Stunden.
-          </p>
-        </form>
-        <div class="form-success">
-          <div style="font-size:3rem;margin-bottom:16px;">✓</div>
-          <h3>Anfrage erhalten!</h3>
-          <p style="color:var(--text-muted);font-size:0.9rem;">
-            Vielen Dank für deine Anfrage. Wir melden uns innerhalb von 24 Stunden bei dir.
-          </p>
-          <a href="index.html" class="btn btn-outline" style="margin-top:24px;">Zurück zur Startseite</a>
-        </div>
+      <!-- CAL.COM EMBED -->
+      <div class="fade-in" style="background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+        <div id="cal-booking" style="width:100%;min-height:600px;"></div>
       </div>
 
       <!-- SIDEBAR INFO -->
@@ -241,15 +132,7 @@
 
 <script src="js/main.js"></script>
 <script>
-  // Show address field when mobile service selected
-  document.getElementById('service-typ')?.addEventListener('change', function() {
-    const adresseGroup = document.getElementById('adresse-group');
-    if (adresseGroup) {
-      adresseGroup.style.display = this.value.includes('Mobil') ? 'flex' : 'none';
-    }
-  });
-
-  // Konfigurator-Pflicht: ohne gültigen paket-Parameter zurück zu buchen.html
+  // Paket aus URL param lesen und anzeigen
   (function() {
     const paket = new URLSearchParams(window.location.search).get('paket');
     const valid = ['1', '2', '3', '4', 'wohnmobil'];
@@ -262,12 +145,32 @@
       '2': 'Paket 02 – Comfort Care (ab 89 €)',
       '3': 'Paket 03 – Premium Shine (ab 159 €)',
       '4': 'Paket 04 – Neuwagen Paket (ab 299 €)',
-      'wohnmobil': 'Wohnmobil-Aufbereitung',
+      'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)',
     };
-    const sel = document.getElementById('leistung');
-    if (sel && map[paket]) sel.value = map[paket];
+    const banner = document.getElementById('paket-banner');
+    const bannerText = document.getElementById('paket-banner-text');
+    if (banner && bannerText && map[paket]) {
+      bannerText.textContent = map[paket];
+      banner.style.display = 'block';
+    }
   })();
 </script>
+
+<!-- Cal.com Inline Embed -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = api;p(api, ar);p(cal, [L, api]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", {origin:"https://cal.com"});
+  Cal("inline", {
+    elementOrSelector: "#cal-booking",
+    calLink: "robin-dovgan-boyjk0/rv-detailing",
+    config: { layout: "month_view" }
+  });
+  Cal("ui", {
+    theme: "dark",
+    styles: { branding: { brandColor: "#FFBF00" } },
+    hideEventTypeDetails: false,
+  });
+</script>
+
 </body>
 </html>
-
