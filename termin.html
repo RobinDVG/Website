@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Termin buchen – RV Detailing</title>
   <meta name="description" content="Buche jetzt deinen Termin bei RV Detailing. Professionelle Fahrzeugaufbereitung – auch mobil bei dir vor Ort." />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
 </head>
 <body>
 
@@ -41,28 +41,88 @@
     <span class="section-label">Schritt 2 von 2</span>
     <h1 class="section-title">Termin buchen</h1>
     <div class="gold-divider"></div>
-    <p class="section-subtitle">Wähle direkt einen freien Termin – wir bestätigen automatisch per E-Mail.</p>
+    <p class="section-subtitle">Wähle deine Service-Art, berechne die Anfahrt und buche direkt einen freien Termin.</p>
   </div>
 </section>
 
 <section class="content-section">
   <div class="container">
 
-    <!-- Gewähltes Paket Banner -->
+    <!-- Gewähltes Paket -->
     <div id="paket-banner" class="info-box fade-in" style="max-width:100%;margin-bottom:32px;display:none;">
       <div class="info-box-title">✦ Dein gewähltes Paket</div>
       <p id="paket-banner-text" style="font-size:1rem;color:var(--text);font-weight:600;margin:0;"></p>
       <a href="buchen.html" style="font-size:0.8rem;color:var(--gold);margin-top:6px;display:inline-block;">← Paket ändern</a>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start;" class="booking-layout">
+    <!-- Step Progress -->
+    <div class="bk-progress fade-in">
+      <div class="bk-dot active" data-step="1"><span>1</span><small>Service-Art</small></div>
+      <div class="bk-line bk-line-2"></div>
+      <div class="bk-dot" data-step="2"><span>2</span><small>Adresse</small></div>
+      <div class="bk-line"></div>
+      <div class="bk-dot" data-step="3"><span>3</span><small>Termin</small></div>
+      <div class="bk-line"></div>
+      <div class="bk-dot" data-step="4"><span>4</span><small>Fertig</small></div>
+    </div>
 
-      <!-- CAL.COM EMBED -->
-      <div class="fade-in" style="background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
-        <div id="cal-booking" style="width:100%;min-height:600px;"></div>
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start;" class="booking-layout">
+      <div>
+
+        <!-- STEP 1: Service-Art -->
+        <div class="booking-step active" data-step="1">
+          <h3 class="bk-step-title">Wie soll der Service stattfinden?</h3>
+          <div class="svc-grid">
+            <div class="svc-card" data-type="shop" onclick="selectService('shop')">
+              <div class="svc-icon">🏢</div>
+              <div class="svc-name">Vor Ort beim Betrieb</div>
+              <div class="svc-desc">Du bringst dein Fahrzeug zu uns nach Brandenburg an der Havel.</div>
+              <div class="svc-badge">Keine Zusatzkosten</div>
+            </div>
+            <div class="svc-card" data-type="mobile" onclick="selectService('mobile')">
+              <div class="svc-icon">🚐</div>
+              <div class="svc-name">Mobiler Service</div>
+              <div class="svc-desc">Wir kommen mit unserem Detailing-Bus direkt zu dir – nach Hause, zur Arbeit oder wohin du möchtest.</div>
+              <div class="svc-badge gold">Anfahrt ab 7,99 €</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Adresse & Entfernung (nur Mobil) -->
+        <div class="booking-step" data-step="2">
+          <button class="bk-back" onclick="goToStep(1)">← Zurück</button>
+          <h3 class="bk-step-title">Deine Adresse</h3>
+          <p style="color:var(--text-muted);margin-bottom:20px;">Gib deine Adresse ein, damit wir die Entfernung und die Besichtigungspauschale berechnen können.</p>
+
+          <div class="address-form">
+            <div class="calc-group" style="flex:1;">
+              <label class="form-label" for="address-input">Adresse</label>
+              <input class="form-input" type="text" id="address-input" placeholder="Straße, PLZ, Ort" autocomplete="off" />
+            </div>
+            <button class="btn btn-gold" onclick="calcDistManual()" style="height:48px;margin-top:auto;">Entfernung berechnen</button>
+          </div>
+
+          <div id="distance-result" style="display:none;margin-top:24px;"></div>
+        </div>
+
+        <!-- STEP 3: Kalender -->
+        <div class="booking-step" data-step="3">
+          <button class="bk-back" onclick="serviceType==='mobile'?goToStep(2):goToStep(1)">← Zurück</button>
+          <h3 class="bk-step-title">Termin wählen</h3>
+          <p style="color:var(--text-muted);margin-bottom:20px;">Wähle einen freien Termin direkt im Kalender. Belegte Zeiten sind automatisch ausgeblendet.</p>
+          <div class="cal-wrapper">
+            <div id="cal-booking" style="width:100%;min-height:550px;"></div>
+          </div>
+        </div>
+
+        <!-- STEP 4: Zahlung / Bestätigung -->
+        <div class="booking-step" data-step="4">
+          <div id="payment-content"></div>
+        </div>
+
       </div>
 
-      <!-- SIDEBAR INFO -->
+      <!-- SIDEBAR -->
       <div style="display:flex;flex-direction:column;gap:20px;" class="fade-in">
         <div class="info-box">
           <div class="info-box-title">📞 Direkt anrufen</div>
@@ -97,23 +157,18 @@
           <p>Upstallstraße 12<br />14772 Brandenburg an der Havel</p>
         </div>
         <div class="info-box">
-          <div class="info-box-title">🚐 Mobiler Service</div>
-          <p>Wir kommen mit unserem Detailing-Bus direkt zu dir – nach Hause, zur Arbeit oder wohin du möchtest.</p>
+          <div class="info-box-title">💰 Besichtigungspauschale</div>
+          <div style="font-size:0.85rem;color:var(--text-muted);display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;justify-content:space-between;"><span>Bis 3 km</span><span style="color:var(--text);">5,00 €</span></div>
+            <div style="display:flex;justify-content:space-between;"><span>Bis 5 km</span><span style="color:var(--text);">7,50 €</span></div>
+            <div style="display:flex;justify-content:space-between;"><span>Bis 10 km</span><span style="color:var(--text);">10,00 €</span></div>
+            <div style="display:flex;justify-content:space-between;"><span>Über 10 km</span><span style="color:var(--text);">+ 1,00 €/km</span></div>
+          </div>
+          <p style="font-size:0.75rem;color:var(--text-dim);margin-top:10px;">Fällig bei Online-Buchung des mobilen Service. Zahlung per PayPal oder Überweisung.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="cta-section">
-  <div class="container">
-    <span class="section-label">Noch unsicher?</span>
-    <h2 class="section-title">Erst alle Leistungen ansehen</h2>
-    <p class="section-subtitle">Schau dir unsere Pakete und Einzelleistungen an – damit du weißt, was am besten zu deinem Fahrzeug passt.</p>
-    <div class="cta-buttons" style="margin-top:28px;">
-      <a href="dienstleistungen.html" class="btn btn-outline">Alle Leistungen</a>
-      <a href="pakete.html" class="btn btn-gold">Pakete ansehen</a>
-    </div>
   </div>
 </section>
 
@@ -131,46 +186,11 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-  // Paket aus URL param lesen und anzeigen
-  (function() {
-    const paket = new URLSearchParams(window.location.search).get('paket');
-    const valid = ['1', '2', '3', '4', 'wohnmobil'];
-    if (!paket || !valid.includes(paket)) {
-      window.location.replace('buchen.html');
-      return;
-    }
-    const map = {
-      '1': 'Paket 01 – Basic Refresh (ab 39 €)',
-      '2': 'Paket 02 – Comfort Care (ab 89 €)',
-      '3': 'Paket 03 – Premium Shine (ab 159 €)',
-      '4': 'Paket 04 – Neuwagen Paket (ab 299 €)',
-      'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)',
-    };
-    const banner = document.getElementById('paket-banner');
-    const bannerText = document.getElementById('paket-banner-text');
-    if (banner && bannerText && map[paket]) {
-      bannerText.textContent = map[paket];
-      banner.style.display = 'block';
-    }
-  })();
-</script>
-
-<!-- Cal.com Inline Embed -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL1rEJ84KtBjSod7Ms48pJsrkHEWslHrs&libraries=places&callback=initGMaps" async defer></script>
 <script type="text/javascript">
   (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = api;p(api, ar);p(cal, [L, api]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", {origin:"https://cal.com"});
-  Cal("inline", {
-    elementOrSelector: "#cal-booking",
-    calLink: "robin-dovgan-boyjk0/rv-detailing",
-    config: { layout: "month_view" }
-  });
-  Cal("ui", {
-    theme: "dark",
-    styles: { branding: { brandColor: "#FFBF00" } },
-    hideEventTypeDetails: false,
-  });
 </script>
-
+<script src="js/booking.js"></script>
 </body>
 </html>

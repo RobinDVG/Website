@@ -1347,3 +1347,229 @@ footer {
   .buchen-wohnmobil-card { flex-direction: column; padding: 28px 24px; }
   .buchen-wm-icons { font-size: 2.5rem; }
 }
+
+/* ── Buchungssystem (termin.html) ─────────────────────────── */
+
+/* Step Progress */
+.bk-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 40px;
+}
+.bk-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+.bk-dot span {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+.bk-dot small {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.bk-dot.active span {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+}
+.bk-dot.active small { color: var(--gold); }
+.bk-dot.done span {
+  background: rgba(255,191,0,0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.bk-dot.done small { color: var(--text-muted); }
+.bk-line, .bk-line-2 {
+  width: 60px; height: 2px;
+  background: var(--border);
+  margin: 0 8px;
+  margin-bottom: 22px;
+}
+
+/* Steps */
+.booking-step {
+  display: none;
+  animation: fadeUp 0.4s ease;
+}
+.booking-step.active { display: block; }
+.bk-step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+.bk-back {
+  background: none; border: none; color: var(--gold); cursor: pointer;
+  font-size: 0.85rem; font-weight: 600; padding: 0; margin-bottom: 20px;
+  display: inline-block;
+}
+.bk-back:hover { text-decoration: underline; }
+
+/* Service Cards */
+.svc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.svc-card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  position: relative;
+}
+.svc-card:hover {
+  border-color: rgba(255,191,0,0.4);
+  transform: translateY(-2px);
+}
+.svc-card.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(255,191,0,0.15);
+}
+.svc-icon { font-size: 2.5rem; margin-bottom: 16px; }
+.svc-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+.svc-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.svc-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  display: inline-block;
+  color: var(--text-muted);
+}
+.svc-badge.gold {
+  background: rgba(255,191,0,0.1);
+  border-color: rgba(255,191,0,0.3);
+  color: var(--gold);
+}
+
+/* Address Form */
+.address-form {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+/* Distance Result Cards */
+.dist-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.dist-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dist-card.gold {
+  border-color: rgba(255,191,0,0.3);
+  background: rgba(255,191,0,0.06);
+}
+.dist-card-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.dist-card-val {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.dist-card.gold .dist-card-val { color: var(--gold); }
+.dist-note {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* Calendar Wrapper */
+.cal-wrapper {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 550px;
+}
+
+/* Payment */
+.pay-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px 28px;
+}
+.pay-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+.pay-divider::before, .pay-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.pay-bank {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .booking-layout { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 600px) {
+  .svc-grid { grid-template-columns: 1fr; }
+  .address-form { flex-direction: column; }
+  .address-form .btn { width: 100%; justify-content: center; }
+  .dist-info-grid { grid-template-columns: 1fr; }
+  .bk-line, .bk-line-2 { width: 30px; }
+  .bk-dot small { font-size: 0.6rem; }
+  .bk-dot span { width: 30px; height: 30px; font-size: 0.75rem; }
+  .pay-box { padding: 24px 16px; }
+}
