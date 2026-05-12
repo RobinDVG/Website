@@ -35,6 +35,9 @@ let totalDuration  = TERMIN_DAUER;
 let customerAddr   = '';
 let calInitialized = false;
 let selectedPaket  = '';
+let selectedFahrzeug = '';
+let selectedZustand  = '';
+let selectedPreis    = '';
 
 // ── Step-Navigation ──
 function goToStep(step) {
@@ -51,9 +54,22 @@ function goToStep(step) {
 
   currentStep = step;
 
-  if (step === 3 && !calInitialized) {
-    initCalEmbed();
-    calInitialized = true;
+  if (step === 3) {
+    var addrDisplay = document.getElementById('booking-address-display');
+    var addrText = document.getElementById('booking-address-text');
+    if (addrDisplay && addrText) {
+      if (serviceType === 'mobile' && customerAddr) {
+        addrText.textContent = customerAddr;
+        addrDisplay.style.display = 'block';
+      } else if (serviceType === 'shop') {
+        addrText.textContent = 'Upstallstraße 12, 14772 Brandenburg an der Havel';
+        addrDisplay.style.display = 'block';
+      }
+    }
+    if (!calInitialized) {
+      initCalEmbed();
+      calInitialized = true;
+    }
   }
 
   document.querySelector('.page-hero')?.scrollIntoView({ behavior: 'smooth' });
@@ -241,6 +257,8 @@ function fmtEur(n) {
 // ── Cal.com Embed (lazy init) ──
 function initCalEmbed() {
   var notes = selectedPaket;
+  if (selectedFahrzeug) notes += '\nFahrzeug: ' + selectedFahrzeug;
+  if (selectedZustand)  notes += '\nZustand: ' + selectedZustand;
   if (serviceType === 'mobile') {
     notes += '\nMobiler Service – ' + customerAddr;
     notes += '\nEntfernung: ' + (distanceKm ? distanceKm.toFixed(1) : '?') + ' km';
@@ -251,10 +269,17 @@ function initCalEmbed() {
     notes += '\nVor Ort beim Betrieb';
   }
 
+  var calConfig = { layout: "month_view", notes: notes, duration: totalDuration };
+  if (serviceType === 'mobile' && customerAddr) {
+    calConfig.location = customerAddr;
+  } else {
+    calConfig.location = 'Upstallstraße 12, 14772 Brandenburg an der Havel';
+  }
+
   Cal("inline", {
     elementOrSelector: "#cal-booking",
     calLink: "robin-dovgan-boyjk0/rv-detailing",
-    config: { layout: "month_view", notes: notes, duration: totalDuration }
+    config: calConfig
   });
   Cal("ui", {
     theme: "dark",
@@ -297,19 +322,30 @@ function initBooking() {
     return;
   }
 
+  var params = new URLSearchParams(window.location.search);
+  selectedFahrzeug = params.get('fahrzeug') || '';
+  selectedZustand  = params.get('zustand') || '';
+  selectedPreis    = params.get('preis') || '';
+
   var map = {
-    '1': 'Paket 01 – Basic Refresh (ab 39 €)',
-    '2': 'Paket 02 – Comfort Care (ab 89 €)',
-    '3': 'Paket 03 – Premium Shine (ab 159 €)',
-    '4': 'Paket 04 – Neuwagen Paket (ab 299 €)',
+    '1': 'Paket 01 – Basic Refresh',
+    '2': 'Paket 02 – Comfort Care',
+    '3': 'Paket 03 – Premium Shine',
+    '4': 'Paket 04 – Neuwagen Paket',
     'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)'
   };
 
   selectedPaket = map[paket] || '';
+  if (selectedPreis && paket !== 'wohnmobil') {
+    selectedPaket += ' (ab ' + selectedPreis + ' €)';
+  }
   var banner = document.getElementById('paket-banner');
   var bannerText = document.getElementById('paket-banner-text');
   if (banner && bannerText && selectedPaket) {
-    bannerText.textContent = selectedPaket;
+    var bannerInfo = selectedPaket;
+    if (selectedFahrzeug) bannerInfo += '\n' + selectedFahrzeug;
+    if (selectedZustand && selectedZustand !== 'Sehr gepflegt') bannerInfo += ' · ' + selectedZustand;
+    bannerText.innerHTML = bannerInfo.replace(/\n/g, '<br/>');
     banner.style.display = 'block';
   }
 

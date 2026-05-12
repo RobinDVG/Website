@@ -113,6 +113,10 @@
           <button class="bk-back" onclick="serviceType==='mobile'?goToStep(2):goToStep(1)">← Zurück</button>
           <h3 class="bk-step-title">Termin wählen</h3>
           <p style="color:var(--text-muted);margin-bottom:20px;">Wähle einen freien Termin direkt im Kalender. Belegte Zeiten sind automatisch ausgeblendet.</p>
+          <div id="booking-address-display" style="display:none;margin-bottom:20px;padding:16px 20px;background:rgba(255,191,0,0.06);border:1px solid rgba(255,191,0,0.2);border-radius:12px;">
+            <span style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-weight:700;">Standort</span>
+            <p id="booking-address-text" style="margin:6px 0 0;font-size:0.95rem;color:var(--text);font-weight:600;"></p>
+          </div>
           <div class="cal-wrapper">
             <div id="cal-booking" style="width:100%;min-height:550px;"></div>
           </div>

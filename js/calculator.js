@@ -47,11 +47,12 @@ function renderPrices(vehicleKey, condKey) {
   cards.forEach(card => {
     const idx      = parseInt(card.dataset.paket) - 1;
     const priceEl  = card.querySelector('.paket-price');
+    const linkEl   = card.querySelector('a[href^="termin.html"]');
     if (!priceEl) return;
 
     if (adds === null) {
-      // Fahrzeugtyp noch nicht konfiguriert
       priceEl.innerHTML = '<span style="font-size:1.1rem;color:var(--text-muted)">Auf Anfrage</span>';
+      if (linkEl) linkEl.href = 'termin.html?paket=' + card.dataset.paket;
       return;
     }
 
@@ -71,6 +72,13 @@ function renderPrices(vehicleKey, condKey) {
     }
 
     priceEl.innerHTML = `ab ${final} €${badge} <small>*</small>`;
+
+    if (linkEl) {
+      linkEl.href = 'termin.html?paket=' + card.dataset.paket
+        + '&fahrzeug=' + encodeURIComponent(vehicleKey)
+        + '&zustand=' + encodeURIComponent(condKey)
+        + '&preis=' + final;
+    }
   });
 
   // Fahrzeug-Hinweis anzeigen
