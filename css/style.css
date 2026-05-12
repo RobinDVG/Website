@@ -1573,3 +1573,40 @@ footer {
   .bk-dot span { width: 30px; height: 30px; font-size: 0.75rem; }
   .pay-box { padding: 24px 16px; }
 }
+
+/* ── Cookie Banner ─────────────────────────── */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 20px 24px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
+}
+.cookie-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.cookie-inner p {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+@media (max-width: 700px) {
+  .cookie-inner { flex-direction: column; text-align: center; }
+  .cookie-buttons { width: 100%; }
+  .cookie-buttons .btn { flex: 1; justify-content: center; }
+}
