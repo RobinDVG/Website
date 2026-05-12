@@ -1,7 +1,8 @@
 // ── RV Detailing – Buchungssystem ──────────────────────────────────
 
 const SHOP = { lat: 52.4297134, lng: 12.5454711 };
-const PAYPAL_ME = 'https://paypal.me/RobinDovgan';
+const PAYPAL_CLIENT_ID = 'ATZOtgFppX7_7svpY9X_BHz6fxRY1Xrvh4JMprqxgpvOq0g-o3IyOuDx_vD5J8m2zu8RaxVJP2bzcOYf';
+let paypalLoaded = false;
 const TERMIN_DAUER = 20; // Besichtigungstermin in Minuten
 
 // ── Besichtigungspauschale (Vorab-Deposit für mobile Besichtigung) ──
@@ -190,44 +191,73 @@ function renderPricing(km, duration) {
     '<div class="pay-gate">' +
       '<div style="border-top:1px solid var(--border);margin:24px 0;"></div>' +
       '<h4 style="margin-bottom:8px;">Besichtigungspauschale jetzt zahlen</h4>' +
-      '<p class="dist-note" style="margin-top:0;margin-bottom:16px;">Um einen Termin buchen zu können, muss die Besichtigungspauschale vorab bezahlt werden.</p>' +
+      '<p class="dist-note" style="margin-top:0;margin-bottom:16px;">Um einen Termin buchen zu können, muss die Besichtigungspauschale von <strong style="color:var(--gold);">' + fmtEur(depositAmount) + '</strong> vorab bezahlt werden.</p>' +
 
-      '<a href="' + PAYPAL_ME + '/' + depositAmount.toFixed(2) + '" target="_blank" rel="noopener" class="btn btn-gold" style="width:100%;justify-content:center;padding:14px;">' +
-        'Jetzt ' + fmtEur(depositAmount) + ' mit PayPal zahlen →' +
-      '</a>' +
+      '<div id="paypal-button-container"></div>' +
 
-      '<div class="pay-divider"><span>oder</span></div>' +
-
-      '<div class="pay-bank">' +
-        '<p style="font-weight:600;margin-bottom:8px;">Banküberweisung:</p>' +
-        '<p>Robin Dovgan<br/>IBAN: wird nach Buchung per E-Mail mitgeteilt<br/>Verwendungszweck: Besichtigung + dein Name</p>' +
+      '<div id="payment-success" style="display:none;text-align:center;padding:20px;background:rgba(76,175,80,0.1);border:1px solid rgba(76,175,80,0.3);border-radius:12px;margin-top:16px;">' +
+        '<div style="font-size:2rem;margin-bottom:8px;">✓</div>' +
+        '<p style="color:#4caf50;font-weight:700;margin:0;">Zahlung erfolgreich!</p>' +
+        '<p style="color:var(--text-muted);font-size:0.85rem;margin-top:4px;">Besichtigungspauschale von ' + fmtEur(depositAmount) + ' bezahlt.</p>' +
       '</div>' +
-
-      '<label class="pay-confirm-label" style="display:flex;align-items:center;gap:10px;margin-top:20px;cursor:pointer;">' +
-        '<input type="checkbox" id="pay-confirm-check" onchange="toggleCalButton()" style="accent-color:var(--gold);width:18px;height:18px;flex-shrink:0;" />' +
-        '<span style="font-size:0.85rem;color:var(--text-muted);">Ich bestätige, dass ich die Besichtigungspauschale von <strong style="color:var(--gold);">' + fmtEur(depositAmount) + '</strong> bezahlt habe.</span>' +
-      '</label>' +
 
       '<button id="btn-to-cal" class="btn btn-dark" style="width:100%;justify-content:center;margin-top:16px;opacity:0.4;pointer-events:none;" onclick="goToStep(3)">Weiter zum Kalender →</button>' +
     '</div>';
 
   el.style.display = 'block';
+
+  loadPayPalSDK(initPayPalButtons);
 }
 
-function toggleCalButton() {
-  var checked = document.getElementById('pay-confirm-check')?.checked;
+function unlockCalendarButton() {
   var btn = document.getElementById('btn-to-cal');
   if (btn) {
-    btn.style.opacity = checked ? '1' : '0.4';
-    btn.style.pointerEvents = checked ? 'auto' : 'none';
-    if (checked) {
-      btn.classList.remove('btn-dark');
-      btn.classList.add('btn-gold');
-    } else {
-      btn.classList.remove('btn-gold');
-      btn.classList.add('btn-dark');
-    }
+    btn.style.opacity = '1';
+    btn.style.pointerEvents = 'auto';
+    btn.classList.remove('btn-dark');
+    btn.classList.add('btn-gold');
   }
+}
+
+function loadPayPalSDK(callback) {
+  if (paypalLoaded) { callback(); return; }
+  var script = document.createElement('script');
+  script.src = 'https://www.paypal.com/sdk/js?client-id=' + PAYPAL_CLIENT_ID + '&currency=EUR&locale=de_DE';
+  script.onload = function () { paypalLoaded = true; callback(); };
+  document.head.appendChild(script);
+}
+
+function initPayPalButtons() {
+  var container = document.getElementById('paypal-button-container');
+  if (!container || !window.paypal) return;
+
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      color: 'gold',
+      shape: 'rect',
+      label: 'pay',
+      height: 48
+    },
+    createOrder: function (data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: { value: depositAmount.toFixed(2), currency_code: 'EUR' },
+          description: 'Besichtigungspauschale – RV Detailing'
+        }]
+      });
+    },
+    onApprove: function (data, actions) {
+      return actions.order.capture().then(function (details) {
+        document.getElementById('paypal-button-container').style.display = 'none';
+        document.getElementById('payment-success').style.display = 'block';
+        unlockCalendarButton();
+      });
+    },
+    onError: function (err) {
+      alert('Zahlung fehlgeschlagen. Bitte versuche es erneut oder kontaktiere uns.');
+    }
+  }).render('#paypal-button-container');
 }
 
 function showManualKm() {
