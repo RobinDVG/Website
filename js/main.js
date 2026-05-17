@@ -57,6 +57,45 @@ terminForm?.addEventListener('submit', (e) => {
   if (success) success.style.display = 'block';
 });
 
+// Before/After Slider
+document.querySelectorAll('.ba-slider').forEach(slider => {
+  const afterWrap = slider.querySelector('.ba-slider-after');
+  const handle = slider.querySelector('.ba-slider-handle');
+  if (!afterWrap || !handle) return;
+
+  let isDragging = false;
+
+  function setPosition(x) {
+    const rect = slider.getBoundingClientRect();
+    let pct = ((x - rect.left) / rect.width) * 100;
+    pct = Math.max(0, Math.min(100, pct));
+    afterWrap.style.clipPath = `inset(0 0 0 ${pct}%)`;
+    handle.style.left = pct + '%';
+  }
+
+  slider.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    setPosition(e.clientX);
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) setPosition(e.clientX);
+  });
+  document.addEventListener('mouseup', () => { isDragging = false; });
+
+  slider.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    setPosition(e.touches[0].clientX);
+  }, { passive: true });
+  document.addEventListener('touchmove', (e) => {
+    if (isDragging) setPosition(e.touches[0].clientX);
+  }, { passive: true });
+  document.addEventListener('touchend', () => { isDragging = false; });
+
+  // Init at 50%
+  afterWrap.style.clipPath = 'inset(0 0 0 50%)';
+});
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
