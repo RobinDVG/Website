@@ -1161,6 +1161,44 @@ footer {
   }
 }
 
+/* ─── WHATSAPP FAB ───────────────────────────────── */
+.wa-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9000;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: waPulse 2.5s ease-in-out infinite;
+}
+.wa-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.6);
+  animation: none;
+}
+.wa-fab svg { width: 30px; height: 30px; }
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+  50% { box-shadow: 0 4px 32px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.1); }
+}
+
+/* ─── NAVBAR TERMIN-BUTTON GLOW ──────────────────── */
+.nav-links .btn-gold {
+  animation: navBtnGlow 3s ease-in-out infinite;
+}
+@keyframes navBtnGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,191,0,0); }
+  50% { box-shadow: 0 0 16px 4px rgba(255,191,0,0.3); }
+}
+.nav-links .btn-gold:hover { animation: none; }
+
 /* ─── ANIMATIONS ─────────────────────────────────── */
 .fade-in {
   opacity: 0;
