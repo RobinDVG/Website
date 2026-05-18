@@ -96,6 +96,32 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
   afterWrap.style.clipPath = 'inset(0 0 0 50%)';
 });
 
+// Expandable detail items (accordion)
+document.querySelectorAll('.detail-item.expandable').forEach(item => {
+  item.addEventListener('click', () => {
+    const expand = item.nextElementSibling;
+    if (!expand || !expand.classList.contains('detail-expand')) return;
+    const wasOpen = item.classList.contains('open');
+    // Close all others in same list
+    const list = item.closest('.detail-list');
+    if (list) {
+      list.querySelectorAll('.detail-item.open').forEach(other => {
+        other.classList.remove('open');
+        other.nextElementSibling?.classList.remove('open');
+      });
+    }
+    // Toggle current
+    if (!wasOpen) {
+      item.classList.add('open');
+      expand.classList.add('open');
+      // Scroll into view if needed
+      setTimeout(() => {
+        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 150);
+    }
+  });
+});
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {

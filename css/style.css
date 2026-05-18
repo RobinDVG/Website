@@ -839,7 +839,92 @@ footer {
   font-size: 1rem;
   flex-shrink: 0;
 }
-.detail-item-text { font-size: 0.88rem; font-weight: 500; }
+.detail-item-text { font-size: 0.88rem; font-weight: 500; flex: 1; }
+
+/* Expandable detail items (accordion) */
+.detail-item.expandable { cursor: pointer; }
+.detail-item.expandable:hover {
+  border-color: var(--gold);
+  background: var(--bg-3);
+}
+.detail-item-arrow {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  transition: transform 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.detail-item.expandable:hover .detail-item-arrow { color: var(--gold); }
+.detail-item.open { border-color: var(--gold); background: var(--bg-3); border-bottom-left-radius: 0; border-bottom-right-radius: 0; margin-bottom: 0; }
+.detail-item.open .detail-item-arrow { transform: rotate(90deg); color: var(--gold); }
+.detail-item.open + .detail-expand { margin-top: -12px; }
+
+.detail-expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+.detail-expand.open {
+  grid-template-rows: 1fr;
+}
+.detail-expand-inner {
+  overflow: hidden;
+}
+.detail-expand-content {
+  padding: 24px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  margin-bottom: 12px;
+}
+.detail-expand-content p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.detail-expand-content p:last-child { margin-bottom: 0; }
+.detail-expand-content strong { color: var(--text); font-weight: 600; }
+.detail-expand-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+.detail-expand-content ul li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 4px 0 4px 20px;
+  position: relative;
+  line-height: 1.7;
+}
+.detail-expand-content ul li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.65rem;
+  top: 7px;
+}
+.detail-media-placeholder {
+  background: var(--bg-2);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+  margin-top: 8px;
+}
+.detail-media-placeholder span {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  opacity: 0.4;
+}
+.detail-media-placeholder small {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
 
 /* Info box */
 .info-box {
