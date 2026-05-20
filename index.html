@@ -54,7 +54,11 @@
 
 <!-- ── HERO ───────────────────────────────────────── -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="img/hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-glow"></div>
   <div class="container">
     <div class="hero-content">
@@ -265,46 +269,70 @@
 <section class="section" id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-img fade-in" style="padding:0;">
-        <img src="img/hero-workshop.jpg" alt="RV Detailing Werkstatt – Fahrzeug unter Hex-Licht" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);" />
+
+      <!-- Foto-Platzhalter – wird durch Robin's Foto ersetzt -->
+      <div class="fade-in" style="position:relative;">
+        <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:3/4;background:var(--bg-3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
+          <span style="font-size:3rem;opacity:0.3;">📸</span>
+          <span style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;">Foto folgt</span>
+        </div>
+        <div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(10,10,10,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;backdrop-filter:blur(10px);">
+          <div style="font-size:0.7rem;color:var(--gold);font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:4px;">Robin Dovgan</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:600;">Gründer & Inhaber, RV Detailing</div>
+          <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">20 Jahre alt · Brandenburg an der Havel</div>
+        </div>
       </div>
+
       <div class="fade-in">
-        <span class="section-label">Über uns</span>
-        <h2 class="section-title">Warum RV – Detailing?</h2>
+        <span class="section-label">Wer steckt dahinter</span>
+        <h2 class="section-title">Leidenschaft seit dem 15. Lebensjahr.</h2>
         <div class="gold-divider"></div>
-        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.8;margin-bottom:8px;">
-          Bei RV Detailing verstehen wir Fahrzeugpflege nicht als einfache Reinigung –
-          sondern als Handwerk. Jedes Fahrzeug, das uns anvertraut wird, behandeln wir
-          mit der gleichen Sorgfalt und Leidenschaft wie unser eigenes.
+
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.9;margin-bottom:16px;">
+          Ich bin Robin, 20 Jahre alt – und Autos sind seit ich denken kann mein Ding.
+          Mit 15 habe ich angefangen, die Autos meiner Eltern zu reinigen. Nicht weil ich musste,
+          sondern weil es mir Spaß gemacht hat. Als ich dann mein erstes eigenes Auto hatte,
+          war es klar: Das ist mehr als ein Hobby. Das ist meine Leidenschaft.
         </p>
-        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.8;margin-bottom:24px;">
-          Mit professionellen Produkten, modernen Techniken und einem Auge fürs Detail
-          erzielen wir Ergebnisse, die für sich sprechen.
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.9;margin-bottom:24px;">
+          Seit August 2025 betreibe ich RV Detailing offiziell – und ich freue mich über jeden
+          Kunden, der mit einem strahlenden Fahrzeug wieder nach Hause fährt.
+          Der Kunde steht bei mir immer an erster Stelle. Sollte mal etwas nicht perfekt klappen,
+          werde ich immer eine Lösung finden, die für beide Seiten passt. Das ist mein Versprechen.
         </p>
+
         <div class="about-points">
+          <div class="about-point">
+            <div class="about-point-icon">🏭</div>
+            <div>
+              <div class="about-point-title">Eigene gesicherte Halle</div>
+              <div class="about-point-text">Privatgelände mit Videoüberwachung, 2 Einstellplätze für dein Fahrzeug & Hebebühne für Unterbodenarbeiten.</div>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">🚐</div>
+            <div>
+              <div class="about-point-title">Auch mobil bei dir vor Ort</div>
+              <div class="about-point-text">Mit vollausgestattetem Detailing-Bus komme ich direkt zu dir – nach Hause, zur Arbeit oder zum Stellplatz.</div>
+            </div>
+          </div>
           <div class="about-point">
             <div class="about-point-icon">🔬</div>
             <div>
-              <div class="about-point-title">Professionelle Produkte</div>
-              <div class="about-point-text">Ausschließlich hochwertige Profi-Mittel für optimale Ergebnisse.</div>
+              <div class="about-point-title">Nur getestete Profi-Produkte</div>
+              <div class="about-point-text">Ich arbeite ausschließlich mit Produkten, die ich vorher selbst an meinen eigenen Fahrzeugen getestet habe. Keine Experimente auf Kosten deines Autos.</div>
             </div>
           </div>
           <div class="about-point">
-            <div class="about-point-icon">📍</div>
+            <div class="about-point-icon">🔧</div>
             <div>
-              <div class="about-point-title">Mobil zu dir</div>
-              <div class="about-point-text">Mit unserem Detailing-Bus kommen wir direkt zu dir nach Hause oder zur Arbeit.</div>
-            </div>
-          </div>
-          <div class="about-point">
-            <div class="about-point-icon">💬</div>
-            <div>
-              <div class="about-point-title">Persönliche Beratung</div>
-              <div class="about-point-text">Wir beraten dich individuell und finden die perfekte Lösung für dein Fahrzeug.</div>
+              <div class="about-point-title">Hebebühne & Profiausrüstung</div>
+              <div class="about-point-text">Dank eigener Hebebühne biete ich auch Unterbodenreinigung, -versiegelung und Korrosionsschutz an – mit professionellem Gerät.</div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
