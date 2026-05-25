@@ -1,3 +1,16 @@
+// Promo Bar
+(function() {
+  const bar = document.createElement('div');
+  bar.className = 'promo-bar';
+  const msg = '✦ Mai Aktion &ndash; 10&nbsp;% Rabatt auf alle Pakete! &nbsp;&nbsp;&nbsp; ✦ Jetzt Termin sichern &nbsp;&nbsp;&nbsp;';
+  let html = '';
+  for (let i = 0; i < 10; i++) html += `<span class="promo-bar-item">${msg}</span>`;
+  bar.innerHTML = `<div class="promo-bar-track">${html}</div>`;
+  document.body.insertBefore(bar, document.body.firstChild);
+  const nav = document.querySelector('.navbar');
+  if (nav) nav.style.top = '36px';
+})();
+
 // Navbar scroll effect
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
