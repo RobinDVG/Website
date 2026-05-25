@@ -135,7 +135,7 @@ ul { list-style: none; }
 .promo-bar-track {
   display: flex;
   white-space: nowrap;
-  animation: promoScroll 22s linear infinite;
+  animation: promoScroll 44s linear infinite;
 }
 .promo-bar-item {
   font-family: 'Montserrat', sans-serif;

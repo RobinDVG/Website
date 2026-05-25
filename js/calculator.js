@@ -1,6 +1,6 @@
 // ── RV Detailing – Dynamischer Preisrechner ──────────────────────────────────
 
-const BASE = [39, 99, 179, 369]; // Paket 1–4 Basispreis
+const BASE = [39, 99, 179, 359]; // Paket 1–4 Basispreis
 
 // Fahrzeugtyp-Aufschläge [P1, P2, P3, P4]
 const VEHICLE_ADD = {
