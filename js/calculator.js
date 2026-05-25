@@ -1,18 +1,17 @@
 // ── RV Detailing – Dynamischer Preisrechner ──────────────────────────────────
 
-const BASE = [39, 89, 159, 299]; // Paket 1–4 Basispreis
+const BASE = [39, 99, 179, 369]; // Paket 1–4 Basispreis
 
 // Fahrzeugtyp-Aufschläge [P1, P2, P3, P4]
 const VEHICLE_ADD = {
-  'Kleinwagen':             [0,   0,   0,   0  ],
-  'Limousine':              [5,   15,  30,  50 ],
-  'Kombi':                  [5,   15,  30,  50 ],
-  'Coupé / Cabrio':         [5,   15,  30,  50 ],
-  'SUV / Geländewagen':     [10,  20,  35,  55 ],
-  'Sprinter / Transporter': [5,   15,  30,  50 ],
-  '7-Sitzer / Minivan':     [0,   10,  10,  10 ],
-  '9-Sitzer / Großvan':     [15,  40,  50,  90 ],
-  'Wohnwagen':              null,
+  'Kleinwagen':             [0,   0,   0,   0   ],
+  'Limousine':              [5,   20,  40,  70  ],
+  'Kombi':                  [5,   20,  40,  70  ],
+  'Coupé / Cabrio':         [5,   20,  40,  70  ],
+  'SUV / Geländewagen':     [12,  30,  50,  90  ],
+  'Sprinter / Transporter': [8,   20,  40,  70  ],
+  '7-Sitzer / Minivan':     [12,  35,  60,  100 ],
+  '9-Sitzer / Großvan':     [20,  55,  70,  120 ],
   'Bus / Kleinbus':         null,
   'Truck / LKW':            null,
 };
