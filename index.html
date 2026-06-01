@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -73,7 +73,7 @@
       </p>
       <div class="hero-ctas">
         <a href="buchen.html" class="btn btn-gold">Termin buchen &rarr;</a>
-        <a href="dienstleistungen.html" class="btn btn-outline">Alle Leistungen</a>
+        <a href="#services" class="btn btn-outline">Alle Leistungen</a>
       </div>
       <div class="hero-stats">
         <div>
@@ -187,16 +187,16 @@
         </div>
       </div>
       <div class="service-card fade-in">
-        <div class="service-card-img" style="background:var(--bg-3);display:flex;align-items:center;justify-content:center;"><span style="font-size:3rem;">📦</span></div>
+        <div class="service-card-img" style="background:var(--bg-3);display:flex;align-items:center;justify-content:center;"><span style="font-size:3rem;">💎</span></div>
         <div class="service-card-body">
-          <h3 class="service-card-title">Pakete & Sonderleistungen</h3>
-          <p class="service-card-text">4 maßgeschneiderte Gesamtpakete sowie eine Vielzahl an Sonderleistungen für jeden Bedarf.</p>
-          <a href="pakete.html" class="service-card-link">Alle Pakete →</a>
+          <h3 class="service-card-title">Ceramic Coating & Versiegelungen</h3>
+          <p class="service-card-text">Lack, Glas, Felgen und Innenraum versiegelt – mit Produktauswahl und Erklärung zu jedem Bereich.</p>
+          <a href="versiegelungen.html" class="service-card-link">Mehr erfahren →</a>
         </div>
       </div>
     </div>
     <div style="text-align:center; margin-top:48px;">
-      <a href="dienstleistungen.html" class="btn btn-outline">Alle Leistungen ansehen</a>
+      <a href="#services" class="btn btn-outline">Alle Leistungen ansehen</a>
     </div>
   </div>
 </section>
@@ -250,11 +250,22 @@
       <div class="paket-card fade-in">
         <div class="paket-number">Paket 04</div>
         <div class="paket-name">Neuwagen Paket</div>
-        <div class="paket-price">ab 359 € <small>*</small></div>
+        <div class="paket-price">ab 399 € <small>*</small></div>
         <ul class="paket-features">
           <li class="paket-feature">Alles aus Paket 3</li>
           <li class="paket-feature">Lackfinish Politur</li>
           <li class="paket-feature">Nassreinigung gesamter Teppich</li>
+        </ul>
+        <a href="pakete.html" class="btn btn-dark" style="width:100%;justify-content:center;">Details →</a>
+      </div>
+      <div class="paket-card fade-in">
+        <div class="paket-number">Paket 05</div>
+        <div class="paket-name">Smoker Detox</div>
+        <div class="paket-price">ab 249 € <small>*</small></div>
+        <ul class="paket-features">
+          <li class="paket-feature">Tiefenreinigung mit Nass- & Dampfsauger</li>
+          <li class="paket-feature">Ozonbehandlung</li>
+          <li class="paket-feature">Dachhimmel Feuchtreinigung</li>
         </ul>
         <a href="pakete.html" class="btn btn-dark" style="width:100%;justify-content:center;">Details →</a>
       </div>
@@ -268,26 +279,31 @@
 <!-- ── ÜBER UNS ───────────────────────────────────── -->
 <section class="section" id="about">
   <div class="container">
-    <div class="about-grid">
 
-      <!-- Foto-Platzhalter – wird durch Robin's Foto ersetzt -->
-      <div class="fade-in" style="position:relative;">
-        <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:3/4;background:var(--bg-3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
-          <span style="font-size:3rem;opacity:0.3;">📸</span>
-          <span style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;">Foto folgt</span>
-        </div>
-        <div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(10,10,10,0.9);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;backdrop-filter:blur(10px);">
-          <div style="font-size:0.7rem;color:var(--gold);font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:4px;">Robin Dovgan</div>
-          <div style="font-size:0.85rem;color:var(--text);font-weight:600;">Gründer & Inhaber · RV Detailing</div>
-          <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Brandenburg an der Havel</div>
-        </div>
+    <!-- Label & Titel -->
+    <div class="section-header fade-in" style="margin-bottom:36px;">
+      <span class="section-label">Über RV Detailing</span>
+      <h2 class="section-title">Präzision. Anspruch. Ergebnis.</h2>
+      <div class="gold-divider"></div>
+    </div>
+
+    <!-- Bild: volles Querformat -->
+    <div class="fade-in" style="position:relative;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:52px;">
+      <img src="img/about.jpg" alt="Robin Dovgan mit Porsche – RV Detailing"
+           style="width:100%;height:auto;display:block;max-height:520px;object-fit:cover;object-position:center 30%;">
+      <!-- Gradient unten: weich in Hintergrund -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent 50%, var(--bg) 100%);pointer-events:none;"></div>
+      <!-- Name Badge unten links -->
+      <div style="position:absolute;bottom:28px;left:32px;background:rgba(6,6,16,0.88);border:1px solid rgba(255,191,0,0.3);border-radius:var(--radius);padding:14px 20px;backdrop-filter:blur(14px);">
+        <div style="font-size:0.65rem;color:var(--gold);font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3px;">Robin Dovgan</div>
+        <div style="font-size:0.85rem;color:var(--text);font-weight:600;">Gründer & Inhaber · RV Detailing</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">Brandenburg an der Havel</div>
       </div>
+    </div>
 
-      <div class="fade-in">
-        <span class="section-label">Über RV Detailing</span>
-        <h2 class="section-title">Präzision. Anspruch. Ergebnis.</h2>
-        <div class="gold-divider"></div>
-
+    <!-- Text & Punkte nebeneinander -->
+    <div class="about-grid fade-in">
+      <div>
         <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.9;margin-bottom:16px;">
           Fahrzeugpflege auf höchstem Niveau ist kein Zufall – sie ist das Ergebnis jahrelanger
           Erfahrung, konsequenter Weiterentwicklung und eines kompromisslosen Qualitätsanspruchs.
@@ -295,47 +311,45 @@
           von Fahrzeugen – was als handwerkliches Interesse begann, ist heute ein eigenständiger
           Betrieb mit professioneller Infrastruktur und klarem Fokus.
         </p>
-        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.9;margin-bottom:24px;">
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.9;">
           Jedes Fahrzeug, das mir anvertraut wird, behandle ich mit derselben Sorgfalt und
           Präzision, die ich selbst erwarten würde. Kundenzufriedenheit ist dabei keine Floskel –
-          sie ist der Maßstab, an dem ich meine Arbeit messe. Sollte einmal etwas nicht den
-          Erwartungen entsprechen, steht eine lösungsorientierte und faire Klärung selbstverständlich
-          an erster Stelle.
+          sie ist der Maßstab, an dem ich meine Arbeit messe.
         </p>
+      </div>
 
-        <div class="about-points">
-          <div class="about-point">
-            <div class="about-point-icon">🏢</div>
-            <div>
-              <div class="about-point-title">Gesichertes Betriebsgelände</div>
-              <div class="about-point-text">Videoüberwachtes Privatgelände mit zwei überdachten Einstellplätzen und professioneller Werkstattinfrastruktur.</div>
-            </div>
+      <div class="about-points">
+        <div class="about-point">
+          <div class="about-point-icon">🏢</div>
+          <div>
+            <div class="about-point-title">Gesichertes Betriebsgelände</div>
+            <div class="about-point-text">Videoüberwachtes Privatgelände mit zwei überdachten Einstellplätzen und professioneller Werkstattinfrastruktur.</div>
           </div>
-          <div class="about-point">
-            <div class="about-point-icon">🔩</div>
-            <div>
-              <div class="about-point-title">Hebebühne & Vollausstattung</div>
-              <div class="about-point-text">Eigene Hebebühne ermöglicht professionelle Unterbodenreinigung, -versiegelung und Korrosionsschutz – standardmäßig in der Werkstatt integriert.</div>
-            </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-icon">🔩</div>
+          <div>
+            <div class="about-point-title">Hebebühne & Vollausstattung</div>
+            <div class="about-point-text">Eigene Hebebühne ermöglicht professionelle Unterbodenreinigung, -versiegelung und Korrosionsschutz.</div>
           </div>
-          <div class="about-point">
-            <div class="about-point-icon">🚐</div>
-            <div>
-              <div class="about-point-title">Mobiler Vor-Ort-Service</div>
-              <div class="about-point-text">Auf Wunsch komme ich mit dem vollausgestatteten Detailing-Fahrzeug direkt zu Ihnen – diskret, flexibel und ohne Umwege.</div>
-            </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-icon">🚐</div>
+          <div>
+            <div class="about-point-title">Mobiler Vor-Ort-Service</div>
+            <div class="about-point-text">Auf Wunsch komme ich mit dem vollausgestatteten Detailing-Fahrzeug direkt zu Ihnen.</div>
           </div>
-          <div class="about-point">
-            <div class="about-point-icon">✦</div>
-            <div>
-              <div class="about-point-title">Ausschließlich geprüfte Produkte</div>
-              <div class="about-point-text">Ich verwende ausschließlich Mittel renommierter Hersteller, die ich vorab an eigenen Fahrzeugen erprobt habe. Qualitätskontrolle beginnt lange vor dem Kundenauftrag.</div>
-            </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-icon">✦</div>
+          <div>
+            <div class="about-point-title">Ausschließlich geprüfte Produkte</div>
+            <div class="about-point-text">Nur Mittel renommierter Hersteller, vorab an eigenen Fahrzeugen erprobt.</div>
           </div>
         </div>
       </div>
-
     </div>
+
   </div>
 </section>
 
@@ -479,7 +493,7 @@
         <ul class="footer-links">
           <li><a href="#about">Über uns</a></li>
           <li><a href="#reviews">Bewertungen</a></li>
-          <li><a href="termin.html">Termin buchen</a></li>
+          <li><a href="buchen.html">Termin buchen</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
         </ul>
       </div>
@@ -560,7 +574,7 @@
       "name": "Was kostet eine Fahrzeugaufbereitung in Brandenburg?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Die Kosten hängen vom Fahrzeug und dem gewünschten Leistungsumfang ab. Unser Basic Refresh startet ab 39 €, das Comfort Care Paket ab 99 €, Premium Shine ab 179 € und das Neuwagen-Paket ab 359 €. Für eine genaue Einschätzung einfach Termin anfragen."
+        "text": "Die Kosten hängen vom Fahrzeug und dem gewünschten Leistungsumfang ab. Unser Basic Refresh startet ab 39 €, das Comfort Care Paket ab 99 €, Premium Shine ab 179 € und das Neuwagen-Paket ab 399 €. Für eine genaue Einschätzung einfach Termin anfragen."
       }
     },
     {
@@ -598,7 +612,7 @@
   ]
 }
 </script>
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=3"></script>
 <script src="js/reviews.js"></script>
 <script src="js/cookie-consent.js"></script>
 </body>

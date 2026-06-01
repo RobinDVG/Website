@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+@import url('fonts.css'); /* Lokal gehostet – kein Google-Server-Kontakt (DSGVO) */
 
 :root {
   --gold: #ffbf00;
@@ -62,6 +62,8 @@ ul { list-style: none; }
 .btn-gold {
   background: var(--gold-gradient);
   color: #000;
+  font-weight: 800;
+  text-shadow: none;
 }
 .btn-gold:hover {
   transform: translateY(-2px);
@@ -1233,6 +1235,7 @@ footer {
 /* ─── NAVBAR TERMIN-BUTTON GLOW ──────────────────── */
 .nav-links .btn-gold {
   animation: navBtnGlow 3s ease-in-out infinite;
+  color: #000 !important;
 }
 @keyframes navBtnGlow {
   0%, 100% { box-shadow: 0 0 0 0 rgba(255,191,0,0); }

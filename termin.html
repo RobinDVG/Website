@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -18,7 +18,7 @@
     <div class="navbar-inner">
       <a href="index.html" class="logo">RV – <span>Detailing</span><small>Professionelle Fahrzeugaufbereitung</small></a>
       <ul class="nav-links">
-        <li><a href="dienstleistungen.html">Leistungen</a></li>
+        <li><a href="index.html#services">Leistungen</a></li>
         <li><a href="pakete.html">Pakete</a></li>
         <li><a href="index.html#about">Über uns</a></li>
         <li><a href="index.html#reviews">Bewertungen</a></li>
@@ -30,7 +30,7 @@
 </nav>
 
 <div class="mobile-menu">
-  <a href="dienstleistungen.html">Leistungen</a>
+  <a href="index.html#services">Leistungen</a>
   <a href="pakete.html">Pakete</a>
   <a href="index.html#about">Über uns</a>
   <a href="index.html#reviews">Bewertungen</a>
@@ -195,8 +195,29 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=2"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL1rEJ84KtBjSod7Ms48pJsrkHEWslHrs&libraries=places&callback=initGMaps" async defer></script>
+<script src="js/main.js?v=3"></script>
+<script>
+/* Google Maps nur laden wenn Nutzer zugestimmt hat (DSGVO) */
+(function() {
+  function loadGMaps() {
+    var s = document.createElement('script');
+    s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDL1rEJ84KtBjSod7Ms48pJsrkHEWslHrs&libraries=places&callback=initGMaps';
+    s.async = true; s.defer = true;
+    document.head.appendChild(s);
+  }
+  var consent = localStorage.getItem('rv_cookie_consent');
+  if (consent) {
+    try {
+      var c = JSON.parse(consent);
+      if (c.consent === 'all') { loadGMaps(); return; }
+    } catch(e) {}
+  }
+  // Warte auf Consent-Event falls Banner noch nicht bestätigt
+  window.addEventListener('rv_consent_given', function(e) {
+    if (e.detail && e.detail.all) loadGMaps();
+  });
+})();
+</script>
 <script type="text/javascript">
   (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = api;p(api, ar);p(cal, [L, api]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", {origin:"https://cal.com"});

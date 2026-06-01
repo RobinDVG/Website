@@ -346,7 +346,7 @@ function renderSuccess() {
 // ── Init ──
 function initBooking() {
   var paket = new URLSearchParams(window.location.search).get('paket');
-  var valid = ['1', '2', '3', '4', 'wohnmobil'];
+  var valid = ['1', '2', '3', '4', '5', 'wohnmobil'];
   if (!paket || valid.indexOf(paket) === -1) {
     window.location.replace('buchen.html');
     return;
@@ -362,6 +362,7 @@ function initBooking() {
     '2': 'Paket 02 – Comfort Care',
     '3': 'Paket 03 – Premium Shine',
     '4': 'Paket 04 – Neuwagen Paket',
+      '5': 'Paket 05 – Smoker Detox',
     'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)'
   };
 

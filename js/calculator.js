@@ -1,17 +1,17 @@
 // ── RV Detailing – Dynamischer Preisrechner ──────────────────────────────────
 
-const BASE = [39, 99, 179, 359]; // Paket 1–4 Basispreis
+const BASE = [39, 99, 179, 399, 249]; // Paket 1–5 Basispreis
 
-// Fahrzeugtyp-Aufschläge [P1, P2, P3, P4]
+// Fahrzeugtyp-Aufschläge [P1, P2, P3, P4, P5]
 const VEHICLE_ADD = {
-  'Kleinwagen':             [0,   0,   0,   0   ],
-  'Limousine':              [5,   20,  40,  70  ],
-  'Kombi':                  [5,   20,  40,  70  ],
-  'Coupé / Cabrio':         [5,   20,  40,  70  ],
-  'SUV / Geländewagen':     [12,  30,  50,  90  ],
-  'Sprinter / Transporter': [8,   20,  40,  70  ],
-  '7-Sitzer / Minivan':     [12,  35,  60,  100 ],
-  '9-Sitzer / Großvan':     [20,  55,  70,  120 ],
+  'Kleinwagen':             [0,   0,   0,   0,    0   ],
+  'Limousine':              [5,   20,  40,  80,   50  ],
+  'Kombi':                  [5,   20,  40,  80,   50  ],
+  'Coupé / Cabrio':         [5,   20,  40,  80,   50  ],
+  'SUV / Geländewagen':     [12,  30,  50,  110,  60  ],
+  'Sprinter / Transporter': [8,   20,  40,  80,   0   ],
+  '7-Sitzer / Minivan':     [12,  35,  60,  120,  100 ],
+  '9-Sitzer / Großvan':     [20,  55,  70,  150,  150 ],
   'Bus / Kleinbus':         null,
   'Truck / LKW':            null,
 };
@@ -55,8 +55,9 @@ function renderPrices(vehicleKey, condKey) {
       return;
     }
 
-    const final = calcPrice(BASE[idx], adds[idx], pct);
-    const hasCondBonus = pct > 0;
+    const effectivePct = idx === 4 ? 0 : pct; // Paket 5: kein Zustandsaufschlag
+    const final = calcPrice(BASE[idx], adds[idx], effectivePct);
+    const hasCondBonus = effectivePct > 0;
     const hasVehicleBonus = adds[idx] > 0;
 
     let badge = '';

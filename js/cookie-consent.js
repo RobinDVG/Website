@@ -62,12 +62,14 @@
     document.getElementById('cookie-accept-all').addEventListener('click', function () {
       setConsent('all');
       hideOverlay();
+      window.dispatchEvent(new CustomEvent('rv_consent_given', { detail: { all: true } }));
     });
 
     document.getElementById('cookie-save').addEventListener('click', function () {
       var functional = document.getElementById('cookie-functional').checked;
       setConsent(functional ? 'all' : 'necessary');
       hideOverlay();
+      if (functional) window.dispatchEvent(new CustomEvent('rv_consent_given', { detail: { all: true } }));
     });
 
     document.getElementById('cookie-reject').addEventListener('click', function () {
