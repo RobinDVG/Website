@@ -121,37 +121,6 @@ ul { list-style: none; }
 }
 .gold-divider.center { margin: 20px auto; }
 
-/* ─── PROMO BAR ──────────────────────────────────── */
-.promo-bar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1100;
-  background: var(--gold);
-  height: 36px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-.promo-bar-track {
-  display: flex;
-  white-space: nowrap;
-  animation: promoScroll 44s linear infinite;
-}
-.promo-bar-item {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #111;
-  padding: 0 32px;
-  flex-shrink: 0;
-}
-@keyframes promoScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
 /* ─── NAVBAR ─────────────────────────────────────── */
 .navbar {
   position: fixed;
