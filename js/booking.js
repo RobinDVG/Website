@@ -378,10 +378,27 @@ function initBooking() {
   }
 
   // Extras anhängen (vom Upsell-Modal)
+  var EXTRA_BUNDLE_PRICES = {
+    'Scheinwerfer Aufbereitung':       45,
+    'Scheibenversiegelung (3–4 Mon.)': 13,
+    'Chromleisten Politur':            59,
+    'Felgen Ceramic Spray':            35,
+    'Motorraum Reinigung':             59
+  };
+
   if (extras) {
     var extraList = extras.split(',').map(function(e) { return decodeURIComponent(e.trim()); }).filter(Boolean);
     if (extraList.length) {
-      selectedPaket += '\n+ Extras: ' + extraList.join(', ');
+      var extraTotal = 0;
+      extraList.forEach(function(name) {
+        var p = EXTRA_BUNDLE_PRICES[name] || 0;
+        extraTotal += p;
+        selectedPaket += '\n+ ' + name + (p ? ' (ab ' + p + ' €)' : '');
+      });
+      var basePrice = parseInt(selectedPreis, 10);
+      if (basePrice > 0 && extraTotal > 0) {
+        selectedPaket += '\nGesamt: ab ' + (basePrice + extraTotal) + ' €';
+      }
     }
   }
 
