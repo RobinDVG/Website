@@ -17,12 +17,12 @@ const CATEGORIES = [
     id: 'glas', icon: '🪟', title: 'Glasversiegelung', group: 'außen',
     desc: 'Speziell für Scheiben entwickelt – Regen perlt ab, Sicht bleibt kristallklar.',
     products: [
-      { name: 'Gtechniq G5 Water Repellent', tag: 'Kurzzeit', tagColor: '#4caf50', duration: '3–6 Monate', badge: null, price: 'ab 49 €',
-        desc: 'Schnell aufgetragener Glasschutz für alle Scheiben. Regen perlt zuverlässig ab, die Nachtsicht verbessert sich spürbar – ideal als regelmäßige Auffrischung.',
+      { name: 'Scheibenversiegelung', tag: 'Basis', tagColor: '#4caf50', duration: '3–4 Monate', badge: null, price: 'ab 19 €',
+        desc: 'Einfache Scheibenversiegelung für alle Scheiben. Regen perlt ab, die Sicht verbessert sich – ideal zur regelmäßigen Auffrischung.',
         features: ['Alle Scheiben', 'Regen perlt ab', 'Bessere Nachtsicht', 'Schnelle Anwendung', 'Reduziert Eisbildung'] },
-      { name: 'Gtechniq G1 ClearVision Smart Glass', tag: 'Profi-Langzeit', tagColor: '#ffbf00', duration: '1–2+ Jahre', badge: '🏆 Empfohlen', price: 'ab 89 €',
-        desc: 'Speziell für Scheiben entwickeltes Langzeit-Coating. Stärker als jedes Lack-Coating auf Glas – optimiert für Scheibenwischer, kein Rattern, keine Schlieren.',
-        features: ['Entwickelt für Glas & Wischer', 'Starke Wasserabweisung bei Tempo', 'Keine Schlieren, kein Rattern', 'UV-Schutz für Gummidichtungen', '1–2+ Jahre Haltbarkeit'] }
+      { name: 'Gtechniq G1 ClearVision Smart Glass', tag: 'Profi-Langzeit', tagColor: '#ffbf00', duration: '1–2+ Jahre', badge: '🏆 Empfohlen', price: 'ab 149 €',
+        desc: 'Speziell für Scheiben entwickeltes Langzeit-Coating. Preis gilt für die Frontscheibe – für alle Scheiben individuell vor Ort abklären.',
+        features: ['Frontscheibe ab 149 €', 'Alle Scheiben: Preis vor Ort', 'Starke Wasserabweisung bei Tempo', 'Keine Schlieren, kein Rattern', '1–2+ Jahre Haltbarkeit'] }
     ]
   },
   {
@@ -32,19 +32,19 @@ const CATEGORIES = [
       { name: 'Felgen Spray Coat', tag: 'Basis', tagColor: '#4caf50', duration: '3 Monate', badge: null, price: 'ab 39 €',
         desc: 'Sprühversiegelung für Felgen. Bremsenstaub und Straßenschmutz lassen sich deutlich leichter abwaschen.',
         features: ['Schnelle Anwendung', 'Bremsenstaub-Abweisung', 'Für alle Felgentypen', 'Schmutzabweisend', 'Einfach nachzupflegen'] },
-      { name: "Adam's Advanced Graphene Ceramic", tag: 'Keramik-Langzeit', tagColor: '#ffbf00', duration: '9+ Jahre laut Hersteller', badge: '🏆 Empfohlen', price: 'ab 179 €',
-        desc: 'Dasselbe Profi-Coating wie auf dem Lack – auch auf Felgen. Hitzeresistent, chemikalienbeständig, Bremsenstaub perlt einfach ab.',
-        features: ['Hitze- & chemikalienbeständig', 'Bremsenstaub perlt ab', 'Für alle Felgentypen', 'Einfache Reinigung', 'Langzeitschutz'] }
+      { name: 'Gtechniq C5 Wheel Armour', tag: 'Keramik-Langzeit', tagColor: '#ffbf00', duration: '12+ Monate', badge: '🏆 Empfohlen', price: 'ab 199 €',
+        desc: 'Professionelle Silizium-Keramikversiegelung speziell für Felgen, Bremszylinder und Auspuffendrohre. Hitzeresistent bis 900 °C – Bremsenstaub und Straßenschmutz perlen einfach ab. Preis gilt für alle 4 Felgen (Außenseite); mit Innenseite je nach Aufwand mehr.',
+        features: ['Hitzeresistent bis 900 °C', 'Bremsenstaub perlt ab', 'Chemikalienbeständig', 'Für alle Felgentypen', 'Innenseite optional (Aufpreis)'] }
     ]
   },
   {
     id: 'sitze', icon: '🪑', title: 'Sitzversiegelung', group: 'innen',
     desc: 'Stoff- oder Ledersitze versiegelt – gegen Flecken, Abnutzung und UV.',
     products: [
-      { name: 'Gtechniq I1 Smart Fabric AB', tag: 'Für Stoffsitze', tagColor: '#4caf50', duration: '6–12 Monate', badge: null, price: 'ab 89 €',
+      { name: 'Gtechniq I1 Smart Fabric AB', tag: 'Für Stoffsitze', tagColor: '#4caf50', duration: '6–12 Monate', badge: null, price: 'Auf Anfrage',
         desc: 'Professioneller Textilschutz für Stoffsitze, Teppiche und Kofferraum. Flüssigkeiten perlen ab, Schmutz haftet schlechter – ideal direkt nach einer Nassreinigung. Bei Alcantara: bewusst kein Schutzprodukt, um die originale Haptik zu erhalten.',
         features: ['Flüssigkeiten perlen ab', 'Atmungsaktivität bleibt erhalten', 'UV-Schutz', 'Für Stoff, Velours & Kofferraum', 'Alcantara: schonende Reinigung ohne Versiegelung'] },
-      { name: 'Gtechniq L1 Leather Guard', tag: 'Für Ledersitze', tagColor: '#ffbf00', duration: '6–12 Monate', badge: '🏆 Empfohlen', price: 'ab 109 €',
+      { name: 'Gtechniq L1 Leather Guard', tag: 'Für Ledersitze', tagColor: '#ffbf00', duration: '6–12 Monate', badge: '🏆 Empfohlen', price: 'Auf Anfrage',
         desc: 'Speziell für modernes Autoleder entwickelt. Schützt vor Jeansabfärbungen, Verschleiß und UV – ohne fettige Optik. Erhält die matte Originalanmutung des Leders.',
         features: ['Schutz gegen Jeansabfärbungen', 'UV-Schutz (kein Ausbleichen)', 'Erhält matte Originaloptik', 'Antibakteriell', 'Kein fettiges Gefühl'] },
       { name: 'Colourlock Leder Protector', tag: 'Premium / Älteres Leder', tagColor: '#c084fc', duration: '6–12 Monate', badge: null, price: 'ab 129 €',
@@ -56,7 +56,7 @@ const CATEGORIES = [
     id: 'teppich', icon: '🧽', title: 'Teppich-Imprägnierung', group: 'innen',
     desc: 'Teppiche und Fußmatten versiegelt – Flecken haben keine Chance.',
     products: [
-      { name: 'Gtechniq I1 Smart Fabric AB', tag: 'Profi-Imprägnierung', tagColor: '#ffbf00', duration: '6–24 Monate', badge: '🏆 Empfohlen', price: 'ab 89 €',
+      { name: 'Gtechniq I1 Smart Fabric AB', tag: 'Profi-Imprägnierung', tagColor: '#ffbf00', duration: '6–24 Monate', badge: '🏆 Empfohlen', price: 'Auf Anfrage',
         desc: 'Dasselbe Profi-Produkt wie auf den Stoffsitzen – auch für Teppiche, Fußmatten und Kofferraum. Haltbarkeit je nach Beanspruchung: Fahrerteppich ca. 6–12 Monate, Rücksitzbereich und Kofferraum bis zu 24 Monate.',
         features: ['Flüssigkeiten perlen ab', 'Schmutz haftet schlechter', 'Atmungsaktiv', 'UV-Schutz', 'Ideal nach Nassreinigung'] }
     ]
