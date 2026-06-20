@@ -1,4 +1,4 @@
-﻿// â”€â”€ RV Detailing â€“ Gewinnspiel Sitewide Banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── RV Detailing – Gewinnspiel Sitewide Banner ──────────────────
 (function () {
   if (sessionStorage.getItem('gws_dismissed')) return;
 
@@ -9,7 +9,7 @@
 
   var bonusActive = now < BONUS_END;
 
-  // â”€â”€ Styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Styles ──────────────────────────────────────────────────────
   var style = document.createElement('style');
   style.textContent = [
     '#gws-banner{position:fixed;top:0;left:0;right:0;z-index:2001;',
@@ -49,27 +49,27 @@
 
   document.head.appendChild(style);
 
-  // â”€â”€ HTML â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── HTML ────────────────────────────────────────────────────────
   var b = document.createElement('div');
   b.id = 'gws-banner';
   b.innerHTML =
     '<div class="gws-inner">' +
       '<a href="gewinnspiel.html" class="gws-link">' +
-        '<span class="gws-emo">ðŸ†</span>' +
+        '<span class="gws-emo">🏆</span>' +
         '<span class="gws-body">' +
-          (bonusActive ? '<span class="gws-tag">ðŸ”¥ BONUS LÃ„UFT AB</span>' : '') +
-          '<strong>GEWINNSPIEL</strong> â€“ Paket 3 GRATIS gewinnen (Wert 349 â‚¬)' +
-          (bonusActive ? ' Â· <strong>Doppelte Lose noch heute & morgen!</strong>' : ' Â· Bis 20.07.') +
+          (bonusActive ? '<span class="gws-tag">🔥 BONUS LÄUFT AB</span>' : '') +
+          '<strong>GEWINNSPIEL</strong> – Paket 3 GRATIS gewinnen (Wert 343 €)' +
+          (bonusActive ? ' · <strong>Doppelte Lose noch heute &amp; morgen!</strong>' : ' · Bis 20.07.') +
         '</span>' +
-        '<span class="gws-timer" id="gwsT">â€”</span>' +
-        '<span class="gws-pill">Teilnehmen â†’</span>' +
+        '<span class="gws-timer" id="gwsT">—</span>' +
+        '<span class="gws-pill">Teilnehmen →</span>' +
       '</a>' +
-      '<button class="gws-x" id="gwsX" aria-label="SchlieÃŸen">âœ•</button>' +
+      '<button class="gws-x" id="gwsX" aria-label="Schließen">✕</button>' +
     '</div>';
 
   document.body.prepend(b);
 
-  // â”€â”€ Navbar nach unten schieben â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Navbar nach unten schieben ───────────────────────────────────
   function pushNav() {
     var h = b.offsetHeight;
     var nav = document.querySelector('.navbar');
@@ -78,7 +78,7 @@
   setTimeout(pushNav, 650);
   window.addEventListener('resize', pushNav);
 
-  // â”€â”€ Countdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Countdown ───────────────────────────────────────────────────
   var target = bonusActive ? BONUS_END : GWS_END;
   function tick() {
     var diff = target - new Date();
@@ -90,13 +90,13 @@
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
     el.textContent = bonusActive
-      ? ('â° ' + pad(h) + ':' + pad(m) + ':' + pad(s))
+      ? ('⏰ ' + pad(h) + ':' + pad(m) + ':' + pad(s))
       : (d > 0 ? d + 'T ' : '') + pad(h) + ':' + pad(m) + ':' + pad(s);
   }
   function pad(n) { return String(n).padStart(2, '0'); }
   tick(); setInterval(tick, 1000);
 
-  // â”€â”€ SchlieÃŸen â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Schließen ───────────────────────────────────────────────────
   document.getElementById('gwsX').addEventListener('click', function () {
     b.style.transition = 'transform 0.3s ease,opacity 0.3s ease';
     b.style.transform = 'translateY(-100%)';
@@ -109,4 +109,3 @@
     sessionStorage.setItem('gws_dismissed', '1');
   });
 })();
-
