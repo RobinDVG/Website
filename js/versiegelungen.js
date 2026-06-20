@@ -5,10 +5,10 @@ const CATEGORIES = [
     id: 'lack', icon: '🎨', title: 'Lackversiegelung', group: 'außen',
     desc: 'Professioneller Keramikschutz für deinen Lack – hart, chemikalienbeständig, langlebig.',
     products: [
-      { name: 'Gtechniq Crystal Serum Light', tag: 'Keramik', tagColor: '#4caf50', duration: 'bis zu 5 Jahre', badge: null,
+      { name: 'Gtechniq Crystal Serum Light', tag: 'Keramik', tagColor: '#4caf50', duration: 'bis zu 5 Jahre', badge: null, price: 'ab 499 €',
         desc: 'Weltweit bewährtes Profi-Coating. Bildet eine harte keramische Schutzschicht (9H), die chemisch mit dem Lack verbunden ist – tiefer Glanz und zuverlässiger Langzeitschutz.',
         features: ['9H Keramikhärte', 'Chemikalienbeständig pH 2–12', 'Schutz gegen Waschkratzer', 'Tiefer, klarer Glanz', 'Bis zu 5 Jahre Schutz'] },
-      { name: "Adam's Advanced Graphene Ceramic", tag: 'Graphen-Keramik', tagColor: '#ffbf00', duration: '9+ Jahre laut Hersteller', badge: '🏆 Empfohlen',
+      { name: "Adam's Advanced Graphene Ceramic", tag: 'Graphen-Keramik', tagColor: '#ffbf00', duration: '9+ Jahre laut Hersteller', badge: '🏆 Empfohlen', price: 'ab 699 €',
         desc: 'Modernste Graphen-Keramik-Technologie mit extremer Hydrophobie. Wasser läuft bereits ab 10–15° Neigung ab – auch auf Felgen, Scheinwerfern, Chrom und Hochglanz-Kunststoffen einsetzbar.',
         features: ['10H+ Härte', 'Extrem hydrophob', 'Hoher Selbstreinigungseffekt', 'Resistent gegen Vogelkot, Harz & Insekten', 'Lack, Felgen, Chrom, Scheinwerfer & mehr'] }
     ]
@@ -17,10 +17,10 @@ const CATEGORIES = [
     id: 'glas', icon: '🪟', title: 'Glasversiegelung', group: 'außen',
     desc: 'Speziell für Scheiben entwickelt – Regen perlt ab, Sicht bleibt kristallklar.',
     products: [
-      { name: 'Gtechniq G5 Water Repellent', tag: 'Kurzzeit', tagColor: '#4caf50', duration: '3–6 Monate', badge: null,
+      { name: 'Gtechniq G5 Water Repellent', tag: 'Kurzzeit', tagColor: '#4caf50', duration: '3–6 Monate', badge: null, price: 'ab 49 €',
         desc: 'Schnell aufgetragener Glasschutz für alle Scheiben. Regen perlt zuverlässig ab, die Nachtsicht verbessert sich spürbar – ideal als regelmäßige Auffrischung.',
         features: ['Alle Scheiben', 'Regen perlt ab', 'Bessere Nachtsicht', 'Schnelle Anwendung', 'Reduziert Eisbildung'] },
-      { name: 'Gtechniq G1 ClearVision Smart Glass', tag: 'Profi-Langzeit', tagColor: '#ffbf00', duration: '1–2+ Jahre', badge: '🏆 Empfohlen',
+      { name: 'Gtechniq G1 ClearVision Smart Glass', tag: 'Profi-Langzeit', tagColor: '#ffbf00', duration: '1–2+ Jahre', badge: '🏆 Empfohlen', price: 'ab 89 €',
         desc: 'Speziell für Scheiben entwickeltes Langzeit-Coating. Stärker als jedes Lack-Coating auf Glas – optimiert für Scheibenwischer, kein Rattern, keine Schlieren.',
         features: ['Entwickelt für Glas & Wischer', 'Starke Wasserabweisung bei Tempo', 'Keine Schlieren, kein Rattern', 'UV-Schutz für Gummidichtungen', '1–2+ Jahre Haltbarkeit'] }
     ]
@@ -29,10 +29,10 @@ const CATEGORIES = [
     id: 'felgen', icon: '⚙️', title: 'Felgenversiegelung', group: 'außen',
     desc: 'Bremsenstaub und Dreck haften kaum noch – Felgen bleiben länger sauber.',
     products: [
-      { name: 'Felgen Spray Coat', tag: 'Basis', tagColor: '#4caf50', duration: '3 Monate', badge: null,
+      { name: 'Felgen Spray Coat', tag: 'Basis', tagColor: '#4caf50', duration: '3 Monate', badge: null, price: 'ab 39 €',
         desc: 'Sprühversiegelung für Felgen. Bremsenstaub und Straßenschmutz lassen sich deutlich leichter abwaschen.',
         features: ['Schnelle Anwendung', 'Bremsenstaub-Abweisung', 'Für alle Felgentypen', 'Schmutzabweisend', 'Einfach nachzupflegen'] },
-      { name: "Adam's Advanced Graphene Ceramic", tag: 'Keramik-Langzeit', tagColor: '#ffbf00', duration: '9+ Jahre laut Hersteller', badge: '🏆 Empfohlen',
+      { name: "Adam's Advanced Graphene Ceramic", tag: 'Keramik-Langzeit', tagColor: '#ffbf00', duration: '9+ Jahre laut Hersteller', badge: '🏆 Empfohlen', price: 'ab 179 €',
         desc: 'Dasselbe Profi-Coating wie auf dem Lack – auch auf Felgen. Hitzeresistent, chemikalienbeständig, Bremsenstaub perlt einfach ab.',
         features: ['Hitze- & chemikalienbeständig', 'Bremsenstaub perlt ab', 'Für alle Felgentypen', 'Einfache Reinigung', 'Langzeitschutz'] }
     ]
@@ -41,13 +41,13 @@ const CATEGORIES = [
     id: 'sitze', icon: '🪑', title: 'Sitzversiegelung', group: 'innen',
     desc: 'Stoff- oder Ledersitze versiegelt – gegen Flecken, Abnutzung und UV.',
     products: [
-      { name: 'Gtechniq I1 Smart Fabric AB', tag: 'Für Stoffsitze', tagColor: '#4caf50', duration: '6–12 Monate', badge: null,
+      { name: 'Gtechniq I1 Smart Fabric AB', tag: 'Für Stoffsitze', tagColor: '#4caf50', duration: '6–12 Monate', badge: null, price: 'ab 89 €',
         desc: 'Professioneller Textilschutz für Stoffsitze, Teppiche und Kofferraum. Flüssigkeiten perlen ab, Schmutz haftet schlechter – ideal direkt nach einer Nassreinigung. Bei Alcantara: bewusst kein Schutzprodukt, um die originale Haptik zu erhalten.',
         features: ['Flüssigkeiten perlen ab', 'Atmungsaktivität bleibt erhalten', 'UV-Schutz', 'Für Stoff, Velours & Kofferraum', 'Alcantara: schonende Reinigung ohne Versiegelung'] },
-      { name: 'Gtechniq L1 Leather Guard', tag: 'Für Ledersitze', tagColor: '#ffbf00', duration: '6–12 Monate', badge: '🏆 Empfohlen',
+      { name: 'Gtechniq L1 Leather Guard', tag: 'Für Ledersitze', tagColor: '#ffbf00', duration: '6–12 Monate', badge: '🏆 Empfohlen', price: 'ab 109 €',
         desc: 'Speziell für modernes Autoleder entwickelt. Schützt vor Jeansabfärbungen, Verschleiß und UV – ohne fettige Optik. Erhält die matte Originalanmutung des Leders.',
         features: ['Schutz gegen Jeansabfärbungen', 'UV-Schutz (kein Ausbleichen)', 'Erhält matte Originaloptik', 'Antibakteriell', 'Kein fettiges Gefühl'] },
-      { name: 'Colourlock Leder Protector', tag: 'Premium / Älteres Leder', tagColor: '#c084fc', duration: '6–12 Monate', badge: null,
+      { name: 'Colourlock Leder Protector', tag: 'Premium / Älteres Leder', tagColor: '#c084fc', duration: '6–12 Monate', badge: null, price: 'ab 129 €',
         desc: 'Premium-Alternative mit rückfettender Wirkung – ideal für älteres oder beanspruchtes Leder. Erhält die Geschmeidigkeit und beugt Rissen vor.',
         features: ['Rückfettung & Pflege', 'UV-Schutz', 'Erhält Geschmeidigkeit', 'Ideal für älteres Leder', 'Beugt Rissen vor'] }
     ]
@@ -56,7 +56,7 @@ const CATEGORIES = [
     id: 'teppich', icon: '🧽', title: 'Teppich-Imprägnierung', group: 'innen',
     desc: 'Teppiche und Fußmatten versiegelt – Flecken haben keine Chance.',
     products: [
-      { name: 'Gtechniq I1 Smart Fabric AB', tag: 'Profi-Imprägnierung', tagColor: '#ffbf00', duration: '6–24 Monate', badge: '🏆 Empfohlen',
+      { name: 'Gtechniq I1 Smart Fabric AB', tag: 'Profi-Imprägnierung', tagColor: '#ffbf00', duration: '6–24 Monate', badge: '🏆 Empfohlen', price: 'ab 89 €',
         desc: 'Dasselbe Profi-Produkt wie auf den Stoffsitzen – auch für Teppiche, Fußmatten und Kofferraum. Haltbarkeit je nach Beanspruchung: Fahrerteppich ca. 6–12 Monate, Rücksitzbereich und Kofferraum bis zu 24 Monate.',
         features: ['Flüssigkeiten perlen ab', 'Schmutz haftet schlechter', 'Atmungsaktiv', 'UV-Schutz', 'Ideal nach Nassreinigung'] }
     ]
@@ -172,6 +172,7 @@ class CoatCategories {
             <div class="product-tag" style="background:${p.tagColor}22;border-color:${p.tagColor}55;color:${p.tagColor};">${p.tag}</div>
             <div class="product-name">${p.name}</div>
             <div class="product-duration">⏱ Haltbarkeit: <strong>${p.duration}</strong></div>
+            ${p.price ? `<div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--gold);margin:8px 0 4px;">${p.price} <span style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:500;color:var(--text-muted);">je nach Fahrzeuggröße</span></div>` : ''}
             <p class="product-desc">${p.desc}</p>
             <ul class="product-features">
               ${p.features.map(f => `<li>${f}</li>`).join('')}
@@ -179,8 +180,11 @@ class CoatCategories {
           </div>`).join('')}
       </div>
       <div class="panel-note">
-        💬 Nicht sicher, welches Produkt das Richtige ist? Wir beraten dich kostenlos beim Termin.
-        <a href="termin.html" class="btn btn-gold" style="margin-top:16px;display:inline-flex;">Termin vereinbaren →</a>
+        💬 Nicht sicher, welches Produkt das Richtige ist? Wir beraten dich kostenlos – per WhatsApp oder direkt beim Termin.
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+          <a href="https://wa.me/4917655058348?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20${encodeURIComponent(cat.title)}%20bei%20RV%20Detailing." class="btn btn-gold" style="display:inline-flex;">💬 WhatsApp anfragen</a>
+          <a href="termin.html?service=${encodeURIComponent(cat.title + ' – Versiegelung')}" class="btn btn-dark" style="display:inline-flex;border-color:rgba(255,191,0,0.3);color:var(--gold);">Termin buchen →</a>
+        </div>
       </div>`;
 
     inner.querySelectorAll('.product-card').forEach(pc => {

@@ -1982,3 +1982,279 @@ footer {
   .cookie-actions { flex-direction: column; }
   .cookie-actions .btn { width: 100%; justify-content: center; }
 }
+
+/* ── ABOUT SECTION BILD ──────────────────────────────── */
+.about-img-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 52px;
+}
+.about-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.about-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 62%, var(--bg) 100%);
+  pointer-events: none;
+}
+.about-name-badge {
+  position: absolute;
+  bottom: 28px;
+  left: 32px;
+  background: rgba(6,6,16,0.88);
+  border: 1px solid rgba(255,191,0,0.3);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  backdrop-filter: blur(14px);
+}
+@media (max-width: 640px) {
+  .about-img-wrap { overflow: visible; border-radius: 0; }
+  .about-img {
+    max-height: 260px;
+    object-position: center 20%;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .about-img-overlay {
+    background: linear-gradient(to bottom, transparent 70%, rgba(10,10,10,0.55) 100%);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .about-name-badge {
+    position: static;
+    margin: 0;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    border-top: none;
+    backdrop-filter: none;
+    padding: 12px 20px;
+  }
+}
+
+/* ── POLITUR GRID (buchen.html) ──────────────────────── */
+.politur-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+.politur-card {
+  background: var(--bg-2);
+  border: 1.5px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.politur-card:hover {
+  border-color: rgba(255,191,0,0.35);
+  transform: translateY(-4px);
+}
+.politur-card-icon { font-size: 2rem; }
+.politur-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+.politur-card-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.politur-card-price small { font-size: 0.75rem; color: var(--text-muted); font-family: 'Montserrat', sans-serif; font-weight: 500; }
+.politur-card-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
+.politur-card .btn { margin-top: 4px; width: 100%; justify-content: center; }
+
+/* ── UPSELL MODAL ────────────────────────────────────── */
+#upsell-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(6px);
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+#upsell-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.upsell-modal {
+  background: var(--bg-2);
+  border: 1.5px solid rgba(255,191,0,0.3);
+  border-radius: 20px;
+  padding: 36px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: upsellIn 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+@keyframes upsellIn {
+  from { transform: translateY(28px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.upsell-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.upsell-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; }
+.upsell-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+.upsell-item:hover { border-color: rgba(255,191,0,0.3); }
+.upsell-item.checked {
+  border-color: var(--gold);
+  background: rgba(255,191,0,0.04);
+}
+.upsell-check {
+  width: 22px; height: 22px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: transparent;
+  transition: all 0.2s;
+}
+.upsell-item.checked .upsell-check {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+}
+.upsell-item-icon { font-size: 1.5rem; flex-shrink: 0; }
+.upsell-item-body { flex: 1; }
+.upsell-item-name { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.upsell-item-prices { font-size: 0.82rem; color: var(--text-muted); }
+.upsell-item-prices s { color: var(--text-dim); }
+.upsell-item-prices .upsell-bundle { color: var(--gold); font-weight: 700; margin-left: 6px; }
+.upsell-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.upsell-actions .btn { flex: 1; justify-content: center; min-width: 140px; }
+@media (max-width: 480px) {
+  .upsell-modal { padding: 24px 18px; }
+  .politur-grid { grid-template-columns: 1fr; }
+}
+
+/* ── GEWINNSPIEL PROMO CARD (Homepage) ───────────────────────────── */
+.gws-promo-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(255,191,0,0.07) 0%, rgba(255,191,0,0.02) 100%);
+  border: 1.5px solid rgba(255,191,0,0.32);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.gws-promo-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold-gradient);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.gws-promo-card:hover {
+  border-color: rgba(255,191,0,0.6);
+  box-shadow: 0 8px 40px rgba(255,191,0,0.12);
+}
+.gws-promo-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  min-width: 260px;
+}
+.gws-promo-trophy {
+  font-size: 3.8rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 20px rgba(255,191,0,0.45));
+}
+.gws-promo-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.gws-promo-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--text);
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+.gws-promo-sub {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin: 0 0 14px;
+  line-height: 1.65;
+}
+.gws-promo-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.gws-promo-chips span {
+  background: rgba(255,191,0,0.08);
+  border: 1px solid rgba(255,191,0,0.22);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.gws-chip-highlight {
+  background: rgba(255,191,0,0.15) !important;
+  border-color: rgba(255,191,0,0.45) !important;
+  color: var(--gold) !important;
+}
+.gws-promo-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .gws-promo-card { padding: 24px 20px; gap: 20px; }
+  .gws-promo-right { width: 100%; }
+  .gws-promo-right .btn { width: 100%; justify-content: center; }
+  .gws-promo-trophy { font-size: 2.8rem; }
+}

@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gewinnspiel – Paket 3 GRATIS gewinnen | RV Detailing</title>
+  <meta name="description" content="Jetzt mitmachen und Paket 3 (Wert bis 343 €) komplett gratis gewinnen. Je größer dein Paket, desto höher die Gewinnchance. Ziehung live am 22.07.2026!" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png" />
+<style>
+/* ── GEWINNSPIEL HERO ──────────────────────────────────────── */
+.gws-hero {
+  min-height: 100vh;
+  background: #060610;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 24px 80px;
+  text-align: center;
+}
+.gws-hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Animated star particles via CSS */
+.gws-star {
+  position: absolute;
+  border-radius: 50%;
+  animation: starFloat linear infinite;
+  opacity: 0;
+}
+@keyframes starFloat {
+  0%   { opacity:0; transform:translateY(0) scale(0.5); }
+  10%  { opacity:.9; }
+  90%  { opacity:.7; }
+  100% { opacity:0; transform:translateY(-110vh) scale(1); }
+}
+.gws-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* WM BONUS BADGE */
+.gws-bonus-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #b86a00, #d48a00);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 22px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  animation: stripPulse 2s ease-in-out infinite;
+}
+.gws-bonus-strip.hidden { display: none; }
+@keyframes stripPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(212,138,0,0.5); }
+  50%      { box-shadow: 0 0 0 10px rgba(212,138,0,0); }
+}
+
+.gws-trophy { font-size: clamp(4rem, 12vw, 7rem); display: block; margin-bottom: 16px; filter: drop-shadow(0 0 40px rgba(255,191,0,0.6)); }
+
+.gws-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+.gws-title .accent { color: var(--gold); }
+
+.gws-prize-box {
+  background: rgba(255,191,0,0.08);
+  border: 2px solid rgba(255,191,0,0.35);
+  border-radius: 16px;
+  padding: 20px 32px;
+  margin: 24px auto;
+  max-width: 480px;
+  display: inline-block;
+}
+.gws-prize-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.gws-prize-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.gws-prize-value {
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+/* ── COUNTDOWN ───────────────────────────────────────────── */
+.gws-cd-wrap { margin: 28px auto; }
+.gws-cd-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.gws-cd {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.gws-cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.gws-cd-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  background: rgba(255,191,0,0.08);
+  border: 1px solid rgba(255,191,0,0.25);
+  border-radius: 10px;
+  width: clamp(60px, 14vw, 90px);
+  text-align: center;
+  padding: 8px 4px;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 30px rgba(255,191,0,0.5);
+}
+.gws-cd-unit small {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.gws-cd-sep {
+  font-size: 2rem;
+  color: rgba(255,191,0,0.4);
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+
+.gws-main-cta {
+  font-size: 1.1rem !important;
+  padding: 18px 44px !important;
+  margin-top: 24px;
+  box-shadow: 0 0 0 0 rgba(255,191,0,0.5);
+  animation: ctaPulse 2.5s ease-in-out infinite;
+}
+@keyframes ctaPulse {
+  0%,100% { box-shadow: 0 8px 30px rgba(255,191,0,0.3); }
+  50%      { box-shadow: 0 8px 50px rgba(255,191,0,0.6), 0 0 0 8px rgba(255,191,0,0.07); }
+}
+
+/* ── SECTIONS ──────────────────────────────────────────────── */
+.gws-how { background: var(--bg-2); }
+.gws-tickets-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.gws-tickets-table th {
+  background: rgba(255,191,0,0.12);
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  text-align: left;
+}
+.gws-tickets-table td {
+  padding: 14px 20px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.gws-tickets-table tr:last-child td { border-bottom: none; }
+.gws-tickets-table tr:hover td { background: rgba(255,191,0,0.03); }
+.gws-tickets-table .bonus-row td { color: #d48a00; font-weight: 700; }
+.gws-tickets-table .extra-row td { color: var(--text-muted); font-style: italic; }
+.gws-tickets-table .section-divider td { background: rgba(255,191,0,0.06); color: var(--gold); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding: 10px 20px; }
+.los-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 800;
+  color: var(--text);
+}
+.los-bonus {
+  color: #d48a00;
+  font-size: 0.8rem;
+}
+.los-dots { display: flex; gap: 3px; flex-wrap: wrap; max-width: 120px; }
+.los-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); opacity: 0.8; }
+.los-dot.bonus { background: #d48a00; }
+
+/* ── URGENCY STRIP ─────────────────────────────────────────── */
+.urgency-strip {
+  background: linear-gradient(135deg, #1a1200 0%, #2a1e00 50%, #1a1200 100%);
+  border-top: 2px solid rgba(212,138,0,0.6);
+  border-bottom: 2px solid rgba(212,138,0,0.6);
+  padding: 40px 24px;
+  text-align: center;
+}
+.urgency-strip h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #fff;
+  margin-bottom: 8px;
+}
+.urgency-strip .fire { color: var(--gold); }
+
+/* ── DRINKS ────────────────────────────────────────────────── */
+.drinks-card {
+  background: linear-gradient(135deg, var(--bg-2) 0%, rgba(0,150,200,0.05) 100%);
+  border: 1.5px solid rgba(100,200,255,0.2);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.drinks-icon { font-size: 3rem; flex-shrink: 0; }
+
+/* ── LEGAL ─────────────────────────────────────────────────── */
+.legal-box {
+  background: var(--bg-2);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 28px 32px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+.legal-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+@media (max-width: 600px) {
+  .gws-hero { padding: 100px 16px 60px; }
+  .gws-cd { gap: 6px; }
+  .gws-cd-sep { display: none; }
+  .gws-tickets-table th, .gws-tickets-table td { padding: 10px 12px; font-size: 0.8rem; }
+  .drinks-card { flex-direction: column; }
+  .legal-box { padding: 20px 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar scrolled">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">RV – <span>Detailing</span><small>Professionelle Fahrzeugaufbereitung</small></a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Leistungen</a></li>
+        <li><a href="pakete.html">Pakete</a></li>
+        <li><a href="index.html#about">Über uns</a></li>
+        <li><a href="index.html#reviews">Bewertungen</a></li>
+        <li><a href="buchen.html" class="btn btn-gold">Termin buchen</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html#services">Leistungen</a>
+  <a href="pakete.html">Pakete</a>
+  <a href="index.html#about">Über uns</a>
+  <a href="index.html#reviews">Bewertungen</a>
+  <a href="buchen.html" class="btn btn-gold">Termin buchen</a>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<section class="gws-hero">
+  <canvas id="gwsParticles" class="gws-hero-particles"></canvas>
+
+  <div class="gws-hero-inner">
+
+    <!-- WM BONUS BADGE (nur bis 21.06.) -->
+    <div class="gws-bonus-strip" id="bonusStrip">
+      🔥 WM-WOCHENENDE BONUS – Buche jetzt & bekomme DOPPELTE Lose!
+    </div>
+
+    <span class="gws-trophy">🏆</span>
+
+    <h1 class="gws-title">
+      Das große<br>
+      <span class="accent">WM-Gewinnspiel</span>
+    </h1>
+
+    <div class="gws-prize-box">
+      <div class="gws-prize-label">Hauptpreis</div>
+      <div class="gws-prize-name">Paket 3 – Premium Shine</div>
+      <div class="gws-prize-value">komplett GRATIS · Wert bis zu 343 €</div>
+      <div style="margin-top:8px;font-size:0.78rem;color:var(--text-muted);line-height:1.6;">
+        Gültig für alle PKW · Als Geschenk einlösbar · Kein Barauszahlung
+      </div>
+    </div>
+
+    <!-- Countdown (Bonus oder Hauptgewinnspiel) -->
+    <div class="gws-cd-wrap">
+      <div class="gws-cd-label" id="cdLabel">WM-Bonus endet in</div>
+      <div class="gws-cd">
+        <div class="gws-cd-unit">
+          <div class="gws-cd-num" id="cdD">00</div>
+          <small id="cdDLabel">TAGE</small>
+        </div>
+        <div class="gws-cd-sep">:</div>
+        <div class="gws-cd-unit">
+          <div class="gws-cd-num" id="cdH">00</div>
+          <small>STD</small>
+        </div>
+        <div class="gws-cd-sep">:</div>
+        <div class="gws-cd-unit">
+          <div class="gws-cd-num" id="cdM">00</div>
+          <small>MIN</small>
+        </div>
+        <div class="gws-cd-sep">:</div>
+        <div class="gws-cd-unit">
+          <div class="gws-cd-num" id="cdS">00</div>
+          <small>SEK</small>
+        </div>
+      </div>
+    </div>
+
+    <a href="buchen.html" class="btn btn-gold gws-main-cta">
+      🎟️ Jetzt buchen & Lose sichern →
+    </a>
+
+    <p style="margin-top:16px;font-size:0.8rem;color:var(--text-muted);">
+      Teilnahme bis 20.07.2026 · Ziehung am 22.07.2026 · Kein Kauf erforderlich für Info-Teilnahme
+    </p>
+  </div>
+</section>
+
+<!-- ── WIE FUNKTIONIERT ES? ───────────────────────────────────── -->
+<section class="section gws-how">
+  <div class="container">
+    <div class="section-header center fade-in">
+      <span class="section-label">Spielregeln</span>
+      <h2 class="section-title">So funktioniert's</h2>
+      <div class="gold-divider center"></div>
+      <p class="section-subtitle">Einfach ein Paket buchen und automatisch Lose erhalten – je größer, desto besser deine Chancen!</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-bottom:48px;" class="fade-in">
+      <div class="service-card" style="padding:28px;text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:12px;">📅</div>
+        <div style="font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;">Schritt 1</div>
+        <h3 style="font-size:1rem;margin-bottom:8px;">Paket buchen</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);">Buche ein beliebiges Detailing-Paket online oder ruf uns an – Paket 1 bis 4.</p>
+      </div>
+      <div class="service-card" style="padding:28px;text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:12px;">🎟️</div>
+        <div style="font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;">Schritt 2</div>
+        <h3 style="font-size:1rem;margin-bottom:8px;">Lose erhalten</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);">Je nach Paket & Extras erhältst du automatisch Lose. Ausweis beim Termin nicht vergessen – Pflicht für alle Teilnehmer.</p>
+      </div>
+      <div class="service-card" style="padding:28px;text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:12px;">🏆</div>
+        <div style="font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;">Schritt 3</div>
+        <h3 style="font-size:1rem;margin-bottom:8px;">Live-Ziehung am 22.07.</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);">Die Ziehung findet live auf Instagram (<strong style="color:var(--text);">@rvs_detailer</strong>) statt – und gleichzeitig vor Ort bei RV Detailing. Alle sind herzlich eingeladen dabei zu sein!</p>
+      </div>
+    </div>
+
+    <!-- TICKETS TABLE -->
+    <div class="fade-in">
+      <table class="gws-tickets-table">
+        <thead>
+          <tr>
+            <th>Buchung</th>
+            <th>Lose normal</th>
+            <th>Lose mit WM-Bonus <span style="font-size:0.65rem;color:#d48a00;">(bis 21.06.)</span></th>
+            <th>Lose visualisiert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-divider"><td colspan="4">PKW-Pakete</td></tr>
+          <tr>
+            <td><strong style="color:var(--text);">Paket 1</strong> – Basic Refresh</td>
+            <td><span class="los-count">1 Los 🎟️</span></td>
+            <td><span class="los-count" style="color:#d48a00;">2 Lose ✨</span></td>
+            <td><div class="los-dots"><div class="los-dot"></div></div></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text);">Paket 2</strong> – Comfort Care</td>
+            <td><span class="los-count">2 Lose 🎟️🎟️</span></td>
+            <td><span class="los-count" style="color:#d48a00;">4 Lose ✨</span></td>
+            <td><div class="los-dots"><div class="los-dot"></div><div class="los-dot"></div></div></td>
+          </tr>
+          <tr style="background:rgba(255,191,0,0.04);">
+            <td><strong style="color:var(--gold);">Paket 3</strong> – Premium Shine ⭐</td>
+            <td><span class="los-count">4 Lose 🎟️🎟️🎟️🎟️</span></td>
+            <td><span class="los-count" style="color:#d48a00;">8 Lose ✨</span></td>
+            <td><div class="los-dots"><div class="los-dot"></div><div class="los-dot"></div><div class="los-dot"></div><div class="los-dot"></div></div></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text);">Paket 4</strong> – Neuwagen Paket 💎</td>
+            <td><span class="los-count">8 Lose 🎟️×8</span></td>
+            <td><span class="los-count" style="color:#d48a00;">16 Lose ✨</span></td>
+            <td><div class="los-dots"><div class="los-dot"></div><div class="los-dot"></div><div class="los-dot"></div><div class="los-dot"></div><div class="los-dot"></div><div class="los-dot"></div><div class="los-dot"></div><div class="los-dot"></div></div></td>
+          </tr>
+          <tr class="section-divider"><td colspan="4">Extras (PKW) &amp; Wohnmobil</td></tr>
+          <tr class="extra-row">
+            <td>⚙️ <strong style="color:var(--text);">Extras dazubuchen</strong> – je angefangene 50 €</td>
+            <td><span class="los-count">+1 Los 🎟️</span></td>
+            <td><span class="los-count" style="color:#d48a00;">+2 Lose ✨</span></td>
+            <td><div class="los-dots"><div class="los-dot" style="opacity:0.5;"></div></div></td>
+          </tr>
+          <tr class="extra-row">
+            <td>🚐 <strong style="color:var(--text);">Wohnmobil-Buchung</strong> – je angefangene 60 €</td>
+            <td><span class="los-count">+1 Los 🎟️</span></td>
+            <td><span class="los-count" style="color:#d48a00;">+2 Lose ✨</span></td>
+            <td><div class="los-dots"><div class="los-dot" style="opacity:0.5;"></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;" class="fade-in">
+      <a href="buchen.html" class="btn btn-gold" style="font-size:1rem;padding:16px 40px;">Jetzt Paket wählen & mitmachen →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WM-BONUS URGENCY ───────────────────────────────────────── -->
+<div class="urgency-strip" id="bonusSection">
+  <div class="container">
+    <p style="font-family:Montserrat,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">✨ WM-WOCHENENDE BONUS</p>
+    <h2 class="fade-in"><span class="fire">🏆</span> Doppelte Lose sichern</h2>
+    <p style="color:#ccc;max-width:560px;margin:12px auto 24px;font-size:0.95rem;line-height:1.7;">
+      Wer noch <strong style="color:#fff;">bis Sonntag, 21.06.</strong> ein Paket bucht,
+      bekommt <strong style="color:var(--gold);">doppelte Lose</strong> – das verdoppelt deine Gewinnchance auf einen Schlag!
+    </p>
+    <a href="buchen.html" class="btn btn-gold" style="font-size:1rem;padding:15px 38px;">
+      🎟️ Jetzt buchen & doppelte Lose sichern →
+    </a>
+    <p style="margin-top:14px;font-size:0.78rem;color:rgba(255,255,255,0.45);">Bonus gilt für alle Buchungen bis 21.06.2026, 23:59 Uhr</p>
+  </div>
+</div>
+
+<!-- ── GRATISGETRÄNKE ─────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center fade-in">
+      <span class="section-label">Exklusiv für unsere Kunden</span>
+      <h2 class="section-title">Kostenlose Erfrischung 🥤</h2>
+      <div class="gold-divider center"></div>
+    </div>
+
+    <div class="drinks-card fade-in" style="max-width:700px;margin:0 auto;">
+      <div class="drinks-icon">🧊</div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:10px;color:var(--text);">Kalte Getränke – dauerhaft kostenlos</h3>
+        <p style="color:var(--text-muted);line-height:1.75;font-size:0.9rem;">
+          Wegen des heißen Sommers bieten wir unseren Kunden dauerhaft kostenlose kalte Erfrischungsgetränke an –
+          direkt bei uns im Betrieb oder beim mobilen Einsatz. Einfach Bescheid sagen und entspannen,
+          während dein Fahrzeug auf Hochglanz gebracht wird. ☀️
+        </p>
+        <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+          <span style="background:rgba(100,200,255,0.08);border:1px solid rgba(100,200,255,0.2);border-radius:8px;padding:6px 14px;font-size:0.8rem;color:#8ecfff;">❄️ Wasser</span>
+          <span style="background:rgba(100,200,255,0.08);border:1px solid rgba(100,200,255,0.2);border-radius:8px;padding:6px 14px;font-size:0.8rem;color:#8ecfff;">🥤 Softdrinks</span>
+          <span style="background:rgba(100,200,255,0.08);border:1px solid rgba(100,200,255,0.2);border-radius:8px;padding:6px 14px;font-size:0.8rem;color:#8ecfff;">⚡ Energy Drinks</span>
+          <span style="background:rgba(100,200,255,0.08);border:1px solid rgba(100,200,255,0.2);border-radius:8px;padding:6px 14px;font-size:0.8rem;color:#8ecfff;">Kostenlos für alle Kunden</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEGAL ──────────────────────────────────────────────────── -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="legal-box fade-in">
+      <h3>Teilnahmebedingungen</h3>
+      <p>
+        <strong style="color:var(--text);">Veranstalter:</strong> RV Detailing, Upstallstraße 12, 14772 Brandenburg an der Havel, Inhaber: Robin Dovgan.<br><br>
+        <strong style="color:var(--text);">Teilnahmezeitraum:</strong> 01.06.2026 bis 20.07.2026, 23:59 Uhr.<br><br>
+        <strong style="color:var(--text);">Teilnahmevoraussetzung:</strong> Die Teilnahme setzt die kostenpflichtige Buchung und Durchführung einer Leistung bei RV Detailing im Teilnahmezeitraum voraus. Eine kostenlose Teilnahme ohne Buchung ist nicht möglich.<br><br>
+        <strong style="color:var(--text);">Ziehung:</strong> 22.07.2026, live auf Instagram (@rvs_detailer) und gleichzeitig vor Ort bei RV Detailing in Brandenburg an der Havel. Der Gewinner wird per zufälliger Auslosung aus allen gültigen Losen ermittelt. Alle Interessierten sind herzlich eingeladen, persönlich dabei zu sein.<br><br>
+        <strong style="color:var(--text);">Hauptpreis:</strong> Paket 3 – Premium Shine im Wert von bis zu 343 €, gültig ausschließlich für PKW. Der Gewinn umfasst ausschließlich die beschriebene Fahrzeugaufbereitung; weitere Kosten (z. B. Anfahrt oder Zusatzleistungen) sind nicht Bestandteil des Gewinns. Keine Barauszahlung. Einzulösen innerhalb von 6 Monaten nach der Ziehung.<br><br>
+        <strong style="color:var(--text);">Übertragbarkeit:</strong> Der Gutschein darf vom Gewinner auf eine andere Person übertragen werden. Das Fahrzeug, auf das der Gewinn angewendet wird, kann frei gewählt werden (PKW, bis zu 343 €).<br><br>
+        <strong style="color:var(--text);">Losverteilung (PKW):</strong> Paket 1 = 1 Los · Paket 2 = 2 Lose · Paket 3 = 4 Lose · Paket 4 = 8 Lose. Zusätzlich: je angefangene 50 € an Extras = +1 Los.<br><br>
+        <strong style="color:var(--text);">Losverteilung (Wohnmobil):</strong> Je angefangene 60 € des Gesamtbetrags = 1 Los. Hinweis: Der Hauptgewinn (Paket 3) gilt ausschließlich für PKW; Wohnmobil-Kunden nehmen mit ihren Losen an derselben Ziehung teil.<br><br>
+        <strong style="color:var(--text);">WM-Wochenende-Bonus:</strong> Alle Buchungen bis 21.06.2026, 23:59 Uhr erhalten doppelte Lose.<br><br>
+        <strong style="color:var(--text);">Ausweispflicht:</strong> Jeder Teilnehmer muss beim Termin einen gültigen Lichtbildausweis (Personalausweis oder Reisepass) vorlegen. Der Gewinner muss beim Einlösen des Gewinns ebenfalls einen gültigen Lichtbildausweis vorzeigen.<br><br>
+        <strong style="color:var(--text);">Teilnahmeberechtigt:</strong> Alle Personen ab 18 Jahren mit Wohnsitz in Deutschland, die im Teilnahmezeitraum eine Leistung bei RV Detailing buchen und durchführen lassen. Mitarbeiter sind ausgeschlossen.<br><br>
+        <strong style="color:var(--text);">Benachrichtigung:</strong> Der Gewinner wird per E-Mail oder Telefon innerhalb von 3 Tagen nach der Ziehung kontaktiert. Bei Nichtmeldung innerhalb von 7 Tagen wird ein neuer Gewinner gezogen.<br><br>
+        <strong style="color:var(--text);">Datenschutz:</strong> Die Daten der Teilnehmer werden ausschließlich zur Durchführung des Gewinnspiels und zur Kontaktaufnahme des Gewinners verarbeitet. Nach Abschluss des Gewinnspiels werden die Daten gelöscht, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Weitere Informationen: <a href="datenschutz.html" style="color:var(--gold);">Datenschutzerklärung</a>.<br><br>
+        <strong style="color:var(--text);">Manipulation &amp; Missbrauch:</strong> Bei Verdacht auf Missbrauch oder Manipulation behält sich RV Detailing vor, betroffene Teilnehmer vom Gewinnspiel auszuschließen.<br><br>
+        <strong style="color:var(--text);">Sonstiges:</strong> RV Detailing behält sich vor, das Gewinnspiel bei schwerwiegenden Gründen vorzeitig zu beenden. Der Rechtsweg ist ausgeschlossen. Das Gewinnspiel steht in keiner Verbindung zu Instagram oder Facebook und wird nicht von diesen Plattformen gesponsert, unterstützt oder durchgeführt.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ──────────────────────────────────────────────── -->
+<section class="section" style="padding:60px 0;background:var(--bg-2);">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">Deine Chance</span>
+    <h2 class="section-title fade-in">Jetzt mitmachen!</h2>
+    <div class="gold-divider center"></div>
+    <p class="section-subtitle" style="margin:0 auto 32px;max-width:500px;" class="fade-in">
+      Buche dein Paket, sichere deine Lose und gewinne vielleicht dein nächstes Detailing gratis.
+    </p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;" class="fade-in">
+      <a href="buchen.html" class="btn btn-gold" style="font-size:1.05rem;padding:16px 42px;">🎟️ Jetzt buchen →</a>
+      <a href="pakete.html" class="btn btn-outline">Pakete ansehen</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <p>© 2026 RV – Detailing. Alle Rechte vorbehalten.</p>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="https://www.instagram.com/rvs_detailer/" target="_blank" rel="noopener">Instagram</a>
+        <a href="javascript:void(0)" onclick="rvResetCookieConsent()">Cookie-Einstellungen</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=4"></script>
+<script src="js/banner.js?v=2"></script>
+<script src="js/cookie-consent.js"></script>
+<script>
+// ── Countdown ──────────────────────────────────────────────────
+var BONUS_END = new Date('2026-06-21T23:59:59');
+var GWS_END   = new Date('2026-07-20T23:59:59');
+var now = new Date();
+var bonusActive = now < BONUS_END;
+
+if (!bonusActive) {
+  var bs = document.getElementById('bonusStrip');
+  if (bs) bs.classList.add('hidden');
+  var bsec = document.getElementById('bonusSection');
+  if (bsec) bsec.style.display = 'none';
+  document.getElementById('cdLabel').textContent = 'Gewinnspiel endet in';
+}
+
+var target = bonusActive ? BONUS_END : GWS_END;
+
+function pad(n) { return String(n).padStart(2, '0'); }
+function tickMain() {
+  var diff = target - new Date();
+  if (diff <= 0) {
+    document.getElementById('cdH').textContent = '00';
+    document.getElementById('cdM').textContent = '00';
+    document.getElementById('cdS').textContent = '00';
+    return;
+  }
+  var d = Math.floor(diff / 86400000);
+  var h = Math.floor((diff % 86400000) / 3600000);
+  var m = Math.floor((diff % 3600000) / 60000);
+  var s = Math.floor((diff % 60000) / 1000);
+  var dEl = document.getElementById('cdD');
+  if (dEl) { dEl.textContent = pad(d); document.getElementById('cdDLabel').textContent = d === 1 ? 'TAG' : 'TAGE'; }
+  document.getElementById('cdH').textContent = pad(h);
+  document.getElementById('cdM').textContent = pad(m);
+  document.getElementById('cdS').textContent = pad(s);
+}
+tickMain();
+setInterval(tickMain, 1000);
+
+// ── Particle Canvas ────────────────────────────────────────────
+(function() {
+  var c = document.getElementById('gwsParticles');
+  if (!c) return;
+  var ctx = c.getContext('2d');
+  function resize() { c.width = window.innerWidth; c.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  var particles = Array.from({length: 60}, function() {
+    return {
+      x: Math.random() * c.width,
+      y: Math.random() * c.height + c.height,
+      r: Math.random() * 2 + 0.5,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: -(Math.random() * 0.8 + 0.3),
+      a: Math.random() * 0.6 + 0.2,
+      gold: Math.random() > 0.4
+    };
+  });
+  function draw() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    particles.forEach(function(p) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.y < -8) { p.y = c.height + 8; p.x = Math.random() * c.width; }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.gold ? 'rgba(255,191,0,' + p.a + ')' : 'rgba(255,100,0,' + (p.a * 0.6) + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
+

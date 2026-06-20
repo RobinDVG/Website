@@ -134,6 +134,21 @@ document.querySelectorAll('.detail-item.expandable').forEach(item => {
   document.body.appendChild(fab);
 })();
 
+// Hero-Video: Autoplay auf Desktop & Mobile sicherstellen
+(function () {
+  var v = document.querySelector('.hero-video');
+  if (!v) return;
+  v.muted = true;
+  var p = v.play();
+  if (p !== undefined) {
+    p.catch(function () {
+      // iOS/Safari: beim ersten Touch erneut versuchen
+      document.addEventListener('touchstart', function () { v.play(); }, { once: true });
+      document.addEventListener('click', function () { v.play(); }, { once: true });
+    });
+  }
+})();
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {

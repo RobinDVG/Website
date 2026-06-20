@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rv-detailing.de/" />
   <meta property="og:locale" content="de_DE" />
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png" />
@@ -55,7 +55,7 @@
 <!-- ── HERO ───────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-bg">
-    <video class="hero-video" autoplay muted loop playsinline>
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" webkit-playsinline>
       <source src="img/hero-video.mp4" type="video/mp4">
     </video>
   </div>
@@ -131,6 +131,35 @@
     </div>
   </div>
 </section>
+
+<!-- ── GEWINNSPIEL PROMO ──────────────────────────── -->
+<section class="section gws-promo-section" id="gws-promo" style="padding-top:64px;padding-bottom:80px;">
+  <div class="container">
+    <a href="gewinnspiel.html" class="gws-promo-card fade-in">
+      <div class="gws-promo-left">
+        <span class="gws-promo-trophy">🏆</span>
+        <div>
+          <div class="gws-promo-label">WM-Gewinnspiel 2026</div>
+          <h2 class="gws-promo-title">Paket 3 komplett <span style="color:var(--gold);">GRATIS</span> gewinnen</h2>
+          <p class="gws-promo-sub">Wert bis zu 343 € · Je größer dein Paket, desto mehr Lose · Teilnahme bis 20.07.2026</p>
+          <div class="gws-promo-chips">
+            <span>Paket 1 = 1 Los</span>
+            <span>Paket 2 = 2 Lose</span>
+            <span class="gws-chip-highlight">Paket 3 = 4 Lose ⭐</span>
+            <span>Paket 4 = 8 Lose</span>
+          </div>
+        </div>
+      </div>
+      <div class="gws-promo-right">
+        <div class="btn btn-gold" style="font-size:1rem;padding:16px 36px;">🎟️ Jetzt mitmachen →</div>
+        <p style="margin-top:10px;font-size:0.75rem;color:var(--text-muted);text-align:center;">Ziehung live am 22.07. auf Instagram</p>
+      </div>
+    </a>
+  </div>
+</section>
+<script>
+  (function(){ if(new Date()>new Date('2026-07-20T23:59:59')){var e=document.getElementById('gws-promo');if(e)e.style.display='none';} })();
+</script>
 
 <!-- ── SERVICES ───────────────────────────────────── -->
 <section class="section" id="services">
@@ -288,13 +317,11 @@
     </div>
 
     <!-- Bild: volles Querformat -->
-    <div class="fade-in" style="position:relative;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:52px;">
-      <img src="img/about.jpg" alt="Robin Dovgan mit Porsche – RV Detailing"
-           style="width:100%;height:auto;display:block;max-height:520px;object-fit:cover;object-position:center 30%;">
-      <!-- Gradient unten: weich in Hintergrund -->
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent 50%, var(--bg) 100%);pointer-events:none;"></div>
-      <!-- Name Badge unten links -->
-      <div style="position:absolute;bottom:28px;left:32px;background:rgba(6,6,16,0.88);border:1px solid rgba(255,191,0,0.3);border-radius:var(--radius);padding:14px 20px;backdrop-filter:blur(14px);">
+    <div class="fade-in about-img-wrap">
+      <img src="img/about.jpg" alt="Robin Dovgan mit Porsche – RV Detailing" class="about-img">
+      <div class="about-img-overlay"></div>
+      <!-- Name Badge unten links – auf Mobile außerhalb -->
+      <div class="about-name-badge">
         <div style="font-size:0.65rem;color:var(--gold);font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3px;">Robin Dovgan</div>
         <div style="font-size:0.85rem;color:var(--text);font-weight:600;">Gründer & Inhaber · RV Detailing</div>
         <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">Brandenburg an der Havel</div>
@@ -494,6 +521,7 @@
           <li><a href="#about">Über uns</a></li>
           <li><a href="#reviews">Bewertungen</a></li>
           <li><a href="buchen.html">Termin buchen</a></li>
+          <li><a href="gewinnspiel.html" style="color:var(--gold);font-weight:700;">🏆 Gewinnspiel</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
         </ul>
       </div>
@@ -612,11 +640,13 @@
   ]
 }
 </script>
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=4"></script>
 <script src="js/reviews.js"></script>
+<script src="js/banner.js?v=2"></script>
 <script src="js/cookie-consent.js"></script>
 </body>
 </html>
+
 
 
 

@@ -345,31 +345,46 @@ function renderSuccess() {
 
 // ── Init ──
 function initBooking() {
-  var paket = new URLSearchParams(window.location.search).get('paket');
-  var valid = ['1', '2', '3', '4', '5', 'wohnmobil'];
-  if (!paket || valid.indexOf(paket) === -1) {
-    window.location.replace('buchen.html');
-    return;
-  }
+  var params  = new URLSearchParams(window.location.search);
+  var paket   = params.get('paket');
+  var service = params.get('service'); // direkter Dienst (Ceramic, Politur, ...)
+  var valid   = ['1', '2', '3', '4', '5', 'wohnmobil'];
 
-  var params = new URLSearchParams(window.location.search);
+  // Kein Paket und kein Service → zurück zur Paketauswahl
+  if (!paket && !service) { window.location.replace('buchen.html'); return; }
+  if (paket && valid.indexOf(paket) === -1 && !service) { window.location.replace('buchen.html'); return; }
+
   selectedFahrzeug = params.get('fahrzeug') || '';
   selectedZustand  = params.get('zustand') || '';
   selectedPreis    = params.get('preis') || '';
+  var extras       = params.get('extras') || '';
 
   var map = {
     '1': 'Paket 01 – Basic Refresh',
     '2': 'Paket 02 – Comfort Care',
     '3': 'Paket 03 – Premium Shine',
     '4': 'Paket 04 – Neuwagen Paket',
-      '5': 'Paket 05 – Smoker Detox',
+    '5': 'Paket 05 – Smoker Detox',
     'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)'
   };
 
-  selectedPaket = map[paket] || '';
-  if (selectedPreis && paket !== 'wohnmobil') {
-    selectedPaket += ' (ab ' + selectedPreis + ' €)';
+  if (service) {
+    selectedPaket = decodeURIComponent(service);
+  } else {
+    selectedPaket = map[paket] || '';
+    if (selectedPreis && paket !== 'wohnmobil') {
+      selectedPaket += ' (ab ' + selectedPreis + ' €)';
+    }
   }
+
+  // Extras anhängen (vom Upsell-Modal)
+  if (extras) {
+    var extraList = extras.split(',').map(function(e) { return decodeURIComponent(e.trim()); }).filter(Boolean);
+    if (extraList.length) {
+      selectedPaket += '\n+ Extras: ' + extraList.join(', ');
+    }
+  }
+
   var banner = document.getElementById('paket-banner');
   var bannerText = document.getElementById('paket-banner-text');
   if (banner && bannerText && selectedPaket) {

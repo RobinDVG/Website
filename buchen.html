@@ -201,8 +201,153 @@
       <p>Alle Preise sind Ab-Preise und variieren je nach <strong style="color:var(--text)">Fahrzeugtyp</strong> und <strong style="color:var(--text)">Verschmutzungsgrad</strong>. Der Rechner oben zeigt dir bereits einen realistischen Richtwert.</p>
     </div>
 
+    <!-- ── EXTRAS & SPECIALS ───────────────────────────────── -->
+    <div class="section-header center fade-in" style="margin-top:80px;">
+      <span class="section-label">Zusatzleistungen</span>
+      <h2 class="section-title">Extras & Specials</h2>
+      <div class="gold-divider center"></div>
+      <p class="section-subtitle">Direkt buchbar – oder günstig zu deinem Paket dazubuchen.</p>
+    </div>
+
+    <div class="politur-grid">
+
+      <div class="politur-card fade-in">
+        <div class="politur-card-icon">💡</div>
+        <h3 class="politur-card-name">Scheinwerfer Aufbereitung</h3>
+        <div class="politur-card-price">ab 69 € <small>(pro Scheinwerfer)</small></div>
+        <p class="politur-card-desc">Trübe, vergilbte Scheinwerfer werden mechanisch poliert und versiegelt – strahlend klar, bessere Lichtausbeute, frische Optik.</p>
+        <a href="termin.html?service=Scheinwerfer+Aufbereitung&preis=69" class="btn btn-dark">Direkt buchen →</a>
+      </div>
+
+      <div class="politur-card fade-in">
+        <div class="politur-card-icon">🪟</div>
+        <h3 class="politur-card-name">Scheibenversiegelung</h3>
+        <div class="politur-card-price">ab 19 € <small>(3–4 Monate Haltbarkeit)</small></div>
+        <p class="politur-card-desc">Regen perlt zuverlässig ab, Sicht bleibt kristallklar. Ideal für alle Scheiben – verbessert besonders die Nachtsicht.</p>
+        <a href="termin.html?service=Scheibenversiegelung&preis=19" class="btn btn-dark">Direkt buchen →</a>
+      </div>
+
+      <div class="politur-card fade-in">
+        <div class="politur-card-icon">✦</div>
+        <h3 class="politur-card-name">Chromleisten Politur</h3>
+        <div class="politur-card-price">ab 79 € <small>(je nach Chromumfang)</small></div>
+        <p class="politur-card-desc">Oxidierte und stumpfe Chromzierleisten werden aufgefrischt und auf Hochglanz poliert – eleganter Auftritt.</p>
+        <a href="termin.html?service=Chromleisten+Politur&preis=79" class="btn btn-dark">Direkt buchen →</a>
+      </div>
+
+      <div class="politur-card fade-in">
+        <div class="politur-card-icon">⚙️</div>
+        <h3 class="politur-card-name">Felgen Ceramic Spray</h3>
+        <div class="politur-card-price">ab 49 € <small>(alle 4 Felgen)</small></div>
+        <p class="politur-card-desc">Keramische Sprühversiegelung für alle Felgentypen – Bremsenstaub perlt ab, einfache Reinigung, schützender Glanz.</p>
+        <a href="termin.html?service=Felgen+Ceramic+Spray&preis=49" class="btn btn-dark">Direkt buchen →</a>
+      </div>
+
+      <div class="politur-card fade-in" style="border-color:rgba(255,191,0,0.2);">
+        <div class="politur-card-icon">🔩</div>
+        <h3 class="politur-card-name">Motorraum Reinigung</h3>
+        <div class="politur-card-price">ab 79 € <small>(je nach Fahrzeug)</small></div>
+        <p class="politur-card-desc">Professionelle Motorraum-Reinigung – Fett, Schmutz und Ölrückstände werden schonend entfernt. Sauber, gepflegt, wertsteigernd.</p>
+        <a href="termin.html?service=Motorraum+Reinigung&preis=79" class="btn btn-gold">Direkt buchen →</a>
+      </div>
+
+    </div>
+
+    <!-- FREIE ERFRISCHUNGSGETRÄNKE HINWEIS -->
+    <div class="info-box fade-in" style="max-width:700px;margin:40px auto 0;border-color:rgba(100,200,255,0.2);background:rgba(100,200,255,0.04);">
+      <div class="info-box-title" style="color:#8ecfff;">🧊 Kostenlose Erfrischungsgetränke</div>
+      <p>Wegen des heißen Sommers gibt es bei jedem Termin <strong style="color:var(--text);">kostenlose kalte Getränke</strong> für dich – Wasser, Softdrinks & Energy Drinks. Einfach genießen, während wir arbeiten. ☀️</p>
+    </div>
+
   </div>
 </section>
+
+<!-- ── UPSELL MODAL ─────────────────────────────────────────── -->
+<div id="upsell-overlay">
+  <div class="upsell-modal">
+    <h2 class="upsell-title">🎉 Noch ein letzter Schritt</h2>
+    <p class="upsell-sub">Möchtest du noch ein Extra dazubuchen?<br>
+      <strong style="color:var(--gold);">Günstiger als einzeln gebucht – spare bares Geld beim Kombiangebot!</strong>
+    </p>
+
+    <div id="upsell-items"></div>
+
+    <div class="upsell-actions">
+      <button class="btn btn-dark" id="upsell-skip">Ohne Extras weiter →</button>
+      <button class="btn btn-gold" id="upsell-confirm">Mit Auswahl buchen →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Upsell-Logik ─────────────────────────────────────────────────
+var EXTRAS = [
+  { id: 'Scheinwerfer Aufbereitung',       normalLabel: 'ab 69 €', bundleLabel: 'ab 45 €', note: 'pro Scheinwerfer',       icon: '💡' },
+  { id: 'Scheibenversiegelung (3–4 Mon.)', normalLabel: 'ab 19 €', bundleLabel: 'ab 13 €', note: '3–4 Monate Haltbarkeit', icon: '🪟' },
+  { id: 'Chromleisten Politur',            normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Chromumfang',    icon: '✦'  },
+  { id: 'Felgen Ceramic Spray',            normalLabel: 'ab 49 €', bundleLabel: 'ab 35 €', note: 'alle 4 Felgen',          icon: '⚙️' },
+  { id: 'Motorraum Reinigung',             normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Fahrzeug',       icon: '🔩' }
+];
+
+var pendingHref = '';
+
+// Items rendern
+var itemsEl = document.getElementById('upsell-items');
+EXTRAS.forEach(function(e) {
+  var div = document.createElement('div');
+  div.className = 'upsell-item';
+  div.dataset.id = e.id;
+  div.innerHTML =
+    '<div class="upsell-check">✓</div>' +
+    '<div class="upsell-item-icon">' + e.icon + '</div>' +
+    '<div class="upsell-item-body">' +
+      '<div class="upsell-item-name">' + e.id + (e.note ? '<span style="font-size:0.72rem;color:var(--text-muted);font-weight:400;margin-left:6px;">(' + e.note + ')</span>' : '') + '</div>' +
+      '<div class="upsell-item-prices">' +
+        'Einzeln: <s>' + e.normalLabel + '</s>' +
+        '<span class="upsell-bundle">Mit Paket nur ' + e.bundleLabel + ' 🎉</span>' +
+      '</div>' +
+    '</div>';
+  div.addEventListener('click', function() { div.classList.toggle('checked'); });
+  itemsEl.appendChild(div);
+});
+
+// Paket-Links abfangen
+document.querySelectorAll('.paket-card a[href*="termin.html"]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    pendingHref = this.getAttribute('href');
+    document.getElementById('upsell-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeUpsell() {
+  document.getElementById('upsell-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('upsell-skip').addEventListener('click', function() {
+  closeUpsell();
+  if (pendingHref) window.location.href = pendingHref;
+});
+
+document.getElementById('upsell-confirm').addEventListener('click', function() {
+  var selected = Array.from(document.querySelectorAll('.upsell-item.checked'))
+    .map(function(el) { return encodeURIComponent(el.dataset.id); });
+  var href = pendingHref;
+  if (selected.length) href += (href.indexOf('?') >= 0 ? '&' : '?') + 'extras=' + selected.join(',');
+  closeUpsell();
+  window.location.href = href;
+});
+
+// Klick außerhalb schließt
+document.getElementById('upsell-overlay').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeUpsell();
+    if (pendingHref) window.location.href = pendingHref;
+  }
+});
+</script>
 
 <footer>
   <div class="container">
@@ -219,8 +364,9 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=4"></script>
 <script src="js/calculator.js?v=2"></script>
+<script src="js/banner.js?v=2"></script>
 <script src="js/cookie-consent.js"></script>
 </body>
 </html>
