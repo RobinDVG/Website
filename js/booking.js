@@ -380,10 +380,16 @@ function initBooking() {
   // Extras anhängen (vom Upsell-Modal)
   var EXTRA_BUNDLE_PRICES = {
     'Scheinwerfer Aufbereitung':       45,
+    'Scheibenversiegelung':            13,
     'Scheibenversiegelung (3–4 Mon.)': 13,
     'Chromleisten Politur':            59,
     'Felgen Ceramic Spray':            35,
-    'Motorraum Reinigung':             59
+    'Motorraum Reinigung':             59,
+    'Komplette Kunststoffreinigung':   30,
+    'Sitze nassaugen':                 120,
+    'Scheibenreinigung innen':         25,
+    'Ceramic Spray Versiegelung':      30,
+    'Kunststoff aufbereiten':          30
   };
 
   if (extras) {

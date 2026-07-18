@@ -60,7 +60,8 @@
             <option>Kleinwagen</option>
             <option>Limousine</option>
             <option>Kombi</option>
-            <option>Coupé / Cabrio</option>
+            <option>Coupé</option>
+            <option>Cabrio</option>
             <option>SUV / Geländewagen</option>
             <option>Sprinter / Transporter</option>
             <option>7-Sitzer / Minivan</option>
@@ -72,11 +73,11 @@
         <div class="calc-group">
           <label for="calc-condition">Fahrzeugzustand laut Besitzer</label>
           <select class="form-select" id="calc-condition">
-            <option>Sehr gepflegt</option>
-            <option>Gepflegt</option>
-            <option>Verschmutzt</option>
-            <option>Stark verschmutzt</option>
-            <option>Sehr stark verschmutzt</option>
+            <option value="Sehr gepflegt">Sehr gepflegt – regelmäßig gepflegt</option>
+            <option value="Gepflegt">Gepflegt – normaler Alltagszustand</option>
+            <option value="Verschmutzt">Verschmutzt – deutliche Gebrauchsspuren</option>
+            <option value="Stark verschmutzt">Stark verschmutzt – Baustelle, Tiere, außen lange nicht gewaschen</option>
+            <option value="Sehr stark verschmutzt">Sehr stark verschmutzt – Extremfall, Preis auf Anfrage</option>
           </select>
         </div>
       </div>
@@ -150,7 +151,6 @@
           <li class="paket-feature">Alles aus Paket 3</li>
           <li class="paket-feature">Politurvorbereitung: Flugrost & Teer entfernen, Reinigungsknete</li>
           <li class="paket-feature">Lackfinish Politur</li>
-          <li class="paket-feature">Nassreinigung gesamter Teppich</li>
           <li class="paket-feature">Ceramic Spray Felgenversiegelung</li>
           <li class="paket-feature">Außenkunststoff auffrischen</li>
           <li class="paket-feature">Scheibenpaket</li>
@@ -281,41 +281,68 @@
 
 <script>
 // ── Upsell-Logik ─────────────────────────────────────────────────
-var EXTRAS = [
-  { id: 'Scheinwerfer Aufbereitung',       normalLabel: 'ab 69 €', bundleLabel: 'ab 45 €', note: 'pro Scheinwerfer',       icon: '💡' },
-  { id: 'Scheibenversiegelung (3–4 Mon.)', normalLabel: 'ab 19 €', bundleLabel: 'ab 13 €', note: '3–4 Monate Haltbarkeit', icon: '🪟' },
-  { id: 'Chromleisten Politur',            normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Chromumfang',    icon: '✦'  },
-  { id: 'Felgen Ceramic Spray',            normalLabel: 'ab 49 €', bundleLabel: 'ab 35 €', note: 'alle 4 Felgen',          icon: '⚙️' },
-  { id: 'Motorraum Reinigung',             normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Fahrzeug',       icon: '🔩' }
+// Standard-Extras (für Pakete ohne eigene Liste)
+var EXTRAS_DEFAULT = [
+  { id: 'Scheinwerfer Aufbereitung', normalLabel: 'ab 69 €', bundleLabel: 'ab 45 €', note: 'pro Scheinwerfer',       icon: '💡' },
+  { id: 'Scheibenversiegelung',      normalLabel: 'ab 19 €', bundleLabel: 'ab 13 €', note: '3–4 Monate Haltbarkeit', icon: '🪟' },
+  { id: 'Chromleisten Politur',      normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Chromumfang',    icon: '✦'  },
+  { id: 'Felgen Ceramic Spray',      normalLabel: 'ab 49 €', bundleLabel: 'ab 35 €', note: 'alle 4 Felgen',          icon: '⚙️' },
+  { id: 'Motorraum Reinigung',       normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Fahrzeug',       icon: '🔩' }
 ];
 
-var pendingHref = '';
+// Paket-spezifische Extras
+var EXTRAS_BY_PAKET = {
+  '1': [
+    { id: 'Scheibenversiegelung',          normalLabel: 'ab 19 €',  bundleLabel: 'ab 13 €',  note: '3–4 Monate Haltbarkeit', icon: '🪟' },
+    { id: 'Komplette Kunststoffreinigung', normalLabel: 'ab 39 €',  bundleLabel: 'ab 30 €',  note: 'innen komplett',         icon: '🧽' },
+    { id: 'Sitze nassaugen',               normalLabel: 'ab 150 €', bundleLabel: 'ab 120 €', note: 'bei Stoffsitzen',        icon: '🪑' },
+    { id: 'Scheibenreinigung innen',       normalLabel: 'ab 25 €',  bundleLabel: 'ab 25 €',  note: 'alle Scheiben innen',    icon: '🫧' }
+  ],
+  '2': [
+    { id: 'Motorraum Reinigung',        normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Fahrzeug',       icon: '🔩' },
+    { id: 'Ceramic Spray Versiegelung', normalLabel: 'ab 39 €', bundleLabel: 'ab 30 €', note: '3–4 Monate Haltbarkeit', icon: '✨' },
+    { id: 'Scheibenversiegelung',       normalLabel: 'ab 19 €', bundleLabel: 'ab 13 €', note: '3–4 Monate Haltbarkeit', icon: '🪟' },
+    { id: 'Chromleisten Politur',       normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Chromumfang',    icon: '✦'  },
+    { id: 'Kunststoff aufbereiten',     normalLabel: 'ab 39 €', bundleLabel: 'ab 30 €', note: 'wieder strahlend',       icon: '🛡️' }
+  ]
+};
 
-// Items rendern
+function getExtras(paket) {
+  return EXTRAS_BY_PAKET[paket] || EXTRAS_DEFAULT;
+}
+
+var pendingHref = '';
 var itemsEl = document.getElementById('upsell-items');
-EXTRAS.forEach(function(e) {
-  var div = document.createElement('div');
-  div.className = 'upsell-item';
-  div.dataset.id = e.id;
-  div.innerHTML =
-    '<div class="upsell-check">✓</div>' +
-    '<div class="upsell-item-icon">' + e.icon + '</div>' +
-    '<div class="upsell-item-body">' +
-      '<div class="upsell-item-name">' + e.id + (e.note ? '<span style="font-size:0.72rem;color:var(--text-muted);font-weight:400;margin-left:6px;">(' + e.note + ')</span>' : '') + '</div>' +
-      '<div class="upsell-item-prices">' +
-        'Einzeln: <s>' + e.normalLabel + '</s>' +
-        '<span class="upsell-bundle">Mit Paket nur ' + e.bundleLabel + ' 🎉</span>' +
-      '</div>' +
-    '</div>';
-  div.addEventListener('click', function() { div.classList.toggle('checked'); });
-  itemsEl.appendChild(div);
-});
+
+// Items für gewähltes Paket rendern
+function renderUpsellItems(paket) {
+  itemsEl.innerHTML = '';
+  getExtras(paket).forEach(function(e) {
+    var div = document.createElement('div');
+    div.className = 'upsell-item';
+    div.dataset.id = e.id;
+    var priceHtml = (e.normalLabel === e.bundleLabel)
+      ? '<span class="upsell-bundle">Mit Paket ' + e.bundleLabel + ' 🎉</span>'
+      : 'Einzeln: <s>' + e.normalLabel + '</s><span class="upsell-bundle">Mit Paket nur ' + e.bundleLabel + ' 🎉</span>';
+    div.innerHTML =
+      '<div class="upsell-check">✓</div>' +
+      '<div class="upsell-item-icon">' + e.icon + '</div>' +
+      '<div class="upsell-item-body">' +
+        '<div class="upsell-item-name">' + e.id + (e.note ? '<span style="font-size:0.72rem;color:var(--text-muted);font-weight:400;margin-left:6px;">(' + e.note + ')</span>' : '') + '</div>' +
+        '<div class="upsell-item-prices">' + priceHtml + '</div>' +
+      '</div>';
+    div.addEventListener('click', function() { div.classList.toggle('checked'); });
+    itemsEl.appendChild(div);
+  });
+}
 
 // Paket-Links abfangen
 document.querySelectorAll('.paket-card a[href*="termin.html"]').forEach(function(link) {
   link.addEventListener('click', function(e) {
     e.preventDefault();
     pendingHref = this.getAttribute('href');
+    var card = this.closest('.paket-card');
+    renderUpsellItems(card ? card.getAttribute('data-paket') : '');
     document.getElementById('upsell-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   });
@@ -365,7 +392,7 @@ document.getElementById('upsell-overlay').addEventListener('click', function(e) 
 </footer>
 
 <script src="js/main.js?v=4"></script>
-<script src="js/calculator.js?v=2"></script>
+<script src="js/calculator.js?v=4"></script>
 <script src="js/banner.js?v=3"></script>
 <script src="js/cookie-consent.js"></script>
 </body>
