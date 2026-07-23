@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exclusive-Aufbereitung – RV Detailing</title>
+  <meta name="description" content="Die Exclusive-Aufbereitung von RV Detailing: Lackkorrektur, Gtechniq-Keramik, Felgen, Unterboden und mehr – frei konfigurierbar mit Live-Preis." />
+  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png" />
+</head>
+<body>
+
+<nav class="navbar scrolled">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">RV – <span>Detailing</span><small>Professionelle Fahrzeugaufbereitung</small></a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Leistungen</a></li>
+        <li><a href="buchen.html">Pakete</a></li>
+        <li><a href="index.html#about">Über uns</a></li>
+        <li><a href="index.html#reviews">Bewertungen</a></li>
+        <li><a href="buchen.html" class="btn btn-gold">Termin buchen</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <a href="index.html#services">Leistungen</a>
+  <a href="buchen.html">Pakete</a>
+  <a href="index.html#about">Über uns</a>
+  <a href="index.html#reviews">Bewertungen</a>
+  <a href="buchen.html" class="btn btn-gold">Termin buchen</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Startseite</a> › <a href="buchen.html">Pakete</a> › <span>Exclusive</span></div>
+    <span class="section-label">Das Maximum</span>
+    <h1 class="section-title">Exclusive-Aufbereitung</h1>
+    <div class="gold-divider"></div>
+    <p class="section-subtitle">Stell dir dein Rundum-Programm selbst zusammen – Lackkorrektur, Gtechniq-Keramik, Felgen, Unterboden und mehr. Alles einzeln wählbar, mit Live-Preis.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="info-box fade-in" style="max-width:100%;margin-bottom:32px;background:rgba(255,191,0,0.05);border-color:rgba(255,191,0,0.2);">
+      <div class="info-box-title">✦ So funktioniert's</div>
+      <p style="font-size:0.9rem;">Die <strong style="color:var(--text);">Basis-Aufbereitung</strong> und eine <strong style="color:var(--text);">Politur</strong> plus <strong style="color:var(--text);">Keramikversiegelung</strong> sind immer dabei. Alles andere wählst du frei dazu. Die Preise sind Ab-Preise für den gewählten Fahrzeugtyp und werden vor Ort nach Besichtigung final bestätigt. Einen Zustandsaufschlag gibt es hier nicht.</p>
+    </div>
+
+    <!-- Fahrzeugwahl -->
+    <div class="calculator-panel fade-in" style="margin-bottom:32px;">
+      <h3>✦ Fahrzeugtyp</h3>
+      <div class="calc-fields">
+        <div class="calc-group">
+          <label for="exc-vehicle">Basis, Politur &amp; Keramik richten sich nach der Fahrzeuggröße</label>
+          <select class="form-select" id="exc-vehicle"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="wm-layout">
+      <div class="wm-left">
+        <!-- Immer enthalten -->
+        <div id="exc-base" class="exc-base fade-in"></div>
+
+        <!-- Konfigurierbare Gruppen -->
+        <div id="exc-groups"></div>
+
+        <div class="exc-note-box">
+          Alle Preise sind Ab-Preise. Die Unterboden-Premium-Versiegelung wird individuell besichtigt und auf Anfrage angeboten. Der endgültige Preis wird vor Ort nach Sichtung des Fahrzeugs bestätigt.
+        </div>
+      </div>
+
+      <div class="wm-sidebar">
+        <div class="wm-price-box">
+          <div class="wm-price-title">✦ Deine Konfiguration</div>
+          <div id="exc-price-lines"></div>
+          <div style="border-top:1px solid var(--border);margin:16px 0;"></div>
+          <div class="wm-total-row">
+            <span>Gesamt</span>
+            <span id="exc-total" class="wm-total-num">ab 0 €</span>
+          </div>
+          <p style="font-size:0.72rem;color:var(--text-dim);margin-top:8px;">* Ab-Preise. Endgültiger Preis wird vor Ort bestätigt.</p>
+          <a href="termin.html?service=Exclusive-Aufbereitung%20(individuell%20konfiguriert)" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:20px;">Termin anfragen →</a>
+          <a href="https://wa.me/4917655058348?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Exclusive-Aufbereitung." target="_blank" rel="noopener" class="btn btn-dark" style="width:100%;justify-content:center;margin-top:10px;">💬 Per WhatsApp anfragen</a>
+        </div>
+        <div class="info-box" style="margin-top:16px;">
+          <div class="info-box-title">💬 Beratung</div>
+          <p style="font-size:0.83rem;">Nicht sicher, was dein Fahrzeug braucht? Ruf an oder schreib – wir gehen die Optionen gemeinsam durch.</p>
+          <a href="tel:+4917655058348" class="btn btn-gold" style="margin-top:12px;width:100%;justify-content:center;">0176 55058348</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <span class="section-label">Lieber ein fertiges Paket?</span>
+    <h2 class="section-title">Alle Pakete ansehen</h2>
+    <p class="section-subtitle">Für die meisten Fahrzeuge reichen unsere fertigen Pakete – von Basic bis Neuwagen.</p>
+    <div class="cta-buttons" style="margin-top:28px;">
+      <a href="buchen.html" class="btn btn-gold">Alle Pakete →</a>
+      <a href="tel:+4917655058348" class="btn btn-outline">0176 55058348</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <p>© 2026 RV – Detailing. Alle Rechte vorbehalten.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="https://www.instagram.com/rvs_detailer/" target="_blank" rel="noopener">Instagram</a>
+        <a href="javascript:void(0)" onclick="rvResetCookieConsent()">Cookie-Einstellungen</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=4"></script>
+<script src="js/exclusive.js?v=1"></script>
+<script src="js/banner.js?v=3"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>

@@ -81,10 +81,6 @@
           </select>
         </div>
       </div>
-      <div class="calc-group-meta">
-        <span style="font-size:0.8rem;color:var(--text-muted);">Zustandsaufschlag:</span>
-        <span id="calc-cond-label" class="calc-cond-badge">kein Aufschlag</span>
-      </div>
       <div id="vehicle-note" class="vehicle-note"></div>
       <p style="font-size:0.75rem;color:var(--text-dim);margin-top:16px;">* Ab-Preise. Endgültiger Preis wird vor Ort nach Besichtigung bestätigt.</p>
     </div>
@@ -121,6 +117,7 @@
           <li class="paket-feature">Fleckenentfernung mit Nasssauger</li>
           <li class="paket-feature">Scheibenreinigung innen & außen</li>
           <li class="paket-feature">Komplette Kunststoffpflege innen</li>
+          <li class="paket-feature">Türeinstiege & Türfalze reinigen</li>
           <li class="paket-feature">Schonende Handwäsche außen</li>
         </ul>
         <a href="termin.html?paket=2" class="btn btn-dark" style="width:100%;justify-content:center;">Dieses Paket wählen →</a>
@@ -193,6 +190,21 @@
       <div class="buchen-wm-icons">
         <span>🚐</span>
         <span>🏕️</span>
+      </div>
+    </div>
+
+    <div class="buchen-wohnmobil-card fade-in" style="margin-top:20px;">
+      <div class="buchen-wm-left">
+        <span class="section-label" style="color:var(--gold);">Das Maximum</span>
+        <h3>Exclusive-Aufbereitung</h3>
+        <p>Das Rundum-Programm zum Selbstzusammenstellen: mehrstufige Lackkorrektur, Gtechniq-Keramik (bis zu 5 Jahre), Felgen, Unterboden und mehr – frei konfigurierbar mit Live-Preis.</p>
+        <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+          <a href="exclusive.html" class="btn btn-gold">Zum Exclusive-Konfigurator →</a>
+        </div>
+      </div>
+      <div class="buchen-wm-icons">
+        <span>💎</span>
+        <span>✨</span>
       </div>
     </div>
 
@@ -286,7 +298,7 @@ var EXTRAS_DEFAULT = [
   { id: 'Scheinwerfer Aufbereitung', normalLabel: 'ab 69 €', bundleLabel: 'ab 45 €', note: 'pro Scheinwerfer',       icon: '💡' },
   { id: 'Scheibenversiegelung',      normalLabel: 'ab 19 €', bundleLabel: 'ab 13 €', note: '3–4 Monate Haltbarkeit', icon: '🪟' },
   { id: 'Chromleisten Politur',      normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Chromumfang',    icon: '✦'  },
-  { id: 'Felgen Ceramic Spray',      normalLabel: 'ab 49 €', bundleLabel: 'ab 35 €', note: 'alle 4 Felgen',          icon: '⚙️' },
+  { id: 'Felgen Ceramic Spray',      normalLabel: 'ab 49 €', bundleLabel: 'ab 30 €', note: 'Außenseite, alle 4 Felgen', icon: '⚙️' },
   { id: 'Motorraum Reinigung',       normalLabel: 'ab 79 €', bundleLabel: 'ab 59 €', note: 'je nach Fahrzeug',       icon: '🔩' }
 ];
 
@@ -392,7 +404,7 @@ document.getElementById('upsell-overlay').addEventListener('click', function(e) 
 </footer>
 
 <script src="js/main.js?v=4"></script>
-<script src="js/calculator.js?v=4"></script>
+<script src="js/calculator.js?v=5"></script>
 <script src="js/banner.js?v=3"></script>
 <script src="js/cookie-consent.js"></script>
 </body>

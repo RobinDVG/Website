@@ -3,14 +3,14 @@
 const CATEGORIES = [
   {
     id: 'lack', icon: '🎨', title: 'Lackversiegelung', group: 'außen',
-    desc: 'Professioneller Keramikschutz für deinen Lack – hart, chemikalienbeständig, langlebig.',
+    desc: 'Professioneller Gtechniq-Keramikschutz für deinen Lack – bis zu 5 Jahre bzw. 100.000 km bei regelmäßiger Handwäsche. Zwei Schichten empfehlen wir klar: spürbar stärkerer Abperleffekt, Glanz und Glätte.',
     products: [
-      { name: 'Gtechniq Crystal Serum Light', tag: 'Keramik', tagColor: '#4caf50', duration: 'bis zu 5 Jahre', badge: null, price: 'ab 499 €',
-        desc: 'Weltweit bewährtes Profi-Coating. Bildet eine harte keramische Schutzschicht (9H), die chemisch mit dem Lack verbunden ist – tiefer Glanz und zuverlässiger Langzeitschutz.',
-        features: ['9H Keramikhärte', 'Chemikalienbeständig pH 2–12', 'Schutz gegen Waschkratzer', 'Tiefer, klarer Glanz', 'Bis zu 5 Jahre Schutz'] },
-      { name: "Adam's Advanced Graphene Ceramic", tag: 'Graphen-Keramik', tagColor: '#ffbf00', duration: '9+ Jahre laut Hersteller', badge: '🏆 Empfohlen', price: 'ab 699 €',
-        desc: 'Modernste Graphen-Keramik-Technologie mit extremer Hydrophobie. Wasser läuft bereits ab 10–15° Neigung ab – auch auf Felgen, Scheinwerfern, Chrom und Hochglanz-Kunststoffen einsetzbar.',
-        features: ['10H+ Härte', 'Extrem hydrophob', 'Hoher Selbstreinigungseffekt', 'Resistent gegen Vogelkot, Harz & Insekten', 'Lack, Felgen, Chrom, Scheinwerfer & mehr'] }
+      { name: 'Gtechniq Keramik – mit Finish-Politur', tag: 'Keramik', tagColor: '#4caf50', duration: 'bis zu 5 Jahre / 100.000 km', badge: null, price: 'ab 599 €',
+        desc: 'Weltweit bewährtes Profi-Coating auf 9H-Keramikbasis, chemisch mit dem Lack verbunden. Inklusive Außenwäsche und Finish-Politur, die den Lack vor der Versiegelung aufbereitet – ideal für gepflegte bis leicht zerkratzte Lacke.',
+        features: ['1 Schicht: ab 599 €', '2 Schichten: ab 689 € – klar empfohlen', '5 Jahre / 100.000 km bei Handwäsche', '9H-Härte, chemikalienbeständig', 'Inkl. Außenwäsche & Finish-Politur'] },
+      { name: 'Gtechniq Keramik – mit 2-Step-Politur', tag: 'Mit Lackkorrektur', tagColor: '#ffbf00', duration: 'bis zu 5 Jahre / 100.000 km', badge: '🏆 Stärkste Korrektur', price: 'ab 899 €',
+        desc: 'Dieselbe Keramikversiegelung, aber mit zweistufiger Politur davor: grober Schnitt plus Finish. Holt auch tiefere Mikrokratzer und Hologramme raus – für stärker beanspruchte oder vernachlässigte Lacke. Sehr tiefe Defekte bleiben (dafür wäre Nassschliff nötig).',
+        features: ['1 Schicht: ab 899 €', '2 Schichten: ab 989 € – klar empfohlen', '5 Jahre / 100.000 km bei Handwäsche', 'Zweistufige Lackkorrektur inklusive', 'Deutlich stärkerer Glanz & Glätte'] }
     ]
   },
   {
@@ -32,9 +32,9 @@ const CATEGORIES = [
       { name: 'Felgen Spray Coat', tag: 'Basis', tagColor: '#4caf50', duration: '3 Monate', badge: null, price: 'ab 39 €',
         desc: 'Sprühversiegelung für Felgen. Bremsenstaub und Straßenschmutz lassen sich deutlich leichter abwaschen.',
         features: ['Schnelle Anwendung', 'Bremsenstaub-Abweisung', 'Für alle Felgentypen', 'Schmutzabweisend', 'Einfach nachzupflegen'] },
-      { name: 'Gtechniq C5 Wheel Armour', tag: 'Keramik-Langzeit', tagColor: '#ffbf00', duration: '12+ Monate', badge: '🏆 Empfohlen', price: 'ab 199 €',
-        desc: 'Professionelle Silizium-Keramikversiegelung speziell für Felgen, Bremszylinder und Auspuffendrohre. Hitzeresistent bis 900 °C – Bremsenstaub und Straßenschmutz perlen einfach ab. Preis gilt für alle 4 Felgen (Außenseite); mit Innenseite je nach Aufwand mehr.',
-        features: ['Hitzeresistent bis 900 °C', 'Bremsenstaub perlt ab', 'Chemikalienbeständig', 'Für alle Felgentypen', 'Innenseite optional (Aufpreis)'] }
+      { name: 'Gtechniq C5 Wheel Armour', tag: 'Keramik-Langzeit', tagColor: '#ffbf00', duration: 'bis zu 2 Jahre', badge: '🏆 Empfohlen', price: 'ab 30 € / Felge',
+        desc: 'Professionelle Silizium-Keramikversiegelung speziell für Felgen. Hitzeresistent bis 900 °C – Bremsenstaub und Straßenschmutz perlen einfach ab. Ab 30 € pro Felge für die Außenseite, ab 55 € pro Felge komplett mit Innenseite (inkl. Abmontage).',
+        features: ['Außenseite: 30 € / Felge', 'Innen + außen: 55 € / Felge', 'Hitzeresistent bis 900 °C', 'Bremsenstaub perlt ab', 'Bis zu 2 Jahre Haltbarkeit'] }
     ]
   },
   {

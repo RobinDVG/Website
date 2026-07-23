@@ -1099,21 +1099,6 @@ footer {
   text-transform: uppercase;
   color: var(--text-muted);
 }
-.calc-group-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-}
-.calc-cond-badge {
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 50px;
-  border: 1px solid currentColor;
-  transition: var(--transition);
-}
 .vehicle-note {
   display: none;
   margin-top: 16px;
@@ -1495,6 +1480,107 @@ footer {
 .wm-extra-row.wm-auto-free { border-color: #4caf50; background: rgba(76,175,80,0.04); cursor: default; }
 .wm-extra-row.wm-auto-free .wm-extra-box { background: #4caf50; border-color: #4caf50; color: #fff; }
 .wm-gratis-tag { color: #4caf50; font-weight: 700; }
+
+/* ── Exclusive-Konfigurator ──────────────────────────────────────────────────── */
+.exc-base {
+  background: var(--card);
+  border: 1.5px solid rgba(255,191,0,0.3);
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.exc-base-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.exc-base-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.exc-base-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+.exc-base-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.exc-base-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 24px;
+}
+.exc-base-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.exc-base-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+.exc-group { margin-bottom: 30px; }
+.exc-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.exc-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+  border: 1px solid currentColor;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+.exc-tag.req { color: #4caf50; }
+.exc-tag.opt { color: var(--text-dim); }
+.exc-rec {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #000;
+  background: var(--gold);
+  padding: 1px 7px;
+  border-radius: 50px;
+  vertical-align: middle;
+}
+.exc-card .wm-name { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.exc-note-box {
+  background: rgba(255,191,0,0.05);
+  border: 1px solid rgba(255,191,0,0.2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+@media (max-width: 580px) {
+  .exc-base-list { grid-template-columns: 1fr; }
+}
 
 /* ── Buchen – Wohnmobil Card ─────────────────────────────────────────────────── */
 .buchen-wohnmobil-card {

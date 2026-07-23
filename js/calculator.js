@@ -159,37 +159,6 @@ function renderPrices(vehicleKey, condKey) {
     noteEl.style.display = note ? 'block' : 'none';
   }
 
-  // Zustandslabel: der Aufschlag fällt je Paket unterschiedlich aus,
-  // deshalb die Spanne statt eines einzelnen Prozentwerts
-  const condLabel = document.getElementById('calc-cond-label');
-  if (!condLabel) return;
-
-  if (condIdx === ON_REQUEST_INDEX) {
-    condLabel.textContent = 'individuell';
-    condLabel.style.color = '#ff6b6b';
-    return;
-  }
-  if (!veh || condIdx === 0) {
-    condLabel.textContent = 'kein Aufschlag';
-    condLabel.style.color = '#4caf50';
-    return;
-  }
-
-  const steps = [0, 1, 2, 3].map(i => {
-    const from = calcPrice(veh, i, 0);
-    return Math.round((calcPrice(veh, i, condIdx) / from - 1) * 100);
-  }).filter(p => p > 0);
-
-  if (!steps.length) {
-    condLabel.textContent = 'kein Aufschlag';
-    condLabel.style.color = '#4caf50';
-    return;
-  }
-
-  const lo = Math.min(...steps);
-  const hi = Math.max(...steps);
-  condLabel.textContent = lo === hi ? `+${lo}% Aufschlag` : `je nach Paket +${lo}–${hi}%`;
-  condLabel.style.color = hi >= 60 ? '#ff6b6b' : hi >= 30 ? 'var(--gold)' : '#4caf50';
 }
 
 function initCalculator() {

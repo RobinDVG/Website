@@ -383,7 +383,7 @@ function initBooking() {
     'Scheibenversiegelung':            13,
     'Scheibenversiegelung (3–4 Mon.)': 13,
     'Chromleisten Politur':            59,
-    'Felgen Ceramic Spray':            35,
+    'Felgen Ceramic Spray':            30,
     'Motorraum Reinigung':             59,
     'Komplette Kunststoffreinigung':   30,
     'Sitze nassaugen':                 120,
