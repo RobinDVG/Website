@@ -1,0 +1,6 @@
+# Rohe, unsortierte Bild-/Video-Uploads.
+# Nur die fertig optimierte Auswahl in img/ gehört ins Repo –
+# die Originale hier bleiben lokal und werden nie committet.
+img/_upload/
+img/_temp/
+img/_vid_preview/

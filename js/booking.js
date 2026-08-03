@@ -290,7 +290,7 @@ function initCalEmbed() {
   if (selectedFahrzeug) notes += '\nFahrzeug: ' + selectedFahrzeug;
   if (selectedZustand)  notes += '\nZustand: ' + selectedZustand;
   if (serviceType === 'mobile') {
-    notes += '\nMobiler Service – ' + customerAddr;
+    notes += '\nAbhol- & Bring-Service – ' + customerAddr;
     notes += '\nEntfernung: ' + (distanceKm ? distanceKm.toFixed(1) : '?') + ' km';
     notes += '\nFahrzeit: ' + (travelMinutes || '?') + ' Min (einfach)';
     notes += '\nTermindauer inkl. Fahrt: ' + totalDuration + ' Min';
