@@ -99,6 +99,10 @@ function renderPrices(vehicleKey, condKey) {
     const linkEl  = card.querySelector('a[href^="termin.html"]');
     if (!priceEl) return;
 
+    // Sonder-Karten mit nicht-numerischem data-paket (z. B. Winter-Special)
+    // haben einen festen Preis im HTML und werden nicht dynamisch berechnet.
+    if (isNaN(idx)) return;
+
     const baseHref = 'termin.html?paket=' + card.dataset.paket;
 
     // Fahrzeuge ohne Kalkulation (Bus, LKW)

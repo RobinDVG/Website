@@ -348,7 +348,7 @@ function initBooking() {
   var params  = new URLSearchParams(window.location.search);
   var paket   = params.get('paket');
   var service = params.get('service'); // direkter Dienst (Ceramic, Politur, ...)
-  var valid   = ['1', '2', '3', '4', '5', 'wohnmobil'];
+  var valid   = ['1', '2', '3', '4', '5', 'wohnmobil', 'winter'];
 
   // Kein Paket und kein Service → zurück zur Paketauswahl
   if (!paket && !service) { window.location.replace('buchen.html'); return; }
@@ -365,7 +365,8 @@ function initBooking() {
     '3': 'Paket 03 – Premium Shine',
     '4': 'Paket 04 – Neuwagen Paket',
     '5': 'Paket 05 – Smoker Detox',
-    'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)'
+    'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)',
+    'winter': '❄️ Winter-Special – Winterfest-Komplett'
   };
 
   if (service) {
@@ -389,7 +390,11 @@ function initBooking() {
     'Sitze nassaugen':                 120,
     'Scheibenreinigung innen':         25,
     'Ceramic Spray Versiegelung':      30,
-    'Kunststoff aufbereiten':          30
+    'Kunststoff aufbereiten':          30,
+    'Felgenversiegelung':              30,
+    'Unterbodenreinigung':             110,
+    'Bitumen-Unterbodenschutz':        150,
+    'Alle Scheiben versiegeln':        30
   };
 
   if (extras) {
