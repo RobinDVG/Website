@@ -5,12 +5,12 @@ const PAYPAL_CLIENT_ID = 'ATZOtgFppX7_7svpY9X_BHz6fxRY1Xrvh4JMprqxgpvOq0g-o3IyOu
 let paypalLoaded = false;
 const TERMIN_DAUER = 20; // Besichtigungstermin in Minuten
 
-// ── Besichtigungspauschale (Vorab-Deposit für mobile Besichtigung) ──
+// ── Anfahrtspauschale (Vorab-Deposit) ──
+// 7,99 € Grundpreis (egal wohin) + 1 €/km. km ist die Einfachstrecke,
+// berechnet werden Hin- UND Rückweg → km × 2.
+// Beispiel: 3 km einfach = 6 km gesamt → 7,99 € + 6 € = 13,99 €.
 function calcDeposit(km) {
-  if (km <= 3)  return 5.00;
-  if (km <= 5)  return 6.50;
-  if (km <= 10) return 10.00;
-  return +(10 + Math.ceil(km - 10) * 1.00).toFixed(2);
+  return +(7.99 + km * 2 * 1.00).toFixed(2);
 }
 
 // ── Haversine-Entfernung (Luftlinie, Fallback) ──
@@ -182,8 +182,8 @@ function renderPricing(km, duration) {
         '<span class="dist-card-val">' + fmtEur(depositAmount) + '</span>' +
       '</div>' +
       '<div class="dist-card">' +
-        '<span class="dist-card-label">Anfahrtspauschale (Service-Tag)</span>' +
-        '<span class="dist-card-val">ab 7,99 €</span>' +
+        '<span class="dist-card-label">Anfahrt (hin &amp; zurück)</span>' +
+        '<span class="dist-card-val">' + (km * 2).toFixed(1) + ' km × 1 €</span>' +
       '</div>' +
     '</div>' +
     travelInfo +
@@ -191,7 +191,7 @@ function renderPricing(km, duration) {
     '<div class="pay-gate">' +
       '<div style="border-top:1px solid var(--border);margin:24px 0;"></div>' +
       '<h4 style="margin-bottom:8px;">Besichtigungspauschale jetzt zahlen</h4>' +
-      '<p class="dist-note" style="margin-top:0;margin-bottom:16px;">Um einen Termin buchen zu können, muss die Besichtigungspauschale von <strong style="color:var(--gold);">' + fmtEur(depositAmount) + '</strong> vorab bezahlt werden.</p>' +
+      '<p class="dist-note" style="margin-top:0;margin-bottom:16px;">Um einen Termin buchen zu können, muss die Besichtigungspauschale von <strong style="color:var(--gold);">' + fmtEur(depositAmount) + '</strong> vorab bezahlt werden.<br><span style="font-size:0.82rem;color:var(--text-muted);">7,99 € Grundpreis + ' + (km * 2).toFixed(1) + ' km (hin &amp; zurück) × 1 €/km</span></p>' +
 
       '<div id="paypal-button-container"></div>' +
 
@@ -348,7 +348,7 @@ function initBooking() {
   var params  = new URLSearchParams(window.location.search);
   var paket   = params.get('paket');
   var service = params.get('service'); // direkter Dienst (Ceramic, Politur, ...)
-  var valid   = ['1', '2', '3', '4', '5', 'wohnmobil', 'winter'];
+  var valid   = ['1', '2', '3', '4', '5', 'wohnmobil', 'winter', 'herbst'];
 
   // Kein Paket und kein Service → zurück zur Paketauswahl
   if (!paket && !service) { window.location.replace('buchen.html'); return; }
@@ -366,7 +366,8 @@ function initBooking() {
     '4': 'Paket 04 – Neuwagen Paket',
     '5': 'Paket 05 – Smoker Detox',
     'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)',
-    'winter': '❄️ Winter-Special – Winterfest-Komplett'
+    'winter': '❄️ Winter-Special – Winterfest-Komplett',
+    'herbst': '🍂 Herbst-Schutzpaket – Komplett + Regen-Schutz gratis'
   };
 
   if (service) {
@@ -394,7 +395,8 @@ function initBooking() {
     'Felgenversiegelung':              30,
     'Unterbodenreinigung':             110,
     'Bitumen-Unterbodenschutz':        150,
-    'Alle Scheiben versiegeln':        30
+    'Alle Scheiben versiegeln':        30,
+    'Flugrost entfernen':              39
   };
 
   if (extras) {

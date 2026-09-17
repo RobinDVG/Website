@@ -132,33 +132,46 @@
   </div>
 </section>
 
-<!-- ── GEWINNSPIEL PROMO ──────────────────────────── -->
-<section class="section gws-promo-section" id="winter-promo" style="padding-top:64px;padding-bottom:80px;">
+<!-- ── HERBST-AKTION PROMO ──────────────────────────── -->
+<section class="section gws-promo-section" id="herbst-promo" style="padding-top:64px;padding-bottom:40px;">
   <div class="container">
-    <a href="buchen.html#winter-special" class="gws-promo-card fade-in" style="border:1.5px solid rgba(120,190,255,0.5);box-shadow:0 8px 40px rgba(61,140,224,0.14);">
+    <a href="buchen.html#herbst-aktion" class="gws-promo-card fade-in" style="border:1.5px solid rgba(255,160,50,0.5);box-shadow:0 8px 40px rgba(229,103,13,0.14);">
       <div class="gws-promo-left">
-        <span class="gws-promo-trophy">❄️</span>
+        <span class="gws-promo-trophy">🍂</span>
         <div>
-          <div class="gws-promo-label">Winter-Special · nur kurze Zeit</div>
-          <h2 class="gws-promo-title">Mach dein Auto <span style="color:var(--gold);">winterfest</span></h2>
-          <p class="gws-promo-sub">Salz, Nässe und Eis greifen dein Auto den ganzen Winter an. Unser Winterfest-Komplett macht es bereit – komplette Aufbereitung plus voller Winterschutz.</p>
+          <div class="gws-promo-label">Herbst-Aktion · nur diese Woche</div>
+          <h2 class="gws-promo-title">Klar durch den <span style="color:var(--gold);">Herbst</span></h2>
+          <p class="gws-promo-sub">Regen, Laub und die ersten kalten Nächte setzen deinem Auto zu. Unser Herbst-Schutzpaket bringt es komplett auf Vordermann – innen &amp; außen, plus <strong style="color:var(--text);">gratis Regen-Schutz</strong> für klare Sicht bei Nässe und Dunkelheit.</p>
           <div class="gws-promo-chips">
             <span>Komplett innen &amp; außen</span>
-            <span>Gtechniq 6-Monats-Schutz</span>
-            <span>Flugrost-Entfernung</span>
-            <span class="gws-chip-highlight">ab 299 € ⭐</span>
+            <span>GRATIS Regen-Schutz</span>
+            <span>2 Autos = 10% Rabatt</span>
+            <span class="gws-chip-highlight"><s style="opacity:.55;font-weight:600;">305 €</s> ab 179 € 🍂</span>
           </div>
         </div>
       </div>
       <div class="gws-promo-right">
-        <div class="btn btn-gold" style="font-size:1rem;padding:16px 36px;">❄️ Wintertermin sichern →</div>
-        <p style="margin-top:10px;font-size:0.75rem;color:var(--text-muted);text-align:center;">Nur für Buchungen im Oktober &amp; November</p>
+        <div style="margin-bottom:14px;text-align:center;"><span style="display:inline-block;background:#e5670d;color:#fff;font-size:1rem;font-weight:800;letter-spacing:0.03em;padding:9px 20px;border-radius:50px;box-shadow:0 4px 16px rgba(229,103,13,0.4);">🎁 Du sparst 126 €</span></div>
+        <div class="btn btn-gold" style="font-size:1rem;padding:16px 36px;">🍂 Herbst-Deal sichern →</div>
+        <p style="margin-top:10px;font-size:0.8rem;color:#ff9d33;font-weight:800;text-align:center;">⏳ Nur bis Samstag, 27.09. – danach WEG!</p>
       </div>
+    </a>
+
+    <!-- Winter-Special: bald, noch gesperrt -->
+    <a href="buchen.html#winter-special" id="winter-teaser" class="fade-in" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px;padding:16px 24px;border:1.5px dashed rgba(120,190,255,0.4);border-radius:16px;background:rgba(120,190,255,0.05);text-decoration:none;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span style="font-size:1.6rem;">❄️</span>
+        <div>
+          <div style="font-weight:800;color:#9fccff;font-size:0.95rem;">Winter-Special kommt bald</div>
+          <div style="font-size:0.82rem;color:var(--text-muted);">Winterfest-Komplett mit vollem Salz- &amp; Eisschutz – ab Ende Oktober buchbar.</div>
+        </div>
+      </div>
+      <span style="font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#9fccff;background:rgba(120,190,255,0.14);border:1px solid rgba(120,190,255,0.3);border-radius:50px;padding:7px 16px;white-space:nowrap;">🔒 Ab Ende Oktober</span>
     </a>
   </div>
 </section>
 <script>
-  (function(){ if(new Date()>new Date('2026-11-30T23:59:59')){var e=document.getElementById('winter-promo');if(e)e.style.display='none';} })();
+  (function(){ if(new Date()>new Date('2026-09-27T23:59:59')){['herbst-promo','pakete-herbst-card'].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display='none';});} })();
 </script>
 
 <!-- ── SERVICES ───────────────────────────────────── -->
@@ -258,17 +271,18 @@
       </p>
     </div>
     <div class="pakete-grid">
-      <div class="paket-card featured fade-in" style="border-color:rgba(120,190,255,0.55);background:linear-gradient(135deg,rgba(120,190,255,0.10),rgba(255,191,0,0.04));position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:linear-gradient(135deg,#6fb7ff,#3d8ce0);color:#fff;font-size:0.6rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-bottom-left-radius:10px;">❄️ Nur kurze Zeit</div>
-        <div class="paket-number" style="color:#6fb7ff;">Winter-Special</div>
-        <div class="paket-name">Winterfest-Komplett</div>
-        <div class="paket-price">ab 299 € <small>*</small></div>
+      <div id="pakete-herbst-card" class="paket-card featured fade-in" style="border-color:rgba(255,160,50,0.55);background:linear-gradient(135deg,rgba(255,150,40,0.11),rgba(255,191,0,0.05));position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;right:0;background:linear-gradient(135deg,#ff9d33,#e5670d);color:#fff;font-size:0.6rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-bottom-left-radius:10px;">🍂 Nur bis 27.09.</div>
+        <div class="paket-number" style="color:#ff9d33;">Herbst-Aktion</div>
+        <div class="paket-name">Herbst-Schutzpaket</div>
+        <div class="paket-price"><span style="font-size:0.72em;color:var(--text-muted);text-decoration:line-through;text-decoration-color:#e5670d;text-decoration-thickness:2px;font-weight:600;margin-right:8px;">305 €</span>ab 179 € <small>*</small></div>
+        <div style="margin:-4px 0 10px;"><span style="display:inline-block;background:#e5670d;color:#fff;font-size:0.72rem;font-weight:800;letter-spacing:0.04em;padding:5px 13px;border-radius:50px;box-shadow:0 3px 12px rgba(229,103,13,0.35);">🎁 DU SPARST 126 €</span></div>
         <ul class="paket-features">
-          <li class="paket-feature">Komplett innen & außen + 6-Monats-Versiegelung</li>
-          <li class="paket-feature">Flugrost, Gummipflege, Radmulden</li>
-          <li class="paket-feature">Scheiben + Anti-Beschlag, Frostschutz</li>
+          <li class="paket-feature">Komplett innen & außen aufbereitet</li>
+          <li class="paket-feature">GRATIS: Scheiben rundum · Radmulden · Anti-Staub Cockpit</li>
+          <li class="paket-feature">Ceramic-Schutz Lack · Felgen aufgefrischt · 2 Autos = 10% Rabatt</li>
         </ul>
-        <a href="buchen.html#winter-special" class="btn btn-gold" style="width:100%;justify-content:center;">Zum Winter-Special →</a>
+        <a href="buchen.html#herbst-aktion" class="btn btn-gold" style="width:100%;justify-content:center;">Zum Herbst-Deal →</a>
       </div>
       <div class="paket-card fade-in">
         <div class="paket-number">Paket 01</div>
@@ -585,7 +599,7 @@
           <li><a href="#about">Über uns</a></li>
           <li><a href="#reviews">Bewertungen</a></li>
           <li><a href="buchen.html">Termin buchen</a></li>
-          <li><a href="#winter-promo" style="color:var(--gold);font-weight:700;">❄️ Winteraktion</a></li>
+          <li><a href="#herbst-promo" style="color:var(--gold);font-weight:700;">🍂 Herbst-Aktion</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
         </ul>
       </div>
