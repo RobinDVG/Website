@@ -135,11 +135,11 @@
 <!-- ── HERBST-AKTION PROMO ──────────────────────────── -->
 <section class="section gws-promo-section" id="herbst-promo" style="padding-top:64px;padding-bottom:40px;">
   <div class="container">
-    <a href="buchen.html#herbst-aktion" class="gws-promo-card fade-in" style="border:1.5px solid rgba(255,160,50,0.5);box-shadow:0 8px 40px rgba(229,103,13,0.14);">
+    <a href="buchen.html#herbst-aktion" id="herbst-band" class="gws-promo-card fade-in" style="border:1.5px solid rgba(255,160,50,0.5);box-shadow:0 8px 40px rgba(229,103,13,0.14);">
       <div class="gws-promo-left">
         <span class="gws-promo-trophy">🍂</span>
         <div>
-          <div class="gws-promo-label">Herbst-Aktion · nur diese Woche</div>
+          <div class="gws-promo-label" data-herbst-band-label>Herbst-Aktion · nur 2 Wochen</div>
           <h2 class="gws-promo-title">Klar durch den <span style="color:var(--gold);">Herbst</span></h2>
           <p class="gws-promo-sub">Regen, Laub und die ersten kalten Nächte setzen deinem Auto zu. Unser Herbst-Schutzpaket bringt es komplett auf Vordermann – innen &amp; außen, plus <strong style="color:var(--text);">gratis Regen-Schutz</strong> für klare Sicht bei Nässe und Dunkelheit.</p>
           <div class="gws-promo-chips">
@@ -152,8 +152,8 @@
       </div>
       <div class="gws-promo-right">
         <div style="margin-bottom:14px;text-align:center;"><span style="display:inline-block;background:#e5670d;color:#fff;font-size:1rem;font-weight:800;letter-spacing:0.03em;padding:9px 20px;border-radius:50px;box-shadow:0 4px 16px rgba(229,103,13,0.4);">🎁 Du sparst 126 €</span></div>
-        <div class="btn btn-gold" style="font-size:1rem;padding:16px 36px;">🍂 Herbst-Deal sichern →</div>
-        <p style="margin-top:10px;font-size:0.8rem;color:#ff9d33;font-weight:800;text-align:center;">⏳ Nur bis Samstag, 27.09. – danach WEG!</p>
+        <div class="btn btn-gold" data-herbst-cta style="font-size:1rem;padding:16px 36px;">🍂 Herbst-Deal sichern →</div>
+        <p data-herbst-deadline style="margin-top:10px;font-size:0.8rem;color:#ff9d33;font-weight:800;text-align:center;">⏳ Nur bis 04.10. – danach WEG!</p>
       </div>
     </a>
 
@@ -170,9 +170,6 @@
     </a>
   </div>
 </section>
-<script>
-  (function(){ if(new Date()>new Date('2026-09-27T23:59:59')){['herbst-promo','pakete-herbst-card'].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display='none';});} })();
-</script>
 
 <!-- ── SERVICES ───────────────────────────────────── -->
 <section class="section" id="services">
@@ -272,7 +269,7 @@
     </div>
     <div class="pakete-grid">
       <div id="pakete-herbst-card" class="paket-card featured fade-in" style="border-color:rgba(255,160,50,0.55);background:linear-gradient(135deg,rgba(255,150,40,0.11),rgba(255,191,0,0.05));position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:linear-gradient(135deg,#ff9d33,#e5670d);color:#fff;font-size:0.6rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-bottom-left-radius:10px;">🍂 Nur bis 27.09.</div>
+        <div data-herbst-badge style="position:absolute;top:0;right:0;background:linear-gradient(135deg,#ff9d33,#e5670d);color:#fff;font-size:0.6rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-bottom-left-radius:10px;">🍂 Nur bis 04.10.</div>
         <div class="paket-number" style="color:#ff9d33;">Herbst-Aktion</div>
         <div class="paket-name">Herbst-Schutzpaket</div>
         <div class="paket-price"><span style="font-size:0.72em;color:var(--text-muted);text-decoration:line-through;text-decoration-color:#e5670d;text-decoration-thickness:2px;font-weight:600;margin-right:8px;">305 €</span>ab 179 € <small>*</small></div>
@@ -282,7 +279,7 @@
           <li class="paket-feature">GRATIS: Scheiben rundum · Radmulden · Anti-Staub Cockpit</li>
           <li class="paket-feature">Ceramic-Schutz Lack · Felgen aufgefrischt · 2 Autos = 10% Rabatt</li>
         </ul>
-        <a href="buchen.html#herbst-aktion" class="btn btn-gold" style="width:100%;justify-content:center;">Zum Herbst-Deal →</a>
+        <a href="buchen.html#herbst-aktion" data-herbst-cta class="btn btn-gold" style="width:100%;justify-content:center;">Zum Herbst-Deal →</a>
       </div>
       <div class="paket-card fade-in">
         <div class="paket-number">Paket 01</div>
@@ -722,6 +719,7 @@
 <script src="js/reviews.js"></script>
 <script src="js/banner.js?v=3"></script>
 <script src="js/cookie-consent.js"></script>
+<script src="js/herbst-schedule.js?v=1"></script>
 </body>
 </html>
 

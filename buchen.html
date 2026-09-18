@@ -96,7 +96,7 @@
 
       <!-- ── HERBST-AKTION (zeitlich begrenzt · diese Woche) ─────────────── -->
       <div id="herbst-aktion" class="paket-card fade-in" data-paket="herbst" style="grid-column:1/-1;background:linear-gradient(135deg,rgba(255,150,40,0.10),rgba(255,191,0,0.06));border:1.5px solid rgba(255,160,50,0.45);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:linear-gradient(135deg,#ff9d33,#e5670d);color:#fff;font-size:0.66rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:6px 16px;border-bottom-left-radius:12px;">🍂 Nur bis 27.09.</div>
+        <div data-herbst-badge style="position:absolute;top:0;right:0;background:linear-gradient(135deg,#ff9d33,#e5670d);color:#fff;font-size:0.66rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:6px 16px;border-bottom-left-radius:12px;">🍂 Nur bis 04.10.</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;align-items:center;">
           <div>
             <div class="paket-number" style="color:#ff9d33;">Herbst-Aktion</div>
@@ -117,10 +117,10 @@
           <div style="text-align:center;">
             <div class="paket-price" style="font-size:2rem;"><span style="font-size:0.72em;color:var(--text-muted);text-decoration:line-through;text-decoration-color:#e5670d;text-decoration-thickness:2px;font-weight:600;margin-right:9px;">305 €</span>ab 179 € <small>*</small><div style="margin-top:10px;"><span style="display:inline-block;background:#e5670d;color:#fff;font-size:0.5em;font-weight:800;letter-spacing:0.04em;padding:6px 14px;border-radius:50px;box-shadow:0 3px 12px rgba(229,103,13,0.35);">🎁 DU SPARST 126 €</span></div></div>
             <p style="font-size:0.8rem;color:#ff9d33;font-weight:800;margin-top:10px;">Alle Gratis-Extras geschenkt – Regen-Schutz, Radmulden, Cockpit &amp; Türkanten</p>
-            <a href="termin.html?paket=herbst&preis=179" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:12px;">🍂 Herbst-Deal sichern →</a>
+            <a href="termin.html?paket=herbst&preis=179" data-herbst-cta class="btn btn-gold" style="width:100%;justify-content:center;margin-top:12px;">🍂 Herbst-Deal sichern →</a>
             <p style="font-size:0.72rem;color:var(--text-muted);margin-top:10px;">Dazu buchbar: Flugrost · Felgenversiegelung · Motorraum · Unterboden (+ Salz-Schutz)</p>
             <p style="font-size:0.8rem;color:var(--text);font-weight:700;margin-top:10px;background:rgba(255,160,50,0.12);border:1px solid rgba(255,160,50,0.35);border-radius:10px;padding:9px 12px;">🚗🚗 2 Fahrzeuge bringen = <span style="color:#ff9d33;">10% Rabatt auf beide</span></p>
-            <p style="font-size:0.78rem;color:#ff9d33;font-weight:800;margin-top:8px;">⏳ Nur bis Samstag, 27.09. – danach ist das Angebot WEG!</p>
+            <p data-herbst-deadline style="font-size:0.78rem;color:#ff9d33;font-weight:800;margin-top:8px;">⏳ Nur bis 04.10. – danach ist das Angebot WEG!</p>
           </div>
         </div>
       </div>
@@ -568,10 +568,7 @@ document.getElementById('upsell-overlay').addEventListener('click', function(e) 
 <script src="js/calculator.js?v=10"></script>
 <script src="js/banner.js?v=3"></script>
 <script src="js/cookie-consent.js"></script>
-<script>
-  // Herbst-Aktion läuft am 27.09.2026 aus – danach Karte automatisch entfernen
-  (function(){ if(new Date()>new Date('2026-09-27T23:59:59')){var e=document.getElementById('herbst-aktion');if(e)e.style.display='none';} })();
-</script>
+<script src="js/herbst-schedule.js?v=1"></script>
 </body>
 </html>
 
