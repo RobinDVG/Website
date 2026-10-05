@@ -367,7 +367,7 @@ function initBooking() {
     '5': 'Paket 05 – Smoker Detox',
     'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)',
     'winter': '❄️ Winter-Special – Winterfest-Komplett',
-    'herbst': '🍂 Herbst-Schutzpaket – Komplett + Regen-Schutz gratis'
+    'herbst': '❄️ Einlager-Paket – Komplett winterfest aufbereitet'
   };
 
   if (service) {

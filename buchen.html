@@ -96,12 +96,12 @@
 
       <!-- ── HERBST-AKTION (zeitlich begrenzt · diese Woche) ─────────────── -->
       <div id="herbst-aktion" class="paket-card fade-in" data-paket="herbst" style="grid-column:1/-1;background:linear-gradient(135deg,rgba(255,150,40,0.10),rgba(255,191,0,0.06));border:1.5px solid rgba(255,160,50,0.45);position:relative;overflow:hidden;">
-        <div data-herbst-badge style="position:absolute;top:0;right:0;background:linear-gradient(135deg,#ff9d33,#e5670d);color:#fff;font-size:0.66rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:6px 16px;border-bottom-left-radius:12px;">🍂 Nur bis 04.10.</div>
+        <div data-herbst-badge style="position:absolute;top:0;right:0;background:linear-gradient(135deg,#ff9d33,#e5670d);color:#fff;font-size:0.66rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:6px 16px;border-bottom-left-radius:12px;">❄️ Einlager-Aktion</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;align-items:center;">
           <div>
-            <div class="paket-number" style="color:#ff9d33;">Herbst-Aktion</div>
-            <div class="paket-name">Herbst-Schutzpaket</div>
-            <div class="paket-desc">Komplett-Aufbereitung innen &amp; außen – plus <strong style="color:var(--text);">gratis Regen-Schutz</strong> für klare Sicht bei Nässe und Dunkelheit.</div>
+            <div class="paket-number" style="color:#ff9d33;">Einlager-Aktion</div>
+            <div class="paket-name">Einlager-Paket</div>
+            <div class="paket-desc">Komplett-Aufbereitung innen &amp; außen – ideal, um dein <strong style="color:var(--text);">Sommerauto winterfest einzulagern</strong> oder dein Alltagsauto winterfest zu machen. Im Frühjahr kommt es makellos aus der Garage.</div>
             <ul class="paket-features" style="columns:210px 2;column-gap:24px;margin-top:6px;">
               <li class="paket-feature">Komplette Innenaufbereitung (Leder o. Stoff)</li>
               <li class="paket-feature">Intensive Außen-Handwäsche</li>
@@ -117,10 +117,10 @@
           <div style="text-align:center;">
             <div class="paket-price" style="font-size:2rem;"><span style="font-size:0.72em;color:var(--text-muted);text-decoration:line-through;text-decoration-color:#e5670d;text-decoration-thickness:2px;font-weight:600;margin-right:9px;">305 €</span>ab 179 € <small>*</small><div style="margin-top:10px;"><span style="display:inline-block;background:#e5670d;color:#fff;font-size:0.5em;font-weight:800;letter-spacing:0.04em;padding:6px 14px;border-radius:50px;box-shadow:0 3px 12px rgba(229,103,13,0.35);">🎁 DU SPARST 126 €</span></div></div>
             <p style="font-size:0.8rem;color:#ff9d33;font-weight:800;margin-top:10px;">Alle Gratis-Extras geschenkt – Regen-Schutz, Radmulden, Cockpit &amp; Türkanten</p>
-            <a href="termin.html?paket=herbst&preis=179" data-herbst-cta class="btn btn-gold" style="width:100%;justify-content:center;margin-top:12px;">🍂 Herbst-Deal sichern →</a>
-            <p style="font-size:0.72rem;color:var(--text-muted);margin-top:10px;">Dazu buchbar: Flugrost · Felgenversiegelung · Motorraum · Unterboden (+ Salz-Schutz)</p>
+            <a href="termin.html?paket=herbst&preis=179" data-herbst-cta class="btn btn-gold" style="width:100%;justify-content:center;margin-top:12px;">❄️ Einlager-Deal sichern →</a>
+            <p style="font-size:0.72rem;color:var(--text-muted);margin-top:10px;">Dazu buchbar: <strong style="color:#e5670d;">Flugrost (empfohlen)</strong> · Felgenversiegelung · Motorraum · Unterboden (+ Salz-Schutz)</p>
             <p style="font-size:0.8rem;color:var(--text);font-weight:700;margin-top:10px;background:rgba(255,160,50,0.12);border:1px solid rgba(255,160,50,0.35);border-radius:10px;padding:9px 12px;">🚗🚗 2 Fahrzeuge bringen = <span style="color:#ff9d33;">10% Rabatt auf beide</span></p>
-            <p data-herbst-deadline style="font-size:0.78rem;color:#ff9d33;font-weight:800;margin-top:8px;">⏳ Nur bis 04.10. – danach ist das Angebot WEG!</p>
+            <p data-herbst-deadline style="font-size:0.78rem;color:#ff9d33;font-weight:800;margin-top:8px;">🅿️ Jetzt einlagern – im Frühjahr makellos aus der Garage</p>
           </div>
         </div>
       </div>
@@ -472,7 +472,7 @@ var EXTRAS_BY_PAKET = {
     { id: 'Alle Scheiben versiegeln', normalLabel: 'ab 49 €',  bundleLabel: 'ab 30 €',  note: 'statt nur Frontscheibe',                       icon: '🪟' }
   ],
   'herbst': [
-    { id: 'Flugrost entfernen',       normalLabel: 'ab 49 €',  bundleLabel: 'ab 39 €',  note: 'Lack wird glatt · Eisenlöser',                 icon: '🧴' },
+    { id: 'Flugrost entfernen',       normalLabel: 'ab 49 €',  bundleLabel: 'ab 39 €',  note: 'Lack wird glatt · Eisenlöser',                 icon: '🧴', recommended: true },
     { id: 'Felgenversiegelung',       normalLabel: 'ab 49 €',  bundleLabel: 'ab 30 €',  note: 'perfekt zum Reifenwechsel',                    icon: '⚙️' },
     { id: 'Unterbodenreinigung',      normalLabel: 'ab 130 €', bundleLabel: 'ab 110 €', note: 'inkl. Radkästen · vor dem Salz',               icon: '🚿' },
     { id: 'Bitumen-Unterbodenschutz', normalLabel: 'ab 150 €', bundleLabel: 'ab 150 €', note: 'gegen Streusalz · nur mit Unterbodenreinigung', icon: '🛡️' },
@@ -494,6 +494,7 @@ function renderUpsellItems(paket) {
     var div = document.createElement('div');
     div.className = 'upsell-item';
     div.dataset.id = e.id;
+    if (e.recommended) div.style.boxShadow = '0 0 0 1.5px rgba(229,103,13,0.55)';
     var priceHtml = (e.normalLabel === e.bundleLabel)
       ? '<span class="upsell-bundle">Mit Paket ' + e.bundleLabel + ' 🎉</span>'
       : 'Einzeln: <s>' + e.normalLabel + '</s><span class="upsell-bundle">Mit Paket nur ' + e.bundleLabel + ' 🎉</span>';
@@ -501,7 +502,7 @@ function renderUpsellItems(paket) {
       '<div class="upsell-check">✓</div>' +
       '<div class="upsell-item-icon">' + e.icon + '</div>' +
       '<div class="upsell-item-body">' +
-        '<div class="upsell-item-name">' + e.id + (e.note ? '<span style="font-size:0.72rem;color:var(--text-muted);font-weight:400;margin-left:6px;">(' + e.note + ')</span>' : '') + '</div>' +
+        '<div class="upsell-item-name">' + e.id + (e.recommended ? '<span style="display:inline-block;font-size:0.62rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;background:#e5670d;color:#fff;border-radius:50px;padding:2px 9px;margin-left:8px;vertical-align:middle;">Empfohlen</span>' : '') + (e.note ? '<span style="font-size:0.72rem;color:var(--text-muted);font-weight:400;margin-left:6px;">(' + e.note + ')</span>' : '') + '</div>' +
         '<div class="upsell-item-prices">' + priceHtml + '</div>' +
       '</div>';
     div.addEventListener('click', function() { div.classList.toggle('checked'); });
@@ -568,7 +569,6 @@ document.getElementById('upsell-overlay').addEventListener('click', function(e) 
 <script src="js/calculator.js?v=10"></script>
 <script src="js/banner.js?v=3"></script>
 <script src="js/cookie-consent.js"></script>
-<script src="js/herbst-schedule.js?v=1"></script>
 </body>
 </html>
 
