@@ -4,34 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AGB – RV Detailing</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png" />
 </head>
 <body>
-<nav class="navbar scrolled">
-  <div class="container">
-    <div class="navbar-inner">
-      <a href="index.html" class="logo">RV – <span>Detailing</span><small>Professionelle Fahrzeugaufbereitung</small></a>
-      <ul class="nav-links">
-        <li><a href="index.html#services">Leistungen</a></li>
-        <li><a href="buchen.html">Pakete</a></li>
-        <li><a href="index.html#about">Über uns</a></li>
-        <li><a href="buchen.html" class="btn btn-gold">Termin buchen</a></li>
-      </ul>
-      <div class="hamburger"><span></span><span></span><span></span></div>
-    </div>
-  </div>
-</nav>
-<div class="mobile-menu">
-  <a href="index.html#services">Leistungen</a>
-  <a href="buchen.html">Pakete</a>
-  <a href="index.html#about">Über uns</a>
-  <a href="buchen.html" class="btn btn-gold">Termin buchen</a>
-</div>
-
+<div id="site-nav"></div>
 <section class="page-hero">
   <div class="container">
     <div class="breadcrumb"><a href="index.html">Startseite</a> › <span>AGB</span></div>
@@ -83,22 +63,9 @@
   <p style="margin-top:40px;font-size:0.8rem;color:var(--text-dim);">Stand: Mai 2026</p>
 </div>
 
-<footer>
-  <div class="container">
-    <div class="footer-bottom" style="border-top:none;padding-top:0;">
-      <p>© 2026 RV – Detailing. Alle Rechte vorbehalten.</p>
-      <div style="display:flex;gap:20px;">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
-        <a href="https://www.instagram.com/rvs_detailer/" target="_blank" rel="noopener">Instagram</a>
-        <a href="javascript:void(0)" onclick="rvResetCookieConsent()">Cookie-Einstellungen</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<div id="site-footer"></div>
+<script src="js/components.js?v=1"></script>
 <script src="js/main.js?v=4"></script>
-<script src="js/banner.js?v=3"></script>
 <script src="js/cookie-consent.js"></script>
 </body>
 </html>

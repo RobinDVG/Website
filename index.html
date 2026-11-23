@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rv-detailing.de/" />
   <meta property="og:locale" content="de_DE" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png" />
@@ -21,36 +21,8 @@
 </head>
 <body>
 
-<!-- ── NAVBAR ─────────────────────────────────────── -->
-<nav class="navbar">
-  <div class="container">
-    <div class="navbar-inner">
-      <a href="index.html" class="logo">
-        RV – <span>Detailing</span>
-        <small>Professionelle Fahrzeugaufbereitung</small>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#services">Leistungen</a></li>
-        <li><a href="#pakete">Pakete</a></li>
-        <li><a href="#about">Über uns</a></li>
-        <li><a href="#reviews">Bewertungen</a></li>
-        <li><a href="buchen.html" class="btn btn-gold">Termin buchen</a></li>
-      </ul>
-      <div class="hamburger" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu">
-  <a href="#services">Leistungen</a>
-  <a href="#pakete">Pakete</a>
-  <a href="#about">Über uns</a>
-  <a href="#reviews">Bewertungen</a>
-  <a href="buchen.html" class="btn btn-gold">Termin buchen</a>
-</div>
+<!-- ── NAVBAR (zentral aus js/components.js) ─────────── -->
+<div id="site-nav"></div>
 
 <!-- ── HERO ───────────────────────────────────────── -->
 <section class="hero">
@@ -492,6 +464,34 @@
 @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 
+<!-- ── KONTAKT ────────────────────────────────────── -->
+<section class="section" id="kontakt">
+  <div class="container">
+    <div class="section-header center fade-in">
+      <span class="section-label">Kontakt</span>
+      <h2 class="section-title">So erreichst du uns</h2>
+      <div class="gold-divider center"></div>
+    </div>
+    <div class="fade-up" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:920px;margin:0 auto;">
+      <a href="https://wa.me/4917655058348" target="_blank" rel="noopener" class="info-box" style="text-decoration:none;">
+        <div class="info-box-title" style="color:#25D366;">💬 WhatsApp</div>
+        <p>Am schnellsten erreichbar. Schick uns direkt Fotos vom Fahrzeug – wir machen dir fix ein Angebot.</p>
+      </a>
+      <a href="tel:+4917655058348" class="info-box" style="text-decoration:none;">
+        <div class="info-box-title">📞 Anrufen</div>
+        <p>0176 55058348<br>Flexibel erreichbar, auch abends.</p>
+      </a>
+      <div class="info-box">
+        <div class="info-box-title">📍 Standort</div>
+        <p>Upstallstraße 12<br>14772 Brandenburg an der Havel<br><span style="color:var(--text-muted);font-size:0.85rem;">Abhol- &amp; Bring-Service</span></p>
+      </div>
+    </div>
+    <div class="fade-in" style="text-align:center;margin-top:30px;">
+      <a href="buchen.html" class="btn btn-gold" style="padding:15px 38px;">Termin buchen →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ── NEWSLETTER ─────────────────────────────────── -->
 <section class="section newsletter-bg" id="newsletter">
   <div class="container">
@@ -515,58 +515,8 @@
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────── -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">RV – <span>Detailing</span></a>
-        <p>Professionelle Fahrzeugaufbereitung mit Leidenschaft und Liebe zum Detail.
-           Bequem mit Abhol- & Bring-Service.</p>
-        <div style="margin-top:12px;">
-          <a href="https://www.instagram.com/rvs_detailer/" target="_blank" rel="noopener" style="color:var(--gold);font-size:0.9rem;">Instagram →</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Leistungen</div>
-        <ul class="footer-links">
-          <li><a href="innen.html">Innenaufbereitung</a></li>
-          <li><a href="aussen.html">Außenaufbereitung</a></li>
-          <li><a href="wohnmobile.html">Wohnmobile</a></li>
-          <li><a href="motorraum.html">Motorraum</a></li>
-          <li><a href="unterboden.html">Unterboden</a></li>
-          <li><a href="buchen.html">Pakete</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Unternehmen</div>
-        <ul class="footer-links">
-          <li><a href="#about">Über uns</a></li>
-          <li><a href="#reviews">Bewertungen</a></li>
-          <li><a href="buchen.html">Termin buchen</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Rechtliches</div>
-        <ul class="footer-links">
-          <li><a href="impressum.html">Impressum</a></li>
-          <li><a href="datenschutz.html">Datenschutz</a></li>
-          <li><a href="agb.html">AGB</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 RV – Detailing. Alle Rechte vorbehalten.</p>
-      <div style="display:flex;gap:20px;">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
-        <a href="javascript:void(0)" onclick="rvResetCookieConsent()">Cookie-Einstellungen</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<!-- ── FOOTER (zentral aus js/components.js) ─────────── -->
+<div id="site-footer"></div>
 
 <script type="application/ld+json">
 {
@@ -662,9 +612,9 @@
   ]
 }
 </script>
+<script src="js/components.js?v=1"></script>
 <script src="js/main.js?v=4"></script>
 <script src="js/reviews.js"></script>
-<script src="js/banner.js?v=3"></script>
 <script src="js/cookie-consent.js"></script></body>
 </html>
 
