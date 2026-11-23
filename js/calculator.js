@@ -8,18 +8,6 @@
 
 const RATE = 50; // Ziel-Stundensatz in € (Kleinunternehmer §19, keine MwSt)
 
-// Winter-Special = Paket-3-Aufbereitung + fester Zuschlag für die
-// Winterleistungen (6-Monats-Versiegelung, Flugrost, Gummipflege,
-// Radmulden, Scheiben + Anti-Beschlag, Frostschutz). Skaliert dadurch
-// automatisch mit Fahrzeuggröße und Zustand über den Paket-3-Preis.
-const WINTER_SURCHARGE = 120;
-
-// Herbst-Schutzpaket: die 4 Gratis-Leistungen (Scheiben rundum 49 €,
-// Radmulden 29 €, Anti-Staub Cockpit 24 €, Türkanten/Falze 24 €) sind
-// einzeln 126 € wert. Der durchgestrichene Ankerpreis = aktueller Preis
-// + dieser Wert, damit die Ersparnis immer sichtbar mitskaliert.
-const HERBST_GRATIS_VALUE = 126;
-
 // Arbeitszeit in Stunden für einen Kleinwagen, Paket 1–4
 // Spalten: [sehr gepflegt, gepflegt, verschmutzt, stark, sehr stark]
 const HOURS = [
@@ -116,61 +104,6 @@ function renderPrices(vehicleKey, condKey) {
     const priceEl = card.querySelector('.paket-price');
     const linkEl  = card.querySelector('a[href^="termin.html"]');
     if (!priceEl) return;
-
-    // Winter-Special: Paket-3-Niveau plus fester Winterzuschlag –
-    // skaliert automatisch mit Fahrzeuggröße und Zustand.
-    if (card.dataset.paket === 'winter') {
-      const wHref = 'termin.html?paket=winter';
-      if (!veh) {
-        priceEl.innerHTML = '<span style="font-size:1.1rem;color:var(--text-muted)">Auf Anfrage</span>';
-        if (linkEl) linkEl.href = wHref;
-        return;
-      }
-      if (condIdx === ON_REQUEST_INDEX) {
-        priceEl.innerHTML = '<span style="font-size:1.1rem;color:var(--text-muted)">Preis auf Anfrage</span>';
-        if (linkEl) linkEl.href = wHref + '&fahrzeug=' + encodeURIComponent(vehicleKey) + '&zustand=' + encodeURIComponent(condKey);
-        return;
-      }
-      const wPrice = calcPrice(veh, 2, condIdx) + WINTER_SURCHARGE;
-      priceEl.innerHTML = `ab ${wPrice} €${adjustedBadge(wPrice > 299)} <small>*</small>`;
-      if (linkEl) {
-        linkEl.href = wHref
-          + '&fahrzeug=' + encodeURIComponent(vehicleKey)
-          + '&zustand=' + encodeURIComponent(condKey)
-          + '&preis=' + wPrice;
-      }
-      return;
-    }
-
-    // Herbst-Schutzpaket: Paket-3-Aufbereitung + gratis Regen-Schutz
-    // (Scheibenversiegelung rundum). Preis = Paket-3-Niveau, skaliert
-    // automatisch mit Fahrzeuggröße und Zustand.
-    if (card.dataset.paket === 'herbst') {
-      const hHref = 'termin.html?paket=herbst';
-      if (!veh) {
-        priceEl.innerHTML = '<span style="font-size:1.1rem;color:var(--text-muted)">Auf Anfrage</span>';
-        if (linkEl) linkEl.href = hHref;
-        return;
-      }
-      if (condIdx === ON_REQUEST_INDEX) {
-        priceEl.innerHTML = '<span style="font-size:1.1rem;color:var(--text-muted)">Preis auf Anfrage</span>';
-        if (linkEl) linkEl.href = hHref + '&fahrzeug=' + encodeURIComponent(vehicleKey) + '&zustand=' + encodeURIComponent(condKey);
-        return;
-      }
-      const hPrice = calcPrice(veh, 2, condIdx);
-      const hValue = hPrice + HERBST_GRATIS_VALUE;
-      priceEl.innerHTML =
-        `<span style="font-size:0.72em;color:var(--text-muted);text-decoration:line-through;text-decoration-color:#e5670d;text-decoration-thickness:2px;font-weight:600;margin-right:9px;">${hValue} €</span>`
-        + `ab ${hPrice} €${adjustedBadge(hPrice > 179)} <small>*</small>`
-        + `<div style="margin-top:10px;"><span style="display:inline-block;background:#e5670d;color:#fff;font-size:0.5em;font-weight:800;letter-spacing:0.04em;padding:6px 14px;border-radius:50px;box-shadow:0 3px 12px rgba(229,103,13,0.35);">🎁 DU SPARST ${HERBST_GRATIS_VALUE} €</span></div>`;
-      if (linkEl) {
-        linkEl.href = hHref
-          + '&fahrzeug=' + encodeURIComponent(vehicleKey)
-          + '&zustand=' + encodeURIComponent(condKey)
-          + '&preis=' + hPrice;
-      }
-      return;
-    }
 
     // Andere nicht-numerische Sonder-Karten (Wohnmobil/Exclusive haben
     // kein data-paket) überspringen.

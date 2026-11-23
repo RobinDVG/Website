@@ -348,7 +348,7 @@ function initBooking() {
   var params  = new URLSearchParams(window.location.search);
   var paket   = params.get('paket');
   var service = params.get('service'); // direkter Dienst (Ceramic, Politur, ...)
-  var valid   = ['1', '2', '3', '4', '5', 'wohnmobil', 'winter', 'herbst'];
+  var valid   = ['1', '2', '3', '4', '5', 'wohnmobil'];
 
   // Kein Paket und kein Service → zurück zur Paketauswahl
   if (!paket && !service) { window.location.replace('buchen.html'); return; }
@@ -365,9 +365,7 @@ function initBooking() {
     '3': 'Paket 03 – Premium Shine',
     '4': 'Paket 04 – Neuwagen Paket',
     '5': 'Paket 05 – Smoker Detox',
-    'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)',
-    'winter': '❄️ Winter-Special – Winterfest-Komplett',
-    'herbst': '❄️ Einlager-Paket – Komplett winterfest aufbereitet'
+    'wohnmobil': 'Wohnmobil-Aufbereitung (individuell konfiguriert)'
   };
 
   if (service) {
