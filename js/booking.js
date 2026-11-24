@@ -178,7 +178,7 @@ function renderPricing(km, duration) {
         ? '<div class="dist-card"><span class="dist-card-label">Fahrzeit</span><span class="dist-card-val">' + duration + '</span></div>'
         : '') +
       '<div class="dist-card gold">' +
-        '<span class="dist-card-label">Besichtigungspauschale</span>' +
+        '<span class="dist-card-label">Anfahrtspauschale</span>' +
         '<span class="dist-card-val">' + fmtEur(depositAmount) + '</span>' +
       '</div>' +
       '<div class="dist-card">' +
@@ -188,25 +188,14 @@ function renderPricing(km, duration) {
     '</div>' +
     travelInfo +
 
-    '<div class="pay-gate">' +
-      '<div style="border-top:1px solid var(--border);margin:24px 0;"></div>' +
-      '<h4 style="margin-bottom:8px;">Besichtigungspauschale jetzt zahlen</h4>' +
-      '<p class="dist-note" style="margin-top:0;margin-bottom:16px;">Um einen Termin buchen zu können, muss die Besichtigungspauschale von <strong style="color:var(--gold);">' + fmtEur(depositAmount) + '</strong> vorab bezahlt werden.<br><span style="font-size:0.82rem;color:var(--text-muted);">7,99 € Grundpreis + ' + (km * 2).toFixed(1) + ' km (hin &amp; zurück) × 1 €/km</span></p>' +
+    '<div style="margin-top:20px;padding:16px 18px;background:rgba(255,191,0,0.06);border:1px solid rgba(255,191,0,0.2);border-radius:12px;">' +
+      '<p style="margin:0;font-size:0.92rem;color:var(--text);"><strong>Anfahrtspauschale: ' + fmtEur(depositAmount) + '</strong></p>' +
+      '<p style="margin:6px 0 0;font-size:0.82rem;color:var(--text-muted);">7,99 € Grundpreis + ' + (km * 2).toFixed(1) + ' km (hin &amp; zurück) × 1 €/km. Wird <strong style="color:var(--text);">beim Termin</strong> fällig – bar, per Überweisung oder PayPal. Keine Online-Vorkasse nötig.</p>' +
+    '</div>' +
 
-      '<div id="paypal-button-container"></div>' +
-
-      '<div id="payment-success" style="display:none;text-align:center;padding:20px;background:rgba(76,175,80,0.1);border:1px solid rgba(76,175,80,0.3);border-radius:12px;margin-top:16px;">' +
-        '<div style="font-size:2rem;margin-bottom:8px;">✓</div>' +
-        '<p style="color:#4caf50;font-weight:700;margin:0;">Zahlung erfolgreich!</p>' +
-        '<p style="color:var(--text-muted);font-size:0.85rem;margin-top:4px;">Besichtigungspauschale von ' + fmtEur(depositAmount) + ' bezahlt.</p>' +
-      '</div>' +
-
-      '<button id="btn-to-cal" class="btn btn-dark" style="width:100%;justify-content:center;margin-top:16px;opacity:0.4;pointer-events:none;" onclick="goToStep(3)">Weiter zum Kalender →</button>' +
-    '</div>';
+    '<button id="btn-to-cal" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:16px;" onclick="goToStep(3)">Weiter zum Kalender →</button>';
 
   el.style.display = 'block';
-
-  loadPayPalSDK(initPayPalButtons);
 }
 
 function unlockCalendarButton() {
