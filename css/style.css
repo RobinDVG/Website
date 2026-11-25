@@ -126,7 +126,7 @@ ul { list-style: none; }
 /* ─── NAVBAR ─────────────────────────────────────── */
 .navbar {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: var(--promo-h, 0px); left: 0; right: 0;
   z-index: 1000;
   padding: 20px 0;
   transition: var(--transition);
@@ -2443,4 +2443,58 @@ footer {
   padding: 7px 16px;
   font-size: 0.82rem;
   color: var(--text-muted);
+}
+
+/* ─── TEMPORAERES SPENDEN-BANNER (Weihnachtsaktion) ───────────── */
+.promo-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  background: var(--gold-gradient, linear-gradient(90deg, #f3c74f, #e0a92e));
+  color: #1a1a1a;
+  padding: 9px 46px 9px 16px;
+  font-size: 0.83rem;
+  line-height: 1.4;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+}
+.promo-inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  text-align: center;
+}
+.promo-emoji { font-size: 1.05rem; }
+.promo-text { max-width: 760px; }
+.promo-bar a { color: #1a1a1a; text-decoration: underline; font-weight: 700; }
+.promo-cta {
+  white-space: nowrap;
+  background: #1a1a1a;
+  color: var(--gold) !important;
+  padding: 5px 14px;
+  border-radius: 50px;
+  text-decoration: none !important;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+.promo-cta:hover { background: #000; }
+.promo-close {
+  position: absolute;
+  right: 12px; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none;
+  color: #1a1a1a;
+  font-size: 1.5rem; line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  opacity: 0.75;
+}
+.promo-close:hover { opacity: 1; }
+@media (max-width: 640px) {
+  .promo-bar { font-size: 0.74rem; padding: 8px 38px 8px 12px; }
+  .promo-cta { display: none; }
 }

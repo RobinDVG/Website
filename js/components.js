@@ -36,6 +36,7 @@
                 <a href="motorrad.html">Motorrad</a>
                 <a href="folierung.html">Folienpflege</a>
                 <a href="exclusive.html">Exclusive</a>
+                <a href="geschenkkarten.html" style="color:var(--gold);">🎁 Geschenkkarten</a>
               </div>
             </div>
           </li>
@@ -65,6 +66,7 @@
     <a href="exclusive.html">Exclusive</a>
     <div class="mm-group">Mehr</div>
     <a href="buchen.html">Preise &amp; Buchen</a>
+    <a href="geschenkkarten.html" style="color:var(--gold);">🎁 Geschenkkarten</a>
     <a href="shop.html">Shop</a>
     <a href="story.html">Über uns</a>
     <a href="index.html#kontakt">Kontakt</a>
@@ -97,6 +99,7 @@
           <div class="footer-col-title">Unternehmen</div>
           <ul class="footer-links">
             <li><a href="story.html">Über uns</a></li>
+            <li><a href="geschenkkarten.html">🎁 Geschenkkarten</a></li>
             <li><a href="shop.html">Shop</a></li>
             <li><a href="index.html#reviews">Bewertungen</a></li>
             <li><a href="index.html#kontakt">Kontakt</a></li>
@@ -129,6 +132,40 @@
   if (navMount) navMount.innerHTML = NAV;
   var footMount = document.getElementById('site-footer');
   if (footMount) footMount.innerHTML = FOOTER;
+
+  // ── Temporaeres Spenden-Banner (Weihnachtsaktion 1.-23.12.2026) ──
+  // Laeuft automatisch aus nach dem 23.12.2026, ist wegklickbar.
+  (function () {
+    var END = new Date('2026-12-23T23:59:59');
+    var KEY = 'rv_promo_xmas2026_dismissed';
+    if (new Date() > END) return;
+    try { if (localStorage.getItem(KEY) === '1') return; } catch (e) {}
+
+    var bar = document.createElement('div');
+    bar.className = 'promo-bar';
+    bar.innerHTML =
+      '<div class="promo-inner">' +
+        '<span class="promo-emoji">❤️</span>' +
+        '<span class="promo-text"><strong>Weihnachts-Aktion:</strong> Vom 1.&ndash;23. Dezember spenden wir ' +
+          '<strong>33&nbsp;% aller Einnahmen</strong> an Handicap International &ndash; jede Buchung &amp; jede ' +
+          '<a href="geschenkkarten.html">Geschenkkarte</a> zählt.</span>' +
+        '<a class="promo-cta" href="buchen.html">Jetzt buchen &rarr;</a>' +
+      '</div>' +
+      '<button class="promo-close" type="button" aria-label="Banner schließen">×</button>';
+    document.body.insertBefore(bar, document.body.firstChild);
+
+    function setH() {
+      document.documentElement.style.setProperty('--promo-h', bar.offsetHeight + 'px');
+    }
+    setH();
+    window.addEventListener('resize', setH);
+
+    bar.querySelector('.promo-close').addEventListener('click', function () {
+      bar.remove();
+      document.documentElement.style.setProperty('--promo-h', '0px');
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    });
+  })();
 
   // Unterseiten (ohne das Video-Hero der Startseite) → Navbar dauerhaft solide
   if (!document.querySelector('.hero-video')) {

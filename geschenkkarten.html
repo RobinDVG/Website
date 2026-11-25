@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geschenkkarten – Autoaufbereitung verschenken | RV Detailing Brandenburg</title>
+  <meta name="description" content="Verschenke Fahrzeugpflege vom Profi: Geschenkkarten von RV Detailing in Brandenburg an der Havel – ab 50 € oder individueller Wunschbetrag, auf Wunsch per Post geliefert." />
+  <meta property="og:title" content="Geschenkkarten – Autoaufbereitung verschenken | RV Detailing Brandenburg" />
+  <meta property="og:description" content="Verschenke Fahrzeugpflege vom Profi: Geschenkkarten ab 50 € oder individuellem Wunschbetrag, auf Wunsch per Post. Im Dezember fließen 33 % an Handicap International." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rv-detailing.de/geschenkkarten.html" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:image" content="https://rv-detailing.de/img/hero-workshop.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Geschenkkarten – Autoaufbereitung verschenken | RV Detailing Brandenburg" />
+  <meta name="twitter:description" content="Verschenke Fahrzeugpflege vom Profi: Geschenkkarten ab 50 € oder individuellem Wunschbetrag, auf Wunsch per Post." />
+  <meta name="twitter:image" content="https://rv-detailing.de/img/hero-workshop.jpg" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://rv-detailing.de/geschenkkarten.html" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png" />
+  <style>
+    /* Seiten-eigene Styles fuer den Geschenkkarten-Konfigurator */
+    .gk-wrap { display:grid; grid-template-columns: 1.1fr 0.9fr; gap:32px; align-items:start; }
+    @media (max-width: 880px){ .gk-wrap { grid-template-columns:1fr; } }
+    .gk-card { background:var(--bg-2); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:28px; }
+    .gk-label { display:block; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); margin:0 0 10px; }
+    .gk-amounts { display:flex; flex-wrap:wrap; gap:10px; }
+    .gk-amt { flex:1 1 80px; min-width:80px; padding:14px 8px; border-radius:12px; border:1.5px solid var(--border); background:var(--bg); color:var(--text); font-weight:800; font-size:1.05rem; cursor:pointer; transition:all .2s ease; }
+    .gk-amt:hover { border-color:var(--gold); }
+    .gk-amt.sel { border-color:var(--gold); background:rgba(255,191,0,0.12); color:var(--gold); box-shadow:0 0 0 3px rgba(255,191,0,0.12); }
+    .gk-custom { display:flex; align-items:center; gap:10px; margin-top:14px; }
+    .gk-custom input { width:140px; padding:12px 14px; border-radius:10px; border:1.5px solid var(--border); background:var(--bg); color:var(--text); font-size:1rem; font-weight:700; }
+    .gk-field { margin-top:22px; }
+    .gk-field input, .gk-field textarea { width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--border); background:var(--bg); color:var(--text); font-size:0.95rem; font-family:inherit; }
+    .gk-field textarea { min-height:70px; resize:vertical; }
+    .gk-radios { display:flex; flex-wrap:wrap; gap:10px; }
+    .gk-radio { flex:1 1 150px; cursor:pointer; }
+    .gk-radio input { position:absolute; opacity:0; }
+    .gk-radio span { display:block; text-align:center; padding:13px 10px; border-radius:12px; border:1.5px solid var(--border); font-weight:600; font-size:0.9rem; transition:all .2s ease; }
+    .gk-radio input:checked + span { border-color:var(--gold); background:rgba(255,191,0,0.12); color:var(--gold); }
+    .gk-summary { position:sticky; top:120px; }
+    .gk-sum-amount { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:800; color:var(--gold); line-height:1; }
+    .gk-sum-row { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid var(--border-subtle); font-size:0.9rem; }
+    .gk-sum-row span:first-child { color:var(--text-muted); }
+    .gk-sum-row span:last-child { text-align:right; font-weight:600; }
+    .gk-actions { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
+    .gk-actions .btn { width:100%; justify-content:center; }
+    .gk-actions .btn.disabled { opacity:0.45; pointer-events:none; }
+    .gk-donate { background:linear-gradient(135deg, rgba(255,191,0,0.10), rgba(255,191,0,0.03)); border:1px solid rgba(255,191,0,0.28); border-radius:var(--radius-lg); padding:18px 22px; display:flex; gap:14px; align-items:flex-start; }
+    .gk-donate .gk-heart { font-size:1.6rem; line-height:1; }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Startseite</a> › <span>Geschenkkarten</span></div>
+    <div style="display:inline-block;background:var(--gold-gradient);color:#000;font-size:0.7rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:16px;">🎁 Das perfekte Geschenk</div>
+    <h1 class="section-title">Fahrzeugpflege verschenken</h1>
+    <div class="gold-divider"></div>
+    <p class="section-subtitle">Verschenke glänzenden Lack, frische Sitze oder ein rundum aufbereitetes Auto – einlösbar für alle Leistungen von RV Detailing. Betrag frei wählbar, auf Wunsch edel per Post geliefert.</p>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container" style="max-width:1040px;">
+
+    <div class="gk-donate fade-up" style="margin-bottom:36px;">
+      <span class="gk-heart">❤️</span>
+      <p style="margin:0;color:var(--text);font-size:0.92rem;line-height:1.6;">
+        <strong>Gutes tun &amp; schenken:</strong> Vom <strong>1.–23. Dezember 2026</strong> spenden wir
+        <strong>33&nbsp;% aller Einnahmen</strong> – auch aus Geschenkkarten – an
+        <strong>Handicap International</strong>. Dein Geschenk hilft also gleich doppelt.
+      </p>
+    </div>
+
+    <div class="gk-wrap">
+
+      <!-- Konfigurator -->
+      <div class="gk-card fade-up">
+        <span class="gk-label">1 · Betrag wählen</span>
+        <div class="gk-amounts" id="gkAmounts">
+          <button type="button" class="gk-amt" data-amt="50">50 €</button>
+          <button type="button" class="gk-amt" data-amt="100">100 €</button>
+          <button type="button" class="gk-amt" data-amt="200">200 €</button>
+          <button type="button" class="gk-amt" data-amt="250">250 €</button>
+          <button type="button" class="gk-amt" data-amt="500">500 €</button>
+        </div>
+        <div class="gk-custom">
+          <label for="gkCustom" style="font-size:0.85rem;color:var(--text-muted);">oder individuell:</label>
+          <input type="number" id="gkCustom" min="20" step="10" placeholder="z. B. 150" /> <span style="color:var(--text-muted);">€</span>
+        </div>
+
+        <div class="gk-field">
+          <span class="gk-label">2 · Zustellung</span>
+          <div class="gk-radios" id="gkDelivery">
+            <label class="gk-radio"><input type="radio" name="delivery" value="Abholung vor Ort" checked /><span>🏠 Abholung vor Ort</span></label>
+            <label class="gk-radio"><input type="radio" name="delivery" value="Per Post" /><span>📮 Per Post</span></label>
+          </div>
+          <p id="gkPostHint" style="display:none;font-size:0.8rem;color:var(--text-muted);margin-top:10px;">
+            Wir schicken dir die Karte deutschlandweit zu – die kleinen Versandkosten stimmen wir kurz mit dir ab.
+          </p>
+        </div>
+
+        <div class="gk-field">
+          <span class="gk-label">3 · Persönliche Note <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></span>
+          <input type="text" id="gkFor" placeholder="Für wen ist die Karte? (Name)" style="margin-bottom:10px;" />
+          <textarea id="gkMsg" placeholder="Grußtext auf der Karte, z. B. „Frohe Weihnachten, lass dein Auto strahlen!“"></textarea>
+        </div>
+      </div>
+
+      <!-- Zusammenfassung -->
+      <div class="gk-card gk-summary fade-up">
+        <span class="gk-label">Deine Geschenkkarte</span>
+        <div class="gk-sum-amount" id="sumAmount">– €</div>
+        <div style="margin:18px 0 6px;">
+          <div class="gk-sum-row"><span>Zustellung</span><span id="sumDelivery">Abholung vor Ort</span></div>
+          <div class="gk-sum-row" id="sumForRow" style="display:none;"><span>Für</span><span id="sumFor">–</span></div>
+          <div class="gk-sum-row" id="sumMsgRow" style="display:none;"><span>Grußtext</span><span id="sumMsg">–</span></div>
+          <div class="gk-sum-row"><span>Gültigkeit</span><span>3 Jahre</span></div>
+        </div>
+
+        <div class="gk-actions">
+          <a id="gkWa" class="btn btn-gold disabled" href="#" target="_blank" rel="noopener">💬 Per WhatsApp bestellen</a>
+          <a id="gkMail" class="btn btn-dark disabled" href="#" style="border-color:rgba(255,191,0,0.3);color:var(--gold);">✉️ Per E-Mail bestellen</a>
+        </div>
+        <p style="font-size:0.78rem;color:var(--text-muted);margin-top:14px;line-height:1.55;">
+          Nach deiner Nachricht melden wir uns, bestätigen alles und klären die Zahlung (Überweisung oder bar).
+          Kein Online-Konto nötig.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Warum eine Geschenkkarte -->
+    <div class="fade-up" style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+      <div class="info-box"><div class="info-box-title">🎯 Für alles einlösbar</div><p>Innen, Außen, Keramik, Unterboden, Werkstatt – der/die Beschenkte wählt selbst, was das Auto braucht.</p></div>
+      <div class="info-box"><div class="info-box-title">✍️ Persönlich</div><p>Auf Wunsch mit Name und Grußtext – ein Geschenk, das mehr sagt als ein Gutschein von der Stange.</p></div>
+      <div class="info-box"><div class="info-box-title">📮 Bequem geliefert</div><p>Zum Abholen bei uns oder edel per Post nach Hause – pünktlich zum Fest.</p></div>
+    </div>
+
+    <div class="media-slot fade-up" style="margin-top:40px;">
+      <div class="media-slot-inner"><span class="media-slot-ico">📸</span><small>Bild folgt – z. B. die gedruckte Geschenkkarte / Umschlag</small></div>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="js/components.js?v=2"></script>
+<script src="js/main.js?v=4"></script>
+<script src="js/cookie-consent.js"></script>
+<script>
+(function () {
+  var WA_NUMBER = '4917655058348';
+  var MAIL = '122robin122@gmail.com';
+
+  var amtBtns = document.querySelectorAll('.gk-amt');
+  var custom = document.getElementById('gkCustom');
+  var forInp = document.getElementById('gkFor');
+  var msgInp = document.getElementById('gkMsg');
+  var postHint = document.getElementById('gkPostHint');
+
+  var sumAmount = document.getElementById('sumAmount');
+  var sumDelivery = document.getElementById('sumDelivery');
+  var sumFor = document.getElementById('sumFor');
+  var sumForRow = document.getElementById('sumForRow');
+  var sumMsg = document.getElementById('sumMsg');
+  var sumMsgRow = document.getElementById('sumMsgRow');
+  var waBtn = document.getElementById('gkWa');
+  var mailBtn = document.getElementById('gkMail');
+
+  var state = { amount: 0, delivery: 'Abholung vor Ort' };
+
+  function getDelivery() {
+    var r = document.querySelector('input[name="delivery"]:checked');
+    return r ? r.value : 'Abholung vor Ort';
+  }
+
+  function render() {
+    // Betrag
+    sumAmount.textContent = state.amount > 0 ? (state.amount + ' €') : '– €';
+    // Zustellung
+    state.delivery = getDelivery();
+    sumDelivery.textContent = state.delivery;
+    postHint.style.display = (state.delivery === 'Per Post') ? 'block' : 'none';
+    // Fuer
+    var who = (forInp.value || '').trim();
+    if (who) { sumFor.textContent = who; sumForRow.style.display = 'flex'; }
+    else { sumForRow.style.display = 'none'; }
+    // Nachricht
+    var msg = (msgInp.value || '').trim();
+    if (msg) { sumMsg.textContent = msg.length > 28 ? msg.slice(0, 28) + '…' : msg; sumMsgRow.style.display = 'flex'; }
+    else { sumMsgRow.style.display = 'none'; }
+
+    // Bestell-Links bauen
+    var valid = state.amount >= 20;
+    if (valid) {
+      var lines = [
+        'Hallo RV Detailing, ich möchte eine Geschenkkarte bestellen:',
+        '• Betrag: ' + state.amount + ' €',
+        '• Zustellung: ' + state.delivery
+      ];
+      if (who) lines.push('• Für: ' + who);
+      if (msg) lines.push('• Grußtext auf der Karte: ' + msg);
+      var body = lines.join('\n');
+      waBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(body);
+      mailBtn.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Geschenkkarten-Bestellung') +
+                     '&body=' + encodeURIComponent(body);
+      waBtn.classList.remove('disabled');
+      mailBtn.classList.remove('disabled');
+    } else {
+      waBtn.href = '#'; mailBtn.href = '#';
+      waBtn.classList.add('disabled');
+      mailBtn.classList.add('disabled');
+    }
+  }
+
+  amtBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      amtBtns.forEach(function (x) { x.classList.remove('sel'); });
+      b.classList.add('sel');
+      custom.value = '';
+      state.amount = parseInt(b.getAttribute('data-amt'), 10) || 0;
+      render();
+    });
+  });
+  custom.addEventListener('input', function () {
+    amtBtns.forEach(function (x) { x.classList.remove('sel'); });
+    var v = parseInt(custom.value, 10);
+    state.amount = (v && v > 0) ? v : 0;
+    render();
+  });
+  document.getElementById('gkDelivery').addEventListener('change', render);
+  forInp.addEventListener('input', render);
+  msgInp.addEventListener('input', render);
+
+  render();
+})();
+</script>
+</body>
+</html>
